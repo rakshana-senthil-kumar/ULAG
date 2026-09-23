@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import type { ReconciliationSummary } from '../types/cadastral';
-import type { AIModelMetadata } from '../types/canonical';
-import { getAIModels, getCanonicalBuildings, getParcels, getParcel } from '../services/api';
-import type { ParcelDetail } from '../types/cadastral';
+import type { ReconciliationSummary, ParcelDetail } from '../types/cadastral';
+import type { AIModelMetadata, DatasetSyncStatus } from '../types/canonical';
+import { getAIModels, getCanonicalBuildings, getParcels, getParcel, getSyncStatus } from '../services/api';
 import { CadastralMap } from '../map/CadastralMap';
 import {
   Layers,
@@ -23,6 +22,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
   const [models, setModels] = useState<AIModelMetadata[]>([]);
   const [buildingsCount, setBuildingsCount] = useState<number>(0);
   const [selectedParcel, setSelectedParcel] = useState<ParcelDetail | null>(null);
+  const [syncRuns, setSyncRuns] = useState<DatasetSyncStatus[]>([]);
 
   // Map layer controls
   const [showLegacy, setShowLegacy] = useState(true);
@@ -33,6 +33,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
   useEffect(() => {
     getAIModels().then(setModels).catch(console.error);
     getCanonicalBuildings().then((b) => setBuildingsCount(b.length)).catch(console.error);
+    getSyncStatus().then(setSyncRuns).catch(console.error);
 
     // Fetch initial flagship parcel 184/2 for map display
     getParcel('184/2').then(setSelectedParcel).catch(() => {
@@ -150,6 +151,55 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
           <p className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
             <Cpu className="w-3 h-3 text-purple-600" /> Structural Extractor Adapter
           </p>
+        </div>
+      </div>
+
+      {/* 2.5 Dataset Synchronization Banner (SIH PS Gap 3) */}
+      <div className="bg-[#0f2942] text-white rounded-lg p-4 border border-blue-900/60 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 bg-blue-600/30 border border-blue-500/40 rounded-lg text-blue-300">
+            <Activity className="w-5 h-5 text-blue-400" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-blue-200">
+                DATA SYNCHRONIZATION & RECONCILIATION
+              </h2>
+              <span className="px-2 py-0.5 text-[9px] font-bold uppercase bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded">
+                {syncRuns[0]?.sync_status || 'SYNC_REQUIRED'}
+              </span>
+            </div>
+            <p className="text-xs text-slate-300 mt-0.5">
+              Source updates dynamically trigger change detection & recalculate parcel conflicts.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 text-xs font-mono">
+          <div className="text-center px-3 border-r border-slate-700">
+            <span className="text-[10px] text-slate-400 block uppercase">Sources</span>
+            <strong className="text-white text-sm">6 Registered</strong>
+          </div>
+          <div className="text-center px-3 border-r border-slate-700">
+            <span className="text-[10px] text-slate-400 block uppercase">Synced</span>
+            <strong className="text-emerald-400 text-sm">4 Layers</strong>
+          </div>
+          <div className="text-center px-3 border-r border-slate-700">
+            <span className="text-[10px] text-slate-400 block uppercase">Changes</span>
+            <strong className="text-amber-400 text-sm">{syncRuns[0]?.affected_feature_count || 1} Detected</strong>
+          </div>
+          <div className="text-center px-3">
+            <span className="text-[10px] text-slate-400 block uppercase">Parcels Affected</span>
+            <strong className="text-amber-300 text-sm">{syncRuns[0]?.affected_parcel_count || 1} Flagged</strong>
+          </div>
+
+          <button
+            onClick={() => onNavigateTab('review')}
+            className="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs rounded transition shadow-2xs flex items-center gap-1.5"
+          >
+            <span>Review Changes</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
 

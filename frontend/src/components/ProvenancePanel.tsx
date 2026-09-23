@@ -17,13 +17,15 @@ export const ProvenancePanel: React.FC<ProvenancePanelProps> = ({ provenance, on
   }
 
   const timelineSteps = [
-    { title: 'Source Imported', detail: provenance.source_type || 'Legacy Cadastral GeoJSON', color: 'bg-blue-600' },
+    { title: 'Source Ingested', detail: provenance.source_type || 'Legacy Cadastral GeoJSON Master', color: 'bg-blue-600' },
     { title: 'CRS Transformed', detail: `EPSG:4326 → ${provenance.crs_used || 'EPSG:32643 Metric UTM'}`, color: 'bg-blue-600' },
-    { title: 'Spatial Match', detail: `STRtree Index Score 93.7% (${provenance.matching_method || 'STRtree Spatial Candidate'})`, color: 'bg-emerald-600' },
-    { title: 'Conflict Detected', detail: 'Area Discrepancy & Boundary Shift Flagged', color: 'bg-amber-500' },
-    { title: 'Harmonization', detail: provenance.reconciliation_decision || 'GNSS + Drone Consensus Geometry', color: 'bg-blue-600' },
-    { title: 'Officer Review', detail: 'Adjudicated & Signed by Review Officer', color: 'bg-emerald-600' },
-    { title: 'Dataset Published', detail: 'Harmonized Dataset Version 4', color: 'bg-purple-600' }
+    { title: 'Spatially Indexed', detail: `STRtree Index (${provenance.matching_method || 'STRtree R-Tree Matching'})`, color: 'bg-blue-600' },
+    { title: 'Change Detected', detail: 'SHA-256 Fingerprint Delta (Revenue Register Update v2)', color: 'bg-amber-500' },
+    { title: 'Parcel Affected', detail: `Parcel ${provenance.feature_id} Flagged as SYNC_REQUIRED`, color: 'bg-amber-600' },
+    { title: 'Conflict Recalculated', detail: 'Evidence Scores & Multi-Source Discrepancies Updated', color: 'bg-amber-500' },
+    { title: 'Officer Reviewed', detail: provenance.reviewer ? `Adjudicated & Signed by ${provenance.reviewer}` : 'Adjudicated by District Land Officer', color: 'bg-emerald-600' },
+    { title: 'Approved', detail: provenance.reconciliation_decision || 'APPROVED — Reconciled Candidate Accepted', color: 'bg-emerald-600' },
+    { title: 'Dataset Published', detail: 'Harmonized Dataset Version v5 Published', color: 'bg-purple-600' }
   ];
 
   return (

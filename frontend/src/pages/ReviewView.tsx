@@ -10,7 +10,7 @@ import {
   Check
 } from 'lucide-react';
 import type { ConflictItem, ParcelDetail } from '../types/cadastral';
-import { getConflict, getParcel, approveConflict, rejectConflict, markManualReview } from '../services/api';
+import { getConflict, getParcel, approveConflict, rejectConflict, markManualReview, approveSyncReconciliation } from '../services/api';
 import { CadastralMap } from '../map/CadastralMap';
 import { ConfirmationModal } from '../components/ConfirmationModal';
 
@@ -73,8 +73,16 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
   const handleConfirmDecision = async (comment: string) => {
     if (!selectedAction) return;
     try {
-      const user = 'REVIEW OFFICER';
-      if (selectedAction.action === 'ACCEPT' || selectedAction.action === 'MERGE' || selectedAction.action === 'SOURCE') {
+      const user = 'Land Record Officer (Admin)';
+      if (selectedAction.action === 'SYNC_APPROVE') {
+        const res = await approveSyncReconciliation('DS-Revenue', user, comment);
+        setDecisionState({
+          status: 'Approved (Harmonized Dataset Version v5 Created)',
+          approvedBy: user,
+          timestamp: res.sync_status?.approved_at || new Date().toISOString().replace('T', ' ').slice(0, 19),
+          comment
+        });
+      } else if (selectedAction.action === 'ACCEPT' || selectedAction.action === 'MERGE' || selectedAction.action === 'SOURCE') {
         const res = await approveConflict(conflictId, user, comment);
         setDecisionState({
           status: 'Approved',
@@ -319,6 +327,14 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
           >
             <XCircle className="w-4 h-4 text-red-600" />
             Reject
+          </button>
+
+          <button
+            onClick={() => triggerActionModal('SYNC_APPROVE', 'Approve Dataset Synchronization & Create Version v5')}
+            className="px-4 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer ml-auto"
+          >
+            <ShieldCheck className="w-4 h-4 text-white" />
+            Approve Sync & Create Version v5
           </button>
         </div>
       </div>

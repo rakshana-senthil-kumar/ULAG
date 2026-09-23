@@ -12,7 +12,14 @@ import type {
   TopologyIssue,
   ProvenanceRecord,
   AIModelMetadata,
-  EvaluationReportV2
+  EvaluationReportV2,
+  RasterElevationMetadata,
+  ParcelElevationMetrics,
+  CanonicalUtilityAsset,
+  ParcelUtilityAssociation,
+  DatasetSyncStatus,
+  FeatureSyncChange,
+  RegisteredDataset
 } from '../types/canonical';
 
 const API_BASE = '/api';
@@ -170,3 +177,77 @@ export async function getEvaluationReportV2(): Promise<EvaluationReportV2> {
   if (!res.ok) throw new Error('Failed to fetch evaluation report');
   return res.json();
 }
+
+export async function getRegisteredDatasets(): Promise<RegisteredDataset[]> {
+  const res = await fetch(`${API_BASE}/datasets`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+// --- DSM/DTM Elevation API Methods ---
+
+export async function getElevationDatasets(): Promise<RasterElevationMetadata[]> {
+  const res = await fetch(`${API_BASE}/v2/dsm-dtm`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getParcelElevation(id: string): Promise<ParcelElevationMetrics> {
+  const res = await fetch(`${API_BASE}/v2/parcels/${encodeURIComponent(id)}/elevation`);
+  if (!res.ok) throw new Error(`Failed to fetch elevation for ${id}`);
+  return res.json();
+}
+
+// --- Utility Network API Methods ---
+
+export async function getUtilityAssets(): Promise<CanonicalUtilityAsset[]> {
+  const res = await fetch(`${API_BASE}/v2/utilities`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getParcelUtility(id: string): Promise<ParcelUtilityAssociation> {
+  const res = await fetch(`${API_BASE}/v2/parcels/${encodeURIComponent(id)}/utility`);
+  if (!res.ok) throw new Error(`Failed to fetch utility metrics for ${id}`);
+  return res.json();
+}
+
+// --- Dataset Synchronization API Methods ---
+
+export async function getSyncStatus(): Promise<DatasetSyncStatus[]> {
+  const res = await fetch(`${API_BASE}/v2/sync/status`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getSyncChanges(): Promise<FeatureSyncChange[]> {
+  const res = await fetch(`${API_BASE}/v2/sync/changes`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function checkSyncUpdates(): Promise<any> {
+  const res = await fetch(`${API_BASE}/v2/sync/check`, { method: 'POST' });
+  if (!res.ok) throw new Error('Failed to check dataset updates');
+  return res.json();
+}
+
+export async function processSyncReconciliation(datasetId: string = 'DS-Revenue'): Promise<any> {
+  const res = await fetch(`${API_BASE}/v2/sync/process?dataset_id=${encodeURIComponent(datasetId)}`, { method: 'POST' });
+  if (!res.ok) throw new Error('Failed to process sync reconciliation');
+  return res.json();
+}
+
+export async function approveSyncReconciliation(
+  datasetId: string = 'DS-Revenue',
+  reviewer: string = 'Land Record Officer (Admin)',
+  comment?: string
+): Promise<any> {
+  const params = new URLSearchParams({ dataset_id: datasetId, reviewer });
+  if (comment) params.set('comment', comment);
+
+  const res = await fetch(`${API_BASE}/v2/sync/approve?${params.toString()}`, { method: 'POST' });
+  if (!res.ok) throw new Error('Failed to approve sync reconciliation');
+  return res.json();
+}
+

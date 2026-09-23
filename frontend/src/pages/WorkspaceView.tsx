@@ -178,53 +178,53 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
         </div>
       </div>
 
-      {/* 2. Four Source Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {/* 2. Six Source Cards representing SIH Dataset Registry */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {/* Cadastral Card */}
-        <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-2xs space-y-3">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <FileText className="w-4 h-4 text-blue-700" />
-              <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800">Cadastral</h3>
+            <div className="flex items-center gap-1.5">
+              <FileText className="w-3.5 h-3.5 text-blue-700" />
+              <h3 className="font-bold text-[11px] uppercase tracking-wider text-slate-800">Cadastral</h3>
             </div>
-            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[10px] rounded flex items-center gap-1">
-              <Check className="w-3 h-3" /> Loaded
+            <span className="px-1.5 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[9px] rounded flex items-center gap-0.5">
+              <Check className="w-2.5 h-2.5" /> Loaded
             </span>
           </div>
-          <div className="space-y-1 text-xs">
+          <div className="space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
               <span>Features:</span>
               <strong className="font-mono text-slate-900">300 Parcels</strong>
             </div>
             <div className="flex justify-between text-slate-600">
-              <span>Source CRS:</span>
+              <span>CRS:</span>
               <span className="font-mono text-slate-800">EPSG:4326</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Format:</span>
-              <span className="text-slate-800 font-mono">GeoJSON Vector</span>
+              <span className="text-slate-800 font-mono">GeoJSON</span>
             </div>
           </div>
         </div>
 
         {/* Drone ORI Card */}
-        <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-2xs space-y-3">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <Satellite className="w-4 h-4 text-amber-600" />
-              <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800">Drone ORI</h3>
+            <div className="flex items-center gap-1.5">
+              <Satellite className="w-3.5 h-3.5 text-amber-600" />
+              <h3 className="font-bold text-[11px] uppercase tracking-wider text-slate-800">Drone ORI</h3>
             </div>
-            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[10px] rounded flex items-center gap-1">
-              <Check className="w-3 h-3" /> Loaded
+            <span className="px-1.5 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[9px] rounded flex items-center gap-0.5">
+              <Check className="w-2.5 h-2.5" /> Loaded
             </span>
           </div>
-          <div className="space-y-1 text-xs">
+          <div className="space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
-              <span>Raster / Vector:</span>
-              <strong className="font-mono text-slate-900">1 Raster / 300 Poly</strong>
+              <span>Raster/Poly:</span>
+              <strong className="font-mono text-slate-900">1 Img / 300 P</strong>
             </div>
             <div className="flex justify-between text-slate-600">
-              <span>Target CRS:</span>
+              <span>CRS:</span>
               <span className="font-mono text-slate-800">EPSG:32643</span>
             </div>
             <div className="flex justify-between text-slate-600">
@@ -235,19 +235,19 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
         </div>
 
         {/* GNSS Card */}
-        <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-2xs space-y-3">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <Compass className="w-4 h-4 text-red-600" />
-              <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800">GNSS RTK</h3>
+            <div className="flex items-center gap-1.5">
+              <Compass className="w-3.5 h-3.5 text-red-600" />
+              <h3 className="font-bold text-[11px] uppercase tracking-wider text-slate-800">GNSS RTK</h3>
             </div>
-            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[10px] rounded flex items-center gap-1">
-              <Check className="w-3 h-3" /> Loaded
+            <span className="px-1.5 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[9px] rounded flex items-center gap-0.5">
+              <Check className="w-2.5 h-2.5" /> Loaded
             </span>
           </div>
-          <div className="space-y-1 text-xs">
+          <div className="space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
-              <span>Survey Points:</span>
+              <span>Points:</span>
               <strong className="font-mono text-slate-900">300 Points</strong>
             </div>
             <div className="flex justify-between text-slate-600">
@@ -262,28 +262,90 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
         </div>
 
         {/* Revenue Card */}
-        <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-2xs space-y-3">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <FileSpreadsheet className="w-4 h-4 text-emerald-600" />
-              <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800">Revenue</h3>
+            <div className="flex items-center gap-1.5">
+              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
+              <h3 className="font-bold text-[11px] uppercase tracking-wider text-slate-800">Revenue</h3>
             </div>
-            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[10px] rounded flex items-center gap-1">
-              <Check className="w-3 h-3" /> Loaded
+            <span className="px-1.5 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[9px] rounded flex items-center gap-0.5">
+              <Check className="w-2.5 h-2.5" /> Loaded
             </span>
           </div>
-          <div className="space-y-1 text-xs">
+          <div className="space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
-              <span>Text Records:</span>
-              <strong className="font-mono text-slate-900">300 Records</strong>
+              <span>Records:</span>
+              <strong className="font-mono text-slate-900">300 Recs</strong>
             </div>
             <div className="flex justify-between text-slate-600">
-              <span>Primary Key:</span>
-              <span className="font-mono text-slate-800">survey_number</span>
+              <span>Key:</span>
+              <span className="font-mono text-slate-800">survey_no</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Format:</span>
-              <span className="text-slate-800 font-mono">Tabular CSV</span>
+              <span className="text-slate-800 font-mono">CSV Table</span>
+            </div>
+          </div>
+        </div>
+
+        {/* DSM / DTM Card (SIH Gap 1) */}
+        <div className="bg-white p-4 rounded-lg border border-purple-200 bg-purple-50/20 shadow-2xs space-y-2">
+          <div className="flex items-center justify-between pb-2 border-b border-purple-100">
+            <div className="flex items-center gap-1.5">
+              <Database className="w-3.5 h-3.5 text-purple-700" />
+              <h3 className="font-bold text-[11px] uppercase tracking-wider text-purple-900">DSM / DTM</h3>
+            </div>
+            <span className="px-1.5 py-0.5 bg-purple-100 text-purple-800 font-bold text-[9px] rounded flex items-center gap-0.5">
+              <Check className="w-2.5 h-2.5" /> Validated
+            </span>
+          </div>
+          <div className="space-y-1 text-[11px]">
+            <div className="flex justify-between text-slate-600">
+              <span>CRS:</span>
+              <span className="font-mono text-purple-900 font-semibold">EPSG:32643</span>
+            </div>
+            <div className="flex justify-between text-slate-600">
+              <span>Resolution:</span>
+              <span className="font-mono text-slate-800">1.0 m</span>
+            </div>
+            <div className="flex justify-between text-slate-600">
+              <span>Elev Range:</span>
+              <span className="text-purple-900 font-bold font-mono">112.4–148.7m</span>
+            </div>
+            <div className="flex justify-between text-slate-600">
+              <span>Coverage:</span>
+              <span className="text-slate-700 font-semibold">82% Parcels</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Utility Network Card (SIH Gap 2) */}
+        <div className="bg-white p-4 rounded-lg border border-blue-200 bg-blue-50/20 shadow-2xs space-y-2">
+          <div className="flex items-center justify-between pb-2 border-b border-blue-100">
+            <div className="flex items-center gap-1.5">
+              <Database className="w-3.5 h-3.5 text-blue-700" />
+              <h3 className="font-bold text-[11px] uppercase tracking-wider text-blue-900">Utility Network</h3>
+            </div>
+            <span className="px-1.5 py-0.5 bg-blue-100 text-blue-800 font-bold text-[9px] rounded flex items-center gap-0.5">
+              <Check className="w-2.5 h-2.5" /> Demo Dataset
+            </span>
+          </div>
+          <div className="space-y-1 text-[11px]">
+            <div className="flex justify-between text-slate-600">
+              <span>Assets:</span>
+              <strong className="font-mono text-blue-900 font-bold">7 Assets</strong>
+            </div>
+            <div className="flex justify-between text-slate-600">
+              <span>Types:</span>
+              <span className="font-mono text-slate-800">Elec,Water,Tel</span>
+            </div>
+            <div className="flex justify-between text-slate-600">
+              <span>CRS:</span>
+              <span className="text-slate-800 font-mono">EPSG:4326</span>
+            </div>
+            <div className="flex justify-between text-slate-600">
+              <span>Source:</span>
+              <span className="text-slate-700 text-[10px] font-semibold truncate">DEMO DATASET</span>
             </div>
           </div>
         </div>

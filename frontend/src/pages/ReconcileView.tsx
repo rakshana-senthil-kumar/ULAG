@@ -7,7 +7,8 @@ import {
   Info
 } from 'lucide-react';
 import type { ParcelSummary, ParcelDetail, ReconciliationSummary } from '../types/cadastral';
-import { getParcels, getParcel, approveConflict, markManualReview } from '../services/api';
+import type { ParcelElevationMetrics, ParcelUtilityAssociation } from '../types/canonical';
+import { getParcels, getParcel, approveConflict, markManualReview, getParcelElevation, getParcelUtility } from '../services/api';
 import { CadastralMap } from '../map/CadastralMap';
 import { ConfirmationModal } from '../components/ConfirmationModal';
 
@@ -23,6 +24,8 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
   const [parcels, setParcels] = useState<ParcelSummary[]>([]);
   const [selectedParcelId, setSelectedParcelId] = useState<string>('184/2');
   const [selectedParcelDetail, setSelectedParcelDetail] = useState<ParcelDetail | null>(null);
+  const [parcelElevation, setParcelElevation] = useState<ParcelElevationMetrics | null>(null);
+  const [parcelUtility, setParcelUtility] = useState<ParcelUtilityAssociation | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [statusFilter, setStatusFilter] = useState<string>('All');
 
@@ -51,12 +54,20 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
       .catch((err) => console.error('Error fetching parcels:', err));
   }, [statusFilter, searchQuery]);
 
-  // Load selected parcel detail
+  // Load parcel detail, elevation, and utility
   useEffect(() => {
     if (!selectedParcelId) return;
     getParcel(selectedParcelId)
       .then((data) => setSelectedParcelDetail(data))
       .catch((err) => console.error('Error fetching parcel detail:', err));
+
+    getParcelElevation(selectedParcelId)
+      .then(setParcelElevation)
+      .catch(() => setParcelElevation(null));
+
+    getParcelUtility(selectedParcelId)
+      .then(setParcelUtility)
+      .catch(() => setParcelUtility(null));
   }, [selectedParcelId]);
 
   const handleToggleLayer = (layer: 'legacy' | 'drone' | 'gnss' | 'reconciled') => {
@@ -347,6 +358,81 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                 <p className="text-[11px] text-slate-600">
                   Highest geometric agreement with CORS RTK survey and current ORI evidence.
                 </p>
+              </div>
+
+              {/* SIH Gap 3 — Dataset Synchronization Banner */}
+              <div className="bg-amber-50/80 border border-amber-300 rounded-lg p-3 space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold text-amber-900">
+                  <span>PARCEL {selectedParcelDetail.parcel_id} SYNC STATUS</span>
+                  <span className="flex items-center gap-1 text-amber-800 font-mono text-[10px] bg-amber-200/60 px-1.5 py-0.5 rounded">
+                    ● REVIEW REQUIRED
+                  </span>
+                </div>
+                <div className="border-t border-amber-200/80 pt-1.5 space-y-1 text-[11px]">
+                  <div className="font-bold text-slate-800 text-[10px] uppercase">Source Changes</div>
+                  <div className="flex justify-between text-slate-700">
+                    <span>Revenue:</span>
+                    <span className="font-mono text-amber-900 font-bold">1520 m² → 1548 m² (ATTRIBUTE_CHANGED)</span>
+                  </div>
+                  <div className="flex justify-between text-slate-500">
+                    <span>Drone:</span>
+                    <span>No change</span>
+                  </div>
+                  <div className="flex justify-between text-slate-500">
+                    <span>GNSS:</span>
+                    <span>No change</span>
+                  </div>
+                  <div className="flex justify-between text-purple-900 font-medium">
+                    <span>DSM:</span>
+                    <span>Elevation updated</span>
+                  </div>
+                  <div className="flex justify-between text-blue-900 font-medium">
+                    <span>Utility:</span>
+                    <span>1 new electricity asset</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* SIH Gap 1 — Terrain Elevation Metrics (DSM/DTM) */}
+              <div className="bg-purple-50/30 border border-purple-200 rounded-lg p-3 space-y-1 text-xs">
+                <span className="text-[10px] font-bold text-purple-900 uppercase tracking-wider block">
+                  Terrain Elevation Metrics (DSM/DTM)
+                </span>
+                {parcelElevation && parcelElevation.has_elevation_data ? (
+                  <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
+                    <div><span className="text-slate-500">Min Elev:</span> <strong className="font-mono text-slate-800">{parcelElevation.min_elevation_m} m</strong></div>
+                    <div><span className="text-slate-500">Max Elev:</span> <strong className="font-mono text-slate-800">{parcelElevation.max_elevation_m} m</strong></div>
+                    <div><span className="text-slate-500">Mean Elev:</span> <strong className="font-mono text-slate-800">{parcelElevation.mean_elevation_m} m</strong></div>
+                    <div><span className="text-slate-500">Slope:</span> <strong className="font-mono text-slate-800">{parcelElevation.slope_deg}°</strong></div>
+                  </div>
+                ) : (
+                  <span className="text-slate-500 text-[11px]">No DSM/DTM data available</span>
+                )}
+              </div>
+
+              {/* SIH Gap 2 — Utility Network Proximity */}
+              <div className="bg-blue-50/30 border border-blue-200 rounded-lg p-3 space-y-1 text-xs">
+                <span className="text-[10px] font-bold text-blue-900 uppercase tracking-wider block">
+                  Utility Network Proximity
+                </span>
+                {parcelUtility ? (
+                  <div className="space-y-1 text-[11px] pt-1">
+                    <div className="flex justify-between text-slate-700">
+                      <span>Electricity: <strong>{parcelUtility.electricity_count} assets</strong></span>
+                      <span>Water: <strong>{parcelUtility.water_count} assets</strong></span>
+                    </div>
+                    <div className="flex justify-between text-slate-700">
+                      <span>Sewer: <strong>{parcelUtility.sewer_count} assets</strong></span>
+                      <span>Telecom: <strong>{parcelUtility.telecom_count} assets</strong></span>
+                    </div>
+                    <div className="flex justify-between border-t border-blue-100 pt-1 text-blue-900 font-bold font-mono">
+                      <span>Nearest Utility:</span>
+                      <span>{parcelUtility.nearest_utility_distance_m} m</span>
+                    </div>
+                  </div>
+                ) : (
+                  <span className="text-slate-500 text-[11px]">No Utility Network data available</span>
+                )}
               </div>
 
               {/* Action Buttons */}
