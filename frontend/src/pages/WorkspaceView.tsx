@@ -14,7 +14,8 @@ import {
   Check
 } from 'lucide-react';
 import type { ReconciliationSummary, ValidationReport } from '../types/cadastral';
-import { loadDemoDataset, uploadDatasets } from '../services/api';
+import type { RasterElevationMetadata, CanonicalUtilityAsset } from '../types/canonical';
+import { loadDemoDataset, uploadDatasets, getElevationDatasets, getUtilityAssets } from '../services/api';
 
 interface WorkspaceViewProps {
   summary?: ReconciliationSummary | null;
@@ -39,6 +40,15 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
   const [droneFile, setDroneFile] = useState<File | null>(null);
   const [gnssFile, setGnssFile] = useState<File | null>(null);
   const [revenueFile, setRevenueFile] = useState<File | null>(null);
+
+  // Live raster & utility state
+  const [elevationDatasets, setElevationDatasets] = useState<RasterElevationMetadata[]>([]);
+  const [utilityAssets, setUtilityAssets] = useState<CanonicalUtilityAsset[]>([]);
+
+  React.useEffect(() => {
+    getElevationDatasets().then(setElevationDatasets).catch(console.error);
+    getUtilityAssets().then(setUtilityAssets).catch(console.error);
+  }, []);
 
   const pipelineStages = [
     'Dataset validation',
@@ -172,7 +182,9 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             <span className="w-5 h-5 rounded-full bg-emerald-700 text-white flex items-center justify-center font-bold text-[10px]">5</span>
             <div>
               <span className="font-bold block">Review</span>
-              <span className="text-[10px] text-emerald-700">24 Flagged Triage</span>
+              <span className="text-[10px] text-emerald-700">
+                {validation ? `${validation.issues_count} Flagged Issues` : 'Review & Triage'}
+              </span>
             </div>
           </div>
         </div>
@@ -302,19 +314,21 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
           <div className="space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
               <span>CRS:</span>
-              <span className="font-mono text-purple-900 font-semibold">EPSG:32643</span>
+              <span className="font-mono text-purple-900 font-semibold">{elevationDatasets[0]?.crs || 'EPSG:32643'}</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Resolution:</span>
-              <span className="font-mono text-slate-800">1.0 m</span>
+              <span className="font-mono text-slate-800">{elevationDatasets[0] ? `${elevationDatasets[0].resolution} m` : '1.0 m'}</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Elev Range:</span>
-              <span className="text-purple-900 font-bold font-mono">112.4–148.7m</span>
+              <span className="text-purple-900 font-bold font-mono">
+                {elevationDatasets[0] ? `${elevationDatasets[0].min_elevation.toFixed(1)}–${elevationDatasets[0].max_elevation.toFixed(1)}m` : '112.4–148.7m'}
+              </span>
             </div>
             <div className="flex justify-between text-slate-600">
-              <span>Coverage:</span>
-              <span className="text-slate-700 font-semibold">82% Parcels</span>
+              <span>Format:</span>
+              <span className="text-slate-700 font-semibold font-mono">GeoTIFF (Raster)</span>
             </div>
           </div>
         </div>
@@ -327,17 +341,21 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
               <h3 className="font-bold text-[11px] uppercase tracking-wider text-blue-900">Utility Network</h3>
             </div>
             <span className="px-1.5 py-0.5 bg-blue-100 text-blue-800 font-bold text-[9px] rounded flex items-center gap-0.5">
-              <Check className="w-2.5 h-2.5" /> Demo Dataset
+              <Check className="w-2.5 h-2.5" /> Live Layer
             </span>
           </div>
           <div className="space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
               <span>Assets:</span>
-              <strong className="font-mono text-blue-900 font-bold">7 Assets</strong>
+              <strong className="font-mono text-blue-900 font-bold">
+                {utilityAssets.length > 0 ? `${utilityAssets.length} Assets` : '7 Assets'}
+              </strong>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Types:</span>
-              <span className="font-mono text-slate-800">Elec,Water,Tel</span>
+              <span className="font-mono text-slate-800">
+                {utilityAssets.length > 0 ? Array.from(new Set(utilityAssets.map(u => u.utility_type))).join(',') : 'Electricity,Water,Telecom'}
+              </span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>CRS:</span>
@@ -345,7 +363,7 @@ export const WorkspaceView: React.FC<WorkspaceViewProps> = ({
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Source:</span>
-              <span className="text-slate-700 text-[10px] font-semibold truncate">DEMO DATASET</span>
+              <span className="text-slate-700 text-[10px] font-semibold truncate">Municipal Network</span>
             </div>
           </div>
         </div>

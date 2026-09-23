@@ -13,6 +13,7 @@ from backend.app.schemas.cadastral import EvidenceMetrics
 
 # Local metric conversion for centroid distance
 BASE_LAT = 18.5910
+BASE_LON = 73.7380
 M_PER_DEG_LAT = 111132.95
 M_PER_DEG_LON = 111132.95 * math.cos(math.radians(BASE_LAT))
 
@@ -59,8 +60,6 @@ class ParcelMatcher:
         legacy_geom = shape(legacy_feature["geometry"])
         legacy_area = props.get("area") or legacy_geom.area
 
-        # Flagship parcel 184/2 exact demonstration calibration
-        is_flagship = ("184/2" in full_survey or props.get("survey_no") == "184")
 
         # Spatial index query (expand bounding box by ~30 meters in degrees)
         buffer_deg = 35.0 / M_PER_DEG_LON
@@ -109,24 +108,14 @@ class ParcelMatcher:
             attr_pct = round(attr_sim * 100.0, 1)
             prox_pct = round(prox_sim * 100.0, 1)
 
-            if is_flagship and "184" in d_survey:
-                # Calibrate flagship parcel to exact benchmark requirements
-                geom_pct = 94.0
-                area_pct = 91.0
-                centroid_pct = 98.0
-                attr_pct = 100.0
-                prox_pct = 80.0
-                # Formula: 0.35*94 + 0.20*91 + 0.20*98 + 0.15*100 + 0.10*80 = 93.7
-                score = 93.7
-            else:
-                score = round(
-                    MATCH_WEIGHTS["geometry"] * geom_pct +
-                    MATCH_WEIGHTS["area"] * area_pct +
-                    MATCH_WEIGHTS["centroid"] * centroid_pct +
-                    MATCH_WEIGHTS["attribute"] * attr_pct +
-                    MATCH_WEIGHTS["proximity"] * prox_pct,
-                    1
-                )
+            score = round(
+                MATCH_WEIGHTS["geometry"] * geom_pct +
+                MATCH_WEIGHTS["area"] * area_pct +
+                MATCH_WEIGHTS["centroid"] * centroid_pct +
+                MATCH_WEIGHTS["attribute"] * attr_pct +
+                MATCH_WEIGHTS["proximity"] * prox_pct,
+                1
+            )
 
             evidence = EvidenceMetrics(
                 geometry_match=geom_pct,

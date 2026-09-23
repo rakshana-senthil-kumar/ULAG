@@ -58,7 +58,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
             comment: 'Approved based on CORS RTK GNSS boundary agreement.'
           });
         }
-        return getParcel(c.parcel_id || '184/2');
+        return getParcel(c.parcel_id);
       })
       .then((p) => setParcelDetail(p))
       .catch((err) => console.error('Error fetching review case:', err))
@@ -187,7 +187,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-center space-y-1">
               <span className="text-[10px] text-slate-500 font-bold uppercase block">Legacy Cadastral</span>
               <span className="text-lg font-bold font-mono text-slate-900">
-                {sources.legacy ? `${sources.legacy} m²` : '1487 m²'}
+                {sources.legacy ? `${sources.legacy} m²` : '—'}
               </span>
               <div className="w-full h-1 bg-blue-500/30 rounded-full"></div>
             </div>
@@ -195,7 +195,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-center space-y-1">
               <span className="text-[10px] text-slate-500 font-bold uppercase block">Revenue Register</span>
               <span className="text-lg font-bold font-mono text-slate-900">
-                {sources.revenue ? `${sources.revenue} m²` : '1520 m²'}
+                {sources.revenue ? `${sources.revenue} m²` : '—'}
               </span>
               <div className="w-full h-1 bg-emerald-500/30 rounded-full"></div>
             </div>
@@ -203,7 +203,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-center space-y-1">
               <span className="text-[10px] text-slate-500 font-bold uppercase block">Drone ORI Extent</span>
               <span className="text-lg font-bold font-mono text-amber-900">
-                {sources.drone ? `${sources.drone} m²` : '1541 m²'}
+                {sources.drone ? `${sources.drone} m²` : '—'}
               </span>
               <div className="w-full h-1 bg-amber-500 rounded-full"></div>
             </div>
@@ -211,7 +211,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
             <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg text-center space-y-1">
               <span className="text-[10px] text-blue-900 font-bold uppercase block">GNSS CORS RTK</span>
               <span className="text-lg font-bold font-mono text-blue-950">
-                {sources.gnss ? `${sources.gnss} m²` : '1535 m²'}
+                {sources.gnss ? `${sources.gnss} m²` : '—'}
               </span>
               <div className="w-full h-1 bg-blue-700 rounded-full"></div>
             </div>

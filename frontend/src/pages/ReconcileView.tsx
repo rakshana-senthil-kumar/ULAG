@@ -4,11 +4,20 @@ import {
   CheckCircle2,
   AlertTriangle,
   Split,
-  Info
+  Info,
+  Download
 } from 'lucide-react';
 import type { ParcelSummary, ParcelDetail, ReconciliationSummary } from '../types/cadastral';
 import type { ParcelElevationMetrics, ParcelUtilityAssociation } from '../types/canonical';
-import { getParcels, getParcel, approveConflict, markManualReview, getParcelElevation, getParcelUtility } from '../services/api';
+import {
+  getParcels,
+  getParcel,
+  approveConflict,
+  markManualReview,
+  getParcelElevation,
+  getParcelUtility,
+  getExportParcelsUrl
+} from '../services/api';
 import { CadastralMap } from '../map/CadastralMap';
 import { ConfirmationModal } from '../components/ConfirmationModal';
 
@@ -22,7 +31,7 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
   onRefreshSummary
 }) => {
   const [parcels, setParcels] = useState<ParcelSummary[]>([]);
-  const [selectedParcelId, setSelectedParcelId] = useState<string>('184/2');
+  const [selectedParcelId, setSelectedParcelId] = useState<string>('');
   const [selectedParcelDetail, setSelectedParcelDetail] = useState<ParcelDetail | null>(null);
   const [parcelElevation, setParcelElevation] = useState<ParcelElevationMetrics | null>(null);
   const [parcelUtility, setParcelUtility] = useState<ParcelUtilityAssociation | null>(null);
@@ -48,7 +57,8 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
       .then((data) => {
         setParcels(data);
         if (data.length > 0 && !selectedParcelId) {
-          setSelectedParcelId(data[0].parcel_id);
+          const candidate = data.find(p => p.parcel_id.includes('184')) || data[0];
+          setSelectedParcelId(candidate.parcel_id);
         }
       })
       .catch((err) => console.error('Error fetching parcels:', err));
@@ -86,9 +96,9 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
     if (!selectedParcelDetail || !pendingAction) return;
     try {
       if (pendingAction.action === 'ACCEPT') {
-        await approveConflict('C-001', 'REVIEW OFFICER', comment);
+        await approveConflict(selectedParcelDetail.parcel_id, 'REVIEW OFFICER', comment);
       } else {
-        await markManualReview('C-001', 'REVIEW OFFICER', comment);
+        await markManualReview(selectedParcelDetail.parcel_id, 'REVIEW OFFICER', comment);
       }
       onRefreshSummary();
       const updated = await getParcel(selectedParcelDetail.parcel_id);
@@ -180,11 +190,29 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
 
         {/* PANEL 2: DOMINANT GIS MAP (Flex 1) */}
         <div className="flex-1 relative h-full bg-slate-900">
-          {/* Compare Sources Header bar */}
+          {/* Compare Sources and Export Header bar */}
           <div className="absolute top-3 right-4 z-[1000] flex items-center gap-2">
+            <a
+              href={getExportParcelsUrl('geojson')}
+              download="harmonized_parcels.geojson"
+              className="px-2.5 py-1.5 rounded text-xs font-semibold shadow-xs transition flex items-center gap-1 bg-white/95 text-slate-800 border border-slate-300 hover:bg-white cursor-pointer"
+              title="Download standardized GeoJSON of all parcels"
+            >
+              <Download className="w-3.5 h-3.5 text-blue-600" />
+              <span>GeoJSON</span>
+            </a>
+            <a
+              href={getExportParcelsUrl('csv')}
+              download="harmonized_parcels.csv"
+              className="px-2.5 py-1.5 rounded text-xs font-semibold shadow-xs transition flex items-center gap-1 bg-white/95 text-slate-800 border border-slate-300 hover:bg-white cursor-pointer"
+              title="Download CSV report of all parcels"
+            >
+              <Download className="w-3.5 h-3.5 text-emerald-600" />
+              <span>CSV</span>
+            </a>
             <button
               onClick={() => setCompareSourcesMode(!compareSourcesMode)}
-              className={`px-3 py-1.5 rounded text-xs font-bold shadow-md transition flex items-center gap-1.5 backdrop-blur-md border ${
+              className={`px-3 py-1.5 rounded text-xs font-bold shadow-md transition flex items-center gap-1.5 backdrop-blur-md border cursor-pointer ${
                 compareSourcesMode
                   ? 'bg-amber-500 text-slate-950 border-amber-400'
                   : 'bg-white/95 text-slate-800 border-slate-300 hover:bg-white'
@@ -197,6 +225,7 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
 
           <CadastralMap
             selectedParcel={selectedParcelDetail}
+            onSelectParcelId={(id) => setSelectedParcelId(id)}
             showLegacy={showLegacy}
             showDrone={showDrone}
             showGnss={showGnss}
@@ -218,7 +247,7 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                 <div className="bg-slate-800/80 p-2.5 rounded border border-blue-600/40">
                   <span className="text-blue-400 font-bold text-[10px] uppercase block">Legacy Cadastral</span>
                   <span className="text-base font-bold font-mono text-white">
-                    {selectedParcelDetail.sources_comparison.legacy ?? '1487'} m²
+                    {selectedParcelDetail.sources_comparison.legacy ?? '—'} m²
                   </span>
                   <span className="text-[10px] text-slate-400 block mt-0.5">Vector Cadastral Map</span>
                 </div>
@@ -226,7 +255,7 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                 <div className="bg-slate-800/80 p-2.5 rounded border border-amber-600/40">
                   <span className="text-amber-400 font-bold text-[10px] uppercase block">Drone ORI</span>
                   <span className="text-base font-bold font-mono text-white">
-                    {selectedParcelDetail.sources_comparison.drone ?? '1541'} m²
+                    {selectedParcelDetail.sources_comparison.drone ?? '—'} m²
                   </span>
                   <span className="text-[10px] text-slate-400 block mt-0.5">Orthorectified Imagery</span>
                 </div>
@@ -234,7 +263,7 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                 <div className="bg-slate-800/80 p-2.5 rounded border border-red-600/40">
                   <span className="text-red-400 font-bold text-[10px] uppercase block">GNSS RTK</span>
                   <span className="text-base font-bold font-mono text-white">
-                    {selectedParcelDetail.sources_comparison.gnss ?? '1535'} m²
+                    {selectedParcelDetail.sources_comparison.gnss ?? '—'} m²
                   </span>
                   <span className="text-[10px] text-slate-400 block mt-0.5">CORS Base Boundary</span>
                 </div>
@@ -242,7 +271,7 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                 <div className="bg-slate-800/80 p-2.5 rounded border border-emerald-600/40">
                   <span className="text-emerald-400 font-bold text-[10px] uppercase block">Revenue Record</span>
                   <span className="text-base font-bold font-mono text-white">
-                    {selectedParcelDetail.sources_comparison.revenue ?? '1520'} m²
+                    {selectedParcelDetail.sources_comparison.revenue ?? '—'} m²
                   </span>
                   <span className="text-[10px] text-slate-400 block mt-0.5">Tabular 7/12 Record</span>
                 </div>
@@ -360,35 +389,31 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                 </p>
               </div>
 
-              {/* SIH Gap 3 — Dataset Synchronization Banner */}
+              {/* Parcel Harmonization Status Banner */}
               <div className="bg-amber-50/80 border border-amber-300 rounded-lg p-3 space-y-2">
                 <div className="flex items-center justify-between text-xs font-bold text-amber-900">
-                  <span>PARCEL {selectedParcelDetail.parcel_id} SYNC STATUS</span>
-                  <span className="flex items-center gap-1 text-amber-800 font-mono text-[10px] bg-amber-200/60 px-1.5 py-0.5 rounded">
-                    ● REVIEW REQUIRED
+                  <span>PARCEL {selectedParcelDetail.parcel_id} STATUS</span>
+                  <span className={`flex items-center gap-1 font-mono text-[10px] px-1.5 py-0.5 rounded ${
+                    selectedParcelDetail.status === 'Matched' ? 'bg-emerald-200 text-emerald-900' : 'bg-amber-200 text-amber-900'
+                  }`}>
+                    ● {selectedParcelDetail.status === 'Matched' ? 'HARMONIZED' : 'REVIEW REQUIRED'}
                   </span>
                 </div>
                 <div className="border-t border-amber-200/80 pt-1.5 space-y-1 text-[11px]">
-                  <div className="font-bold text-slate-800 text-[10px] uppercase">Source Changes</div>
+                  <div className="font-bold text-slate-800 text-[10px] uppercase">Reconciliation Overview</div>
                   <div className="flex justify-between text-slate-700">
-                    <span>Revenue:</span>
-                    <span className="font-mono text-amber-900 font-bold">1520 m² → 1548 m² (ATTRIBUTE_CHANGED)</span>
+                    <span>Legacy Area:</span>
+                    <span className="font-mono text-slate-900 font-bold">{selectedParcelDetail.sources_comparison.legacy ?? '—'} m²</span>
                   </div>
-                  <div className="flex justify-between text-slate-500">
-                    <span>Drone:</span>
-                    <span>No change</span>
+                  <div className="flex justify-between text-slate-700">
+                    <span>Recommended Area:</span>
+                    <span className="font-mono text-emerald-900 font-bold">
+                      {selectedParcelDetail.recommendation?.recommended_area ?? selectedParcelDetail.sources_comparison.legacy ?? '—'} m²
+                    </span>
                   </div>
-                  <div className="flex justify-between text-slate-500">
-                    <span>GNSS:</span>
-                    <span>No change</span>
-                  </div>
-                  <div className="flex justify-between text-purple-900 font-medium">
-                    <span>DSM:</span>
-                    <span>Elevation updated</span>
-                  </div>
-                  <div className="flex justify-between text-blue-900 font-medium">
-                    <span>Utility:</span>
-                    <span>1 new electricity asset</span>
+                  <div className="flex justify-between text-slate-600">
+                    <span>Conflict Flag:</span>
+                    <span className="font-semibold text-amber-800">{selectedParcelDetail.conflict_type || 'None (Consensus)'}</span>
                   </div>
                 </div>
               </div>

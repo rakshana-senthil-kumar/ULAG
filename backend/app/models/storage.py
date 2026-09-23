@@ -231,6 +231,33 @@ class StorageRepository:
                 "gnss_points": json.loads(r["gnss_points"]) if r["gnss_points"] else []
             }
 
+    def get_all_parcels_detail(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM parcels ORDER BY parcel_id ASC")
+            rows = cursor.fetchall()
+            results = []
+            for r in rows:
+                results.append({
+                    "parcel_id": r["parcel_id"],
+                    "survey_no": r["survey_no"],
+                    "subdivision_no": r["subdivision_no"],
+                    "full_survey": r["full_survey"],
+                    "land_use": r["land_use"],
+                    "legacy_area": r["legacy_area"],
+                    "confidence": r["confidence"],
+                    "status": r["status"],
+                    "conflict_type": r["conflict_type"],
+                    "sources_comparison": json.loads(r["source_comparison"]) if r["source_comparison"] else {},
+                    "evidence": json.loads(r["evidence"]) if r["evidence"] else {},
+                    "recommendation": json.loads(r["recommendation"]) if r["recommendation"] else {},
+                    "geometry_geojson": json.loads(r["legacy_geometry"]) if r["legacy_geometry"] else {},
+                    "drone_geometry_geojson": json.loads(r["drone_geometry"]) if r["drone_geometry"] else None,
+                    "reconciled_geometry_geojson": json.loads(r["reconciled_geometry"]) if r["reconciled_geometry"] else None,
+                    "gnss_points": json.loads(r["gnss_points"]) if r["gnss_points"] else []
+                })
+            return results
+
     def get_conflicts(self, conflict_type: Optional[str] = None) -> List[Dict[str, Any]]:
         with self._get_conn() as conn:
             cursor = conn.cursor()
@@ -293,17 +320,18 @@ class StorageRepository:
             }
             new_status = status_map.get(action.upper(), "Approved")
 
-            # Update conflict
+            # Update conflict (by conflict_id or parcel_id)
             cursor.execute("""
                 UPDATE conflicts
                 SET status = ?, reviewed_by = ?, timestamp = ?
-                WHERE conflict_id = ?
-            """, (new_status, user, now, conflict_id))
+                WHERE conflict_id = ? OR parcel_id = ?
+            """, (new_status, user, now, conflict_id, conflict_id))
 
             # Retrieve parcel_id for conflict
-            cursor.execute("SELECT parcel_id FROM conflicts WHERE conflict_id = ?", (conflict_id,))
+            cursor.execute("SELECT parcel_id, conflict_id FROM conflicts WHERE conflict_id = ? OR parcel_id = ?", (conflict_id, conflict_id))
             row = cursor.fetchone()
-            p_id = row["parcel_id"] if row else None
+            p_id = row["parcel_id"] if row else conflict_id
+            real_c_id = row["conflict_id"] if row else conflict_id
 
             if p_id and new_status == "Approved":
                 cursor.execute("UPDATE parcels SET status = 'Matched' WHERE parcel_id = ?", (p_id,))
@@ -312,7 +340,7 @@ class StorageRepository:
             cursor.execute("""
                 INSERT INTO review_actions (conflict_id, parcel_id, action, decided_by, comment, timestamp)
                 VALUES (?, ?, ?, ?, ?, ?)
-            """, (conflict_id, p_id, action, user, comment or "", now))
+            """, (real_c_id, p_id, action, user, comment or "", now))
 
             conn.commit()
             return {

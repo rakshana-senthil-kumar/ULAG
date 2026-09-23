@@ -251,3 +251,18 @@ export async function approveSyncReconciliation(
   return res.json();
 }
 
+// --- Full WebGIS & Export Methods ---
+
+export async function getParcelsGeoJSON(): Promise<any> {
+  const res = await fetch(`${API_BASE}/parcels/geojson`);
+  if (!res.ok) throw new Error('Failed to fetch full fabric GeoJSON');
+  return res.json();
+}
+
+export function getExportParcelsUrl(format: 'geojson' | 'csv' = 'geojson', status: string = 'All'): string {
+  const params = new URLSearchParams({ format });
+  if (status && status !== 'All') params.set('status', status);
+  return `${API_BASE}/export/parcels?${params.toString()}`;
+}
+
+

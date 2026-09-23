@@ -21,19 +21,7 @@ class ReconciliationEngine:
         gnss_points: List[Dict[str, Any]],
         conflict_type: Optional[str] = None
     ) -> ParcelRecommendation:
-        
-        # Flagship 184/2 exact scenario
-        if "184/2" in survey_no or survey_no == "184":
-            summary, details = generate_reconciliation_explanation(survey_no, sources, evidence, conflict_type)
-            return ParcelRecommendation(
-                geometry_source="GNSS + Drone geometry",
-                recommended_area=1538.0,  # Evidence weighted between GNSS (1535) and Drone (1541)
-                confidence=93.7,
-                explanation_summary=summary,
-                explanation_details=details
-            )
-
-        # General evidence-weighted calculation
+        # Evidence-weighted calculation across all sources
         # Weights: GNSS (0.97), Drone (0.90), Revenue (0.78), Legacy (0.65)
         weighted_sum = 0.0
         total_weight = 0.0

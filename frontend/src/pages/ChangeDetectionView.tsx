@@ -46,17 +46,23 @@ export const ChangeDetectionView: React.FC = () => {
         {/* 3 Summary Badges */}
         <div className="flex items-center gap-3 text-xs">
           <div className="bg-purple-50 border border-purple-200 rounded px-3 py-1.5 text-center">
-            <span className="text-purple-900 font-extrabold text-sm block font-mono">+3 Buildings</span>
+            <span className="text-purple-900 font-extrabold text-sm block font-mono">
+              +{changes.filter((c) => c.change_type.toLowerCase().includes('building') || c.change_type.toLowerCase().includes('addition')).length} Buildings
+            </span>
             <span className="text-[10px] text-purple-700 font-medium">AI Footprints</span>
           </div>
 
           <div className="bg-amber-50 border border-amber-200 rounded px-3 py-1.5 text-center">
-            <span className="text-amber-900 font-extrabold text-sm block font-mono">2 Boundary Shifts</span>
+            <span className="text-amber-900 font-extrabold text-sm block font-mono">
+              {changes.filter((c) => c.change_type.toLowerCase().includes('shift') || c.change_type.toLowerCase().includes('expansion') || c.change_type.toLowerCase().includes('boundary')).length} Boundary Shifts
+            </span>
             <span className="text-[10px] text-amber-700 font-medium">Vector Variances</span>
           </div>
 
           <div className="bg-emerald-50 border border-emerald-200 rounded px-3 py-1.5 text-center">
-            <span className="text-emerald-900 font-extrabold text-sm block font-mono">1 Conversion</span>
+            <span className="text-emerald-900 font-extrabold text-sm block font-mono">
+              {changes.filter((c) => c.change_type.toLowerCase().includes('land') || c.change_type.toLowerCase().includes('conversion') || c.change_type.toLowerCase().includes('use')).length} Conversions
+            </span>
             <span className="text-[10px] text-emerald-700 font-medium">Land-Use Change</span>
           </div>
         </div>

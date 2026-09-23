@@ -18,18 +18,18 @@ def generate_reconciliation_explanation(
     """
     details = []
 
-    # Flagship exact demonstration explanation
-    if "184/2" in survey_no or survey_no == "184":
+    # High-precision GNSS + Drone concordance case
+    if sources.gnss and sources.drone and abs(sources.gnss - sources.drone) < 20.0 and sources.legacy and abs(sources.legacy - sources.drone) > 25.0:
         summary = (
-            "GNSS and drone boundaries have strong spatial agreement. "
+            "GNSS and drone boundaries show strong spatial agreement. "
             "The legacy boundary differs significantly from current survey evidence. "
             "Revenue survey attributes match the same parcel. "
             "Therefore the system recommends the GNSS + drone geometry as the reconciliation candidate."
         )
         details = [
-            "GNSS and drone-derived boundaries show strong spatial agreement (<0.2m boundary offset).",
-            f"Legacy cadastral boundary ({sources.legacy} m²) differs from current field survey evidence ({sources.gnss} m²).",
-            f"Revenue attributes match the same survey reference {survey_no}.",
+            f"GNSS survey ({sources.gnss} m²) and drone extraction ({sources.drone} m²) exhibit strong boundary concordance.",
+            f"Legacy cadastral boundary ({sources.legacy} m²) differs from current field survey evidence.",
+            f"Revenue attributes match the same survey reference '{survey_no}'.",
             "Evidence weighting prioritizes GNSS/CORS (0.97) and Drone/ORI (0.90) over Legacy Cadastral (0.65)."
         ]
         return summary, details

@@ -97,13 +97,17 @@ class ReconciliationPipeline:
             rev_rec = revenue_map.get(full_survey) or revenue_map.get(survey_no)
             gnss_for_parcel = gnss_map.get(full_survey) or gnss_map.get(survey_no) or []
 
-            # Calculate GNSS surface area estimate if points available
+            # Calculate real GNSS surface area estimate if points available
             gnss_area_val = None
             if len(gnss_for_parcel) >= 3:
-                # Flagship exact check
-                if "184/2" in full_survey or survey_no == "184":
-                    gnss_area_val = 1535.0
-                else:
+                try:
+                    from shapely.geometry import Polygon
+                    from backend.app.services.matching.matcher import M_PER_DEG_LON, M_PER_DEG_LAT, BASE_LON, BASE_LAT
+                    pts = [(pt["longitude"], pt["latitude"]) for pt in gnss_for_parcel]
+                    m_pts = [((x - BASE_LON) * M_PER_DEG_LON, (y - BASE_LAT) * M_PER_DEG_LAT) for x, y in pts]
+                    gnss_poly = Polygon(m_pts)
+                    gnss_area_val = round(abs(gnss_poly.area), 1)
+                except Exception:
                     gnss_area_val = legacy_area
 
             # Area comparison

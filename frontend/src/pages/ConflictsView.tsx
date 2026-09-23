@@ -208,19 +208,19 @@ export const ConflictsView: React.FC<ConflictsViewProps> = ({
                     <div className="border border-slate-200 rounded overflow-hidden text-xs bg-slate-50">
                       <div className="flex justify-between p-2 border-b border-slate-200">
                         <span className="text-slate-600 font-medium">Legacy Cadastral Area:</span>
-                        <strong className="font-mono text-slate-900">{parcelDetail.sources_comparison.legacy ?? '1487'} m²</strong>
+                        <strong className="font-mono text-slate-900">{parcelDetail.sources_comparison.legacy ?? '—'} m²</strong>
                       </div>
                       <div className="flex justify-between p-2 border-b border-slate-200">
                         <span className="text-slate-600 font-medium">Drone ORI Extent:</span>
-                        <strong className="font-mono text-amber-900">{parcelDetail.sources_comparison.drone ?? '1541'} m²</strong>
+                        <strong className="font-mono text-amber-900">{parcelDetail.sources_comparison.drone ?? '—'} m²</strong>
                       </div>
                       <div className="flex justify-between p-2 border-b border-slate-200">
                         <span className="text-slate-600 font-medium">GNSS Survey Area:</span>
-                        <strong className="font-mono text-red-900">{parcelDetail.sources_comparison.gnss ?? '1535'} m²</strong>
+                        <strong className="font-mono text-red-900">{parcelDetail.sources_comparison.gnss ?? '—'} m²</strong>
                       </div>
                       <div className="flex justify-between p-2 font-bold text-blue-950 bg-blue-50/50">
                         <span>Discrepancy Variance:</span>
-                        <span className="font-mono text-red-700">{selectedConflict.discrepancy_delta || '+54 m²'}</span>
+                        <span className="font-mono text-red-700">{selectedConflict.discrepancy_delta || '—'}</span>
                       </div>
                     </div>
                   </div>

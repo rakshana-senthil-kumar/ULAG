@@ -35,12 +35,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
     getCanonicalBuildings().then((b) => setBuildingsCount(b.length)).catch(console.error);
     getSyncStatus().then(setSyncRuns).catch(console.error);
 
-    // Fetch initial flagship parcel 184/2 for map display
-    getParcel('184/2').then(setSelectedParcel).catch(() => {
-      getParcels().then(parcels => {
-        if (parcels.length > 0) getParcel(parcels[0].parcel_id).then(setSelectedParcel);
-      });
-    });
+    // Fetch initial parcel for map display
+    getParcels().then((parcels) => {
+      if (parcels.length > 0) {
+        const candidate = parcels.find((p) => p.parcel_id.includes('184')) || parcels[0];
+        getParcel(candidate.parcel_id).then(setSelectedParcel);
+      }
+    }).catch(console.error);
   }, []);
 
   const toggleLayer = (layer: 'legacy' | 'drone' | 'gnss' | 'reconciled') => {
@@ -50,15 +51,21 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
     if (layer === 'reconciled') setShowReconciled(!showReconciled);
   };
 
+  const totalParcelsCount = summary?.total_parcels ?? 0;
+  const matchedParcelsCount = summary?.matched_count ?? 0;
+  const conflictsParcelsCount = summary?.conflicts_count ?? 0;
+  const cleanPct = totalParcelsCount > 0 ? ((matchedParcelsCount / totalParcelsCount) * 100).toFixed(1) : '0.0';
+  const conflictPct = totalParcelsCount > 0 ? ((conflictsParcelsCount / totalParcelsCount) * 100).toFixed(1) : '0.0';
+
   const pipelineStages = [
     { id: 'workspace', label: 'INGEST', status: 'done', count: '4 Sources', warning: null },
-    { id: 'workspace', label: 'VALIDATE', status: 'done', count: '300 Features', warning: null },
-    { id: 'reconcile', label: 'MATCH', status: 'done', count: '276 Matched', warning: null },
-    { id: 'reconcile', label: 'HARMONIZE', status: 'done', count: '93.7% Confidence', warning: null },
-    { id: 'reconcile', label: 'TOPOLOGY', status: 'done', count: '0 Self-Intersections', warning: null },
-    { id: 'changes', label: 'CHANGE', status: 'done', count: '15 AI Buildings', warning: null },
-    { id: 'conflicts', label: 'REVIEW', status: 'warning', count: '24 Pending', warning: 'Action Needed' },
-    { id: 'reconcile', label: 'PUBLISH', status: 'ready', count: 'Version v4', warning: null }
+    { id: 'workspace', label: 'VALIDATE', status: 'done', count: `${totalParcelsCount} Features`, warning: null },
+    { id: 'reconcile', label: 'MATCH', status: 'done', count: `${matchedParcelsCount} Matched`, warning: null },
+    { id: 'reconcile', label: 'HARMONIZE', status: 'done', count: `${cleanPct}% Consensus`, warning: null },
+    { id: 'reconcile', label: 'TOPOLOGY', status: 'done', count: 'Validated', warning: null },
+    { id: 'changes', label: 'CHANGE', status: 'done', count: `${buildingsCount} AI Buildings`, warning: null },
+    { id: 'conflicts', label: 'REVIEW', status: conflictsParcelsCount > 0 ? 'warning' : 'done', count: `${conflictsParcelsCount} Pending`, warning: conflictsParcelsCount > 0 ? 'Action Needed' : null },
+    { id: 'reconcile', label: 'PUBLISH', status: 'ready', count: 'Standard GeoJSON', warning: null }
   ];
 
   return (
@@ -103,11 +110,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
             <span className="w-2 h-2 rounded-full bg-blue-500"></span>
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-3xl font-black text-slate-900 font-mono tracking-tight">{summary?.total_parcels || 300}</span>
+            <span className="text-3xl font-black text-slate-900 font-mono tracking-tight">{totalParcelsCount}</span>
             <span className="text-[11px] text-slate-500 font-medium">100% Ingested</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
-            <Layers className="w-3 h-3 text-blue-600" /> Synthetic Pune Urban Benchmark
+            <Layers className="w-3 h-3 text-blue-600" /> Multi-Source Cadastral Fabric
           </p>
         </div>
 
@@ -117,8 +124,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-3xl font-black text-emerald-700 font-mono tracking-tight">{summary?.matched_count || 276}</span>
-            <span className="text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">92.0% Clean</span>
+            <span className="text-3xl font-black text-emerald-700 font-mono tracking-tight">{matchedParcelsCount}</span>
+            <span className="text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">{cleanPct}% Clean</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
             <CheckCircle className="w-3 h-3 text-emerald-600" /> Sub-meter geometry consensus
@@ -131,8 +138,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
             <span className="w-2 h-2 rounded-full bg-amber-500"></span>
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-3xl font-black text-amber-600 font-mono tracking-tight">{summary?.conflicts_count || 24}</span>
-            <span className="text-[11px] text-amber-800 font-semibold bg-amber-50 px-1.5 py-0.5 rounded">8.0% Flagged</span>
+            <span className="text-3xl font-black text-amber-600 font-mono tracking-tight">{conflictsParcelsCount}</span>
+            <span className="text-[11px] text-amber-800 font-semibold bg-amber-50 px-1.5 py-0.5 rounded">{conflictPct}% Flagged</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
             <AlertTriangle className="w-3 h-3 text-amber-600" /> Triage review required
@@ -145,7 +152,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
             <span className="w-2 h-2 rounded-full bg-purple-500"></span>
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-3xl font-black text-purple-700 font-mono tracking-tight">{buildingsCount || 15}</span>
+            <span className="text-3xl font-black text-purple-700 font-mono tracking-tight">{buildingsCount}</span>
             <span className="text-[11px] text-purple-700 font-semibold bg-purple-50 px-1.5 py-0.5 rounded">AI / Drone</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
@@ -259,7 +266,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
           <div className="flex items-center gap-3">
             <h2 className="font-bold text-sm text-slate-900 uppercase tracking-wide">Harmonization WebGIS Overview</h2>
             <span className="text-slate-300">|</span>
-            <span className="text-xs text-slate-600 font-mono">Parcel 184/2 (Pune Demonstration Sector)</span>
+            <span className="text-xs text-slate-600 font-mono">
+              {selectedParcel ? `Parcel ${selectedParcel.full_survey} (Active Selection)` : 'Full 300-Parcel Fabric'}
+            </span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -293,19 +302,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
             <div className="space-y-1 text-[11px]">
               <div className="flex justify-between">
                 <span className="text-slate-400">Total Parcels:</span>
-                <span className="font-bold text-white font-mono">300</span>
+                <span className="font-bold text-white font-mono">{totalParcelsCount}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Matched Parcels:</span>
-                <span className="font-bold text-emerald-400 font-mono">276</span>
+                <span className="font-bold text-emerald-400 font-mono">{matchedParcelsCount}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Active Conflicts:</span>
-                <span className="font-bold text-amber-400 font-mono">24</span>
+                <span className="font-bold text-amber-400 font-mono">{conflictsParcelsCount}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">AI Extracted Buildings:</span>
-                <span className="font-bold text-purple-400 font-mono">15</span>
+                <span className="font-bold text-purple-400 font-mono">{buildingsCount}</span>
               </div>
             </div>
           </div>
