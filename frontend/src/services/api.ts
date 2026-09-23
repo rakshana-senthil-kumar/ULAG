@@ -6,6 +6,15 @@ import type {
   ConflictItem
 } from '../types/cadastral';
 
+import type {
+  CanonicalBuilding,
+  ChangeDetectionItem,
+  TopologyIssue,
+  ProvenanceRecord,
+  AIModelMetadata,
+  EvaluationReportV2
+} from '../types/canonical';
+
 const API_BASE = '/api';
 
 export async function loadDemoDataset(): Promise<{
@@ -124,7 +133,39 @@ export async function markManualReview(
   return res.json();
 }
 
-export async function getEvaluationReport(): Promise<any> {
+// --- V2 API Client Methods ---
+
+export async function getCanonicalBuildings(): Promise<CanonicalBuilding[]> {
+  const res = await fetch(`${API_BASE}/v2/buildings`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getTemporalChanges(): Promise<ChangeDetectionItem[]> {
+  const res = await fetch(`${API_BASE}/v2/changes`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getTopologyIssues(): Promise<TopologyIssue[]> {
+  const res = await fetch(`${API_BASE}/v2/topology/issues`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getProvenance(featureId: string): Promise<ProvenanceRecord> {
+  const res = await fetch(`${API_BASE}/v2/provenance/${encodeURIComponent(featureId)}`);
+  if (!res.ok) throw new Error(`Failed to fetch provenance for ${featureId}`);
+  return res.json();
+}
+
+export async function getAIModels(): Promise<AIModelMetadata[]> {
+  const res = await fetch(`${API_BASE}/v2/models`);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getEvaluationReportV2(): Promise<EvaluationReportV2> {
   const res = await fetch(`${API_BASE}/evaluation/report`);
   if (!res.ok) throw new Error('Failed to fetch evaluation report');
   return res.json();

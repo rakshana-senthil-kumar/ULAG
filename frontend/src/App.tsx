@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import type { NavTab } from './components/Navbar';
+import { Sidebar } from './components/Sidebar';
+import type { NavTab } from './components/Sidebar';
+import { Header } from './components/Header';
+
+import { DashboardView } from './pages/DashboardView';
 import { WorkspaceView } from './pages/WorkspaceView';
 import { ReconcileView } from './pages/ReconcileView';
 import { ConflictsView } from './pages/ConflictsView';
 import { ReviewView } from './pages/ReviewView';
+import { ChangeDetectionView } from './pages/ChangeDetectionView';
+import { EvaluationView } from './pages/EvaluationView';
+
 import type { ReconciliationSummary, ValidationReport } from './types/cadastral';
 import { getSummary } from './services/api';
 
 export function App() {
-  const [currentTab, setCurrentTab] = useState<NavTab>('workspace');
+  const [currentTab, setCurrentTab] = useState<NavTab>('dashboard');
   const [summary, setSummary] = useState<ReconciliationSummary | null>(null);
   const [validation, setValidation] = useState<ValidationReport | null>(null);
   const [reviewConflictId, setReviewConflictId] = useState<string>('C-001');
@@ -35,45 +41,76 @@ export function App() {
     setCurrentTab('review');
   };
 
+  const tabLabels: Record<NavTab, string> = {
+    dashboard: 'Executive Dashboard',
+    workspace: 'Multi-Source Data Ingestion',
+    reconcile: 'Harmonization Workstation',
+    conflicts: 'Conflict Triage Center',
+    review: 'Officer Adjudication Review',
+    changes: 'Temporal Change Detection',
+    evaluation: 'Benchmark & Pipeline Evaluation'
+  };
+
   return (
-    <div className="min-h-screen bg-[#f8fafc] flex flex-col text-slate-900 selection:bg-blue-100">
-      <Navbar
+    <div className="h-screen w-screen bg-[#f8fafc] flex overflow-hidden text-slate-900 selection:bg-blue-100 font-sans">
+      {/* Compact Left Navigation Sidebar */}
+      <Sidebar
         currentTab={currentTab}
         onSelectTab={(tab) => setCurrentTab(tab)}
         conflictsCount={summary?.conflicts_count || 24}
       />
 
-      <main className="flex-1 overflow-auto">
-        {currentTab === 'workspace' && (
-          <WorkspaceView
-            summary={summary}
-            validation={validation}
-            onReconciliationReady={handleReconciliationReady}
-            onNavigateToReconcile={() => setCurrentTab('reconcile')}
-          />
-        )}
+      {/* Main Container Right (Header + Main Content View) */}
+      <div className="flex-1 flex flex-col h-full overflow-hidden">
+        <Header currentTabLabel={tabLabels[currentTab]} />
 
-        {currentTab === 'reconcile' && (
-          <ReconcileView
-            summary={summary}
-            onRefreshSummary={refreshSummary}
-          />
-        )}
+        <main className="flex-1 overflow-auto bg-[#f8fafc]">
+          {currentTab === 'dashboard' && (
+            <DashboardView
+              summary={summary}
+              onNavigateTab={(tab) => setCurrentTab(tab)}
+            />
+          )}
 
-        {currentTab === 'conflicts' && (
-          <ConflictsView
-            onSelectConflictForReview={handleSelectConflictForReview}
-          />
-        )}
+          {currentTab === 'workspace' && (
+            <WorkspaceView
+              summary={summary}
+              validation={validation}
+              onReconciliationReady={handleReconciliationReady}
+              onNavigateToReconcile={() => setCurrentTab('reconcile')}
+            />
+          )}
 
-        {currentTab === 'review' && (
-          <ReviewView
-            conflictId={reviewConflictId}
-            onBackToConflicts={() => setCurrentTab('conflicts')}
-            onRefreshSummary={refreshSummary}
-          />
-        )}
-      </main>
+          {currentTab === 'reconcile' && (
+            <ReconcileView
+              summary={summary}
+              onRefreshSummary={refreshSummary}
+            />
+          )}
+
+          {currentTab === 'conflicts' && (
+            <ConflictsView
+              onSelectConflictForReview={handleSelectConflictForReview}
+            />
+          )}
+
+          {currentTab === 'review' && (
+            <ReviewView
+              conflictId={reviewConflictId}
+              onBackToConflicts={() => setCurrentTab('conflicts')}
+              onRefreshSummary={refreshSummary}
+            />
+          )}
+
+          {currentTab === 'changes' && (
+            <ChangeDetectionView />
+          )}
+
+          {currentTab === 'evaluation' && (
+            <EvaluationView />
+          )}
+        </main>
+      </div>
     </div>
   );
 }

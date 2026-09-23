@@ -1,6 +1,6 @@
-import { Layers, AlertTriangle, CheckSquare, Database } from 'lucide-react';
+import { Layers, AlertTriangle, CheckSquare, Database, LayoutDashboard, Activity, Award } from 'lucide-react';
 
-export type NavTab = 'workspace' | 'reconcile' | 'conflicts' | 'review';
+export type NavTab = 'dashboard' | 'workspace' | 'reconcile' | 'conflicts' | 'review' | 'changes' | 'evaluation';
 
 interface NavbarProps {
   currentTab: NavTab;
@@ -18,24 +18,36 @@ export const Navbar = ({
       {/* Brand & Subtitle */}
       <div className="flex items-center gap-4">
         <div
-          onClick={() => onSelectTab('workspace')}
+          onClick={() => onSelectTab('dashboard')}
           className="cursor-pointer flex items-baseline gap-2"
         >
           <span className="font-bold text-base tracking-wide text-white flex items-center gap-1.5">
             <span className="inline-block w-2.5 h-2.5 bg-blue-500 rounded-sm"></span>
-            BHUMI-FUSION
+            BHUMI-FUSION V2
           </span>
-          <span className="text-[11px] text-slate-400 font-normal hidden md:inline">
-            AI-Powered Cadastral Reconciliation Engine
+          <span className="text-[11px] text-slate-400 font-normal hidden lg:inline">
+            Geospatial Harmonization Platform
           </span>
         </div>
       </div>
 
-      {/* Main Strict Navigation: Workspace, 1. Reconcile, 2. Conflicts, 3. Review */}
+      {/* Navigation Bar */}
       <nav className="flex items-center gap-1">
         <button
+          onClick={() => onSelectTab('dashboard')}
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+            currentTab === 'dashboard'
+              ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
+              : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+          }`}
+        >
+          <LayoutDashboard className="w-3.5 h-3.5" />
+          Dashboard
+        </button>
+
+        <button
           onClick={() => onSelectTab('workspace')}
-          className={`px-3 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
             currentTab === 'workspace'
               ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
               : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -45,11 +57,11 @@ export const Navbar = ({
           Workspace
         </button>
 
-        <span className="text-slate-600 px-1">|</span>
+        <span className="text-slate-600 px-0.5">|</span>
 
         <button
           onClick={() => onSelectTab('reconcile')}
-          className={`px-3 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
             currentTab === 'reconcile'
               ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
               : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -61,7 +73,7 @@ export const Navbar = ({
 
         <button
           onClick={() => onSelectTab('conflicts')}
-          className={`px-3 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
             currentTab === 'conflicts'
               ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
               : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -78,7 +90,7 @@ export const Navbar = ({
 
         <button
           onClick={() => onSelectTab('review')}
-          className={`px-3 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
             currentTab === 'review'
               ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
               : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -87,10 +99,36 @@ export const Navbar = ({
           <CheckSquare className="w-3.5 h-3.5 text-emerald-400" />
           3. Review
         </button>
+
+        <span className="text-slate-600 px-0.5">|</span>
+
+        <button
+          onClick={() => onSelectTab('changes')}
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+            currentTab === 'changes'
+              ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
+              : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+          }`}
+        >
+          <Activity className="w-3.5 h-3.5 text-purple-400" />
+          Changes
+        </button>
+
+        <button
+          onClick={() => onSelectTab('evaluation')}
+          className={`px-2.5 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-1.5 ${
+            currentTab === 'evaluation'
+              ? 'bg-blue-600/30 text-blue-200 border border-blue-500/40'
+              : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+          }`}
+        >
+          <Award className="w-3.5 h-3.5 text-emerald-400" />
+          Evaluation
+        </button>
       </nav>
 
       {/* Operator identifier */}
-      <div className="flex items-center gap-2 text-xs text-slate-400 hidden sm:flex">
+      <div className="flex items-center gap-2 text-xs text-slate-400 hidden xl:flex">
         <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
         <span>District Land Authority (MH)</span>
       </div>
