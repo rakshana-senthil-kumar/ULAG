@@ -1,5 +1,5 @@
 """
-Utility Network Spatial Integration Service for BHUMI-FUSION
+Utility Network Spatial Integration Service for ULAG
 Analyzes proximity and topological intersections between urban parcels
 and municipal underground/overhead utility infrastructure (Electricity, Water, Sewer, Telecom).
 """

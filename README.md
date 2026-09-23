@@ -1,4 +1,4 @@
-# BHUMI-FUSION
+# ULAG
 ### Automated Integration and Intelligent Harmonization of Multi-source Geospatial Data for Urban Land Record Management
 **Smart India Hackathon Problem Statement 26013**
 
@@ -6,7 +6,7 @@
 
 ## 🌟 Executive Summary
 
-**BHUMI-FUSION** is an enterprise-grade geospatial integration and intelligent harmonization platform engineered for urban land administration authorities. It harmonizes heterogeneous geospatial datasets across **Drone Imagery (ORI)**, **DSM/DTM Elevation Rasters**, **Legacy Cadastral Vector Maps**, **Revenue 7/12 Records**, **CORS/GNSS RTK Field Surveys**, and **Municipal Utility Networks**.
+**ULAG** is an enterprise-grade geospatial integration and intelligent harmonization platform engineered for urban land administration authorities. It harmonizes heterogeneous geospatial datasets across **Drone Imagery (ORI)**, **DSM/DTM Elevation Rasters**, **Legacy Cadastral Vector Maps**, **Revenue 7/12 Records**, **CORS/GNSS RTK Field Surveys**, and **Municipal Utility Networks**.
 
 The system replaces arbitrary rule-based overrides with genuine **PyProj geodetic coordinate transformations**, **Shapely STRtree 2D R-Tree spatial indexing**, **5-factor explainable confidence scoring**, **Rasterio-powered zonal elevation statistics**, **GeoAI building footprint extraction**, **bi-temporal vector change detection**, and an interactive **Leaflet Full-Fabric WebGIS**.
 

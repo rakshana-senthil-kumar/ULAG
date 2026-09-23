@@ -23,10 +23,10 @@ export const Navbar = ({
         >
           <span className="font-bold text-base tracking-wide text-white flex items-center gap-1.5">
             <span className="inline-block w-2.5 h-2.5 bg-blue-500 rounded-sm"></span>
-            BHUMI-FUSION V2
+            ULAG
           </span>
           <span className="text-[11px] text-slate-400 font-normal hidden lg:inline">
-            Geospatial Harmonization Platform
+            Urban Land Record Harmonization Platform
           </span>
         </div>
       </div>

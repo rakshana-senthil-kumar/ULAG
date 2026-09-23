@@ -1,5 +1,5 @@
 """
-Canonical and Extended Geospatial Schemas for BHUMI-FUSION
+Canonical and Extended Geospatial Schemas for ULAG
 Defines models for Multi-Source Ingestion, AI Building Extraction,
 Elevation Raster Analysis, Utility Networks, Topology Validation,
 Temporal Change Detection, Dataset Synchronization, and Provenance.

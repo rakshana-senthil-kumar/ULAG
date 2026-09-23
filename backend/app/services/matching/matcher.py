@@ -1,5 +1,5 @@
 """
-Spatial Parcel Matching Engine for BHUMI-FUSION
+Spatial Parcel Matching Engine for ULAG
 Uses spatial indexing (shapely.STRtree) to perform sub-millisecond candidate lookup.
 Computes multi-criteria similarity metrics and deterministic confidence score.
 """

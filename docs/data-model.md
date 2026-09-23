@@ -1,4 +1,4 @@
-# BHUMI-FUSION Geospatial Data Model
+# ULAG Geospatial Data Model
 
 ---
 

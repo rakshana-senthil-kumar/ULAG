@@ -1,5 +1,5 @@
 """
-AI Building Footprint Extraction and Model Registry Service for BHUMI-FUSION
+AI Building Footprint Extraction and Model Registry Service for ULAG
 Provides deep learning inference metadata and structural building polygon extraction
 from drone orthoimagery and photogrammetric datasets.
 """

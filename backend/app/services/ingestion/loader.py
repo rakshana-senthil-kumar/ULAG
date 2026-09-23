@@ -1,5 +1,5 @@
 """
-Dataset Ingestion Service for BHUMI-FUSION
+Dataset Ingestion Service for ULAG
 Loads and parses GeoJSON and CSV datasets with intelligent attribute harmonization.
 Accepts heterogeneous column headers (e.g. khasra_no, plot_id, area_sq_m) and maps to canonical fields.
 """

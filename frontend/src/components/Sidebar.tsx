@@ -35,11 +35,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, confl
         {/* Brand Header */}
         <div className="h-14 px-5 border-b border-slate-800 flex items-center gap-2.5">
           <div className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
-            BF
+            U
           </div>
           <div>
-            <h1 className="font-bold text-sm tracking-wide text-white leading-none">BHUMI-FUSION</h1>
-            <span className="text-[10px] text-slate-400 font-medium">Urban Land Intelligence</span>
+            <h1 className="font-bold text-sm tracking-wide text-white leading-none">ULAG</h1>
+            <span className="text-[10px] text-slate-400 font-medium">Urban Land Harmonization</span>
           </div>
         </div>
 

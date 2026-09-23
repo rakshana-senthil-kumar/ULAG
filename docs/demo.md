@@ -1,4 +1,4 @@
-# BHUMI-FUSION End-to-End Demo Workflow Guide
+# ULAG End-to-End Demo Workflow Guide
 
 **Smart India Hackathon Problem Statement 26013**
 

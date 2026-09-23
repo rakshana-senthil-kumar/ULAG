@@ -1,4 +1,4 @@
--- BHUMI-FUSION Database Schema
+-- ULAG Database Schema
 -- Problem Statement 26013: AI-Powered Cadastral Reconciliation & Geospatial Harmonization Platform
 -- PostgreSQL + PostGIS Compatible Migration
 

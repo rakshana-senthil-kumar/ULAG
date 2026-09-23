@@ -1,5 +1,5 @@
 """
-Data Provenance and Dataset Synchronization Service for BHUMI-FUSION
+Data Provenance and Dataset Synchronization Service for ULAG
 Maintains immutable feature-level data lineage, processing transformation logs,
 and multi-departmental dataset synchronization records.
 """

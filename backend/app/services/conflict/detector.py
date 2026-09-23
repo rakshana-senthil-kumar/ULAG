@@ -1,5 +1,5 @@
 """
-Conflict Detection Engine for BHUMI-FUSION
+Conflict Detection Engine for ULAG
 Detects Area discrepancies, Geometry shifts, Attribute clashes,
 Missing features, Duplicate features, and Potential Splits/Merges.
 """

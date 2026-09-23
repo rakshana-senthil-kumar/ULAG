@@ -1,4 +1,4 @@
-# BHUMI-FUSION REST API Reference
+# ULAG REST API Reference
 
 All endpoints are hosted by FastAPI with prefix `/api` and automatic OpenAPI documentation at `/docs`.
 

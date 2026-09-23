@@ -1,4 +1,4 @@
-# BHUMI-FUSION GeoAI & Computer Vision Integration
+# ULAG GeoAI & Computer Vision Integration
 
 **Problem Statement 26013:** Automated Integration and Intelligent Harmonization of Multi-source Geospatial Data for Urban Land Record Management
 
@@ -6,7 +6,7 @@
 
 ## 1. GeoAI Architecture
 
-BHUMI-FUSION integrates machine learning and computer vision to extract actionable building features and detect urban land-use transformations.
+ULAG integrates machine learning and computer vision to extract actionable building features and detect urban land-use transformations.
 
 ```
 High-Resolution Drone Imagery / GeoTIFF

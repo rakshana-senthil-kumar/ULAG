@@ -1,5 +1,5 @@
 """
-Pipeline Coordinator Service for BHUMI-FUSION
+Pipeline Coordinator Service for ULAG
 Orchestrates the entire end-to-end cadastral reconciliation workflow:
 Ingestion -> Validation -> Spatial Matching -> Conflict Detection -> Reconciliation -> Storage
 """

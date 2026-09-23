@@ -1,5 +1,5 @@
 """
-Temporal Change Detection Service for BHUMI-FUSION
+Temporal Change Detection Service for ULAG
 Detects structural additions, boundary shifts, area expansions,
 and land-use conversions by analyzing multi-epoch spatial and tabular observations.
 """

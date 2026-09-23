@@ -1,11 +1,11 @@
-# BHUMI-FUSION Architecture Overview
+# ULAG Architecture Overview
 **Problem Statement 26013:** Automated Integration and Intelligent Harmonization of Multi-source Geospatial Data for Urban Land Record Management
 
 ---
 
 ## 1. System Topology
 
-BHUMI-FUSION uses a modular, cloud-ready, hackathon-deployable architecture designed for high-precision geospatial data fusion:
+ULAG uses a modular, cloud-ready, hackathon-deployable architecture designed for high-precision geospatial data fusion:
 
 ```mermaid
 graph TD

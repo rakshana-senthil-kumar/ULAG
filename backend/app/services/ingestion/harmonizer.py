@@ -1,5 +1,5 @@
 """
-Intelligent Attribute Harmonization Service for BHUMI-FUSION
+Intelligent Attribute Harmonization Service for ULAG
 Normalizes heterogeneous land record schemas into a canonical schema
 using synonym lookup, normalization, and fuzzy string matching.
 """

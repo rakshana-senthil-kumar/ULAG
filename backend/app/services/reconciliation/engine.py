@@ -1,5 +1,5 @@
 """
-Reconciliation Engine for BHUMI-FUSION
+Reconciliation Engine for ULAG
 Produces evidence-weighted recommendations based on source reliability weights.
 Preserves original source records and computes authoritative reconciled candidates.
 """

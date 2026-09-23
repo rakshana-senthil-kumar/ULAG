@@ -1,5 +1,5 @@
 """
-Explainability Generator for BHUMI-FUSION
+Explainability Generator for ULAG
 Synthesizes honest, evidence-grounded justifications directly from computed spatial
 and attribute metrics without fabricating reasoning or hallucinations.
 """

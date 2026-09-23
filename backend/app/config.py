@@ -1,5 +1,5 @@
 """
-BHUMI-FUSION Configuration
+ULAG Configuration
 Defines source reliability weights, confidence model weights, and thresholds.
 All weights are transparent configuration data, NOT claimed as machine-learned black-box weights.
 """

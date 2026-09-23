@@ -1,5 +1,5 @@
 """
-Synthetic Cadastral Dataset Generator for BHUMI-FUSION
+Synthetic Cadastral Dataset Generator for ULAG
 Problem Statement 26013: Automated Integration & Intelligent Harmonization of Multi-source Geospatial Data
 
 Generates:
@@ -86,7 +86,7 @@ def create_metric_polygon(center_x_m, center_y_m, width_m, height_m, jitter_pct=
     return Polygon(geo_coords)
 
 def generate_datasets():
-    print("Generating synthetic cadastral datasets for BHUMI-FUSION...")
+    print("Generating synthetic cadastral datasets for ULAG...")
     total_parcels = 300
     grid_cols = 20
     grid_rows = 15 # 20x15 = 300 parcels

@@ -1,5 +1,5 @@
 """
-DSM/DTM Elevation Raster Analysis Service for BHUMI-FUSION
+DSM/DTM Elevation Raster Analysis Service for ULAG
 Reads real GeoTIFF files using Rasterio, extracts elevation metadata,
 and computes parcel-level zonal terrain statistics and slope.
 """

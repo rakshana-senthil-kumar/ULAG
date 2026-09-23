@@ -1,5 +1,5 @@
 """
-CRS and Geometry Validation Service for BHUMI-FUSION
+CRS and Geometry Validation Service for ULAG
 Validates spatial topologies, repairs invalid rings, performs coordinate reprojection
 using pyproj, detects inter-parcel planar topology violations (overlaps, slivers, gaps),
 and outputs high-level validation reports.

@@ -1,5 +1,5 @@
 """
-BHUMI-FUSION Backend Application
+ULAG Backend Application
 Problem Statement 26013: Automated Integration and Intelligent Harmonization of Multi-source Geospatial Data
 """
 
@@ -9,9 +9,9 @@ from backend.app.api.endpoints import router as api_router
 from backend.app.services.pipeline import pipeline
 
 app = FastAPI(
-    title="BHUMI-FUSION",
-    description="AI-Powered Cadastral Reconciliation & Geospatial Harmonization Platform",
-    version="1.0.0"
+    title="ULAG",
+    description="AI-Powered Multi-source Geospatial Data Harmonization Platform (PS 26013)",
+    version="2.0.0"
 )
 
 # Enable CORS for local dev
@@ -31,7 +31,7 @@ async def startup_event():
     """Ensure database has initial demo dataset ready for instant response."""
     try:
         pipeline.load_and_run_demo()
-        print("BHUMI-FUSION engine initialized with demo cadastral dataset.")
+        print("ULAG engine initialized with demo cadastral dataset.")
     except Exception as e:
         print(f"Warning during startup demo loading: {e}")
 
@@ -39,8 +39,8 @@ async def startup_event():
 async def health_check():
     return {
         "status": "healthy",
-        "service": "BHUMI-FUSION Cadastral Reconciliation Engine",
-        "version": "1.0.0"
+        "service": "ULAG Geospatial Harmonization Engine",
+        "version": "2.0.0"
     }
 
 if __name__ == "__main__":

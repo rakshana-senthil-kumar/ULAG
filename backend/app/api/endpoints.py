@@ -1,5 +1,5 @@
 """
-FastAPI Endpoints for BHUMI-FUSION
+FastAPI Endpoints for ULAG
 Provides clean, strictly typed, RESTful interfaces for data ingestion,
 reconciliation execution, parcel & conflict queries, review decisions,
 GeoAI building extraction, raster DSM elevation, utility networks,

@@ -1,5 +1,5 @@
 """
-Storage Repository for BHUMI-FUSION
+Storage Repository for ULAG
 Provides persistence for cadastral datasets, parcel matches, conflicts,
 reconciliation results, and human review decisions.
 Works out of the box with SQLite and preserves all original source data without modification.
@@ -12,7 +12,10 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 from pathlib import Path
-DB_FILE = os.path.join(str(Path(__file__).resolve().parents[3]), "data", "bhumi_fusion.db")
+DB_DIR = os.path.join(str(Path(__file__).resolve().parents[3]), "data")
+_ulag_db = os.path.join(DB_DIR, "ulag.db")
+_legacy_db = os.path.join(DB_DIR, "bhumi_fusion.db")
+DB_FILE = _ulag_db if os.path.exists(_ulag_db) or not os.path.exists(_legacy_db) else _legacy_db
 
 class StorageRepository:
     def __init__(self, db_path: str = DB_FILE):

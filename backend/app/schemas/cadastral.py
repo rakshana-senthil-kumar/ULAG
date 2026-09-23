@@ -1,5 +1,5 @@
 """
-Pydantic Schemas for BHUMI-FUSION
+Pydantic Schemas for ULAG
 Defines validation, response, and exchange models for cadastral reconciliation.
 """
 
