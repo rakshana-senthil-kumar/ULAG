@@ -1,0 +1,88 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "IOM-RD-001",
+      "properties": {
+        "road_id": "IOM-RD-001",
+        "name": "Avinashi Road Arterial Corridor",
+        "road_type": "Primary Arterial",
+        "width_m": 30.0,
+        "surface": "Asphalt",
+        "source": "IndianOpenMaps Transport"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.948,
+            10.998000000000001
+          ],
+          [
+            76.951,
+            11.000500000000002
+          ],
+          [
+            76.955,
+            11.003
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-RD-002",
+      "properties": {
+        "road_id": "IOM-RD-002",
+        "name": "Hinjewadi-Marunji Link Road",
+        "road_type": "Secondary Collector",
+        "width_m": 18.0,
+        "surface": "Asphalt",
+        "source": "IndianOpenMaps Transport"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.9485,
+            10.9982
+          ],
+          [
+            76.9495,
+            10.999200000000002
+          ],
+          [
+            76.9505,
+            11.0002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-RD-003",
+      "properties": {
+        "road_id": "IOM-RD-003",
+        "name": "Sector 3 Ward Access Lane",
+        "road_type": "Local Access",
+        "width_m": 9.0,
+        "surface": "Concrete",
+        "source": "IndianOpenMaps Transport"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.949,
+            10.998800000000003
+          ],
+          [
+            76.95,
+            10.9998
+          ]
+        ]
+      }
+    }
+  ]
+}

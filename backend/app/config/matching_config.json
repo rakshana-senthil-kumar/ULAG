@@ -1,0 +1,38 @@
+{
+  "source_reliability": {
+    "GNSS/CORS": 0.97,
+    "Ground Truth": 0.95,
+    "Drone/ORI": 0.90,
+    "Municipal GIS": 0.82,
+    "Revenue": 0.78,
+    "Legacy Cadastral": 0.65
+  },
+  "matching_weights": {
+    "geometry": 0.35,
+    "area": 0.20,
+    "centroid": 0.20,
+    "attribute": 0.15,
+    "proximity": 0.10
+  },
+  "ml_matching_weights": {
+    "geometry_iou": 0.30,
+    "shape_similarity": 0.15,
+    "area_ratio": 0.15,
+    "centroid_proximity": 0.15,
+    "attribute_agreement": 0.15,
+    "source_reliability": 0.10
+  },
+  "confidence_thresholds": {
+    "high_confidence": 90.0,
+    "review_confidence": 75.0
+  },
+  "topology_tolerances": {
+    "sliver_area_m2": 5.0,
+    "snap_tolerance_m": 0.5,
+    "overlap_tolerance_m2": 2.0
+  },
+  "default_crs": {
+    "interchange": "EPSG:4326",
+    "metric_pune": "EPSG:32643"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "IOM-PWR-001",
+      "properties": {
+        "power_id": "IOM-PWR-001",
+        "name": "110kV HT Transmission Line",
+        "asset_type": "High Voltage Transmission",
+        "easement_buffer_m": 12.0,
+        "voltage_kv": 110.0,
+        "source": "IndianOpenMaps Power Infra"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.948,
+            10.999500000000001
+          ],
+          [
+            76.952,
+            11.000500000000002
+          ],
+          [
+            76.957,
+            11.0015
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-PWR-SUB-01",
+      "properties": {
+        "power_id": "IOM-PWR-SUB-01",
+        "name": "Peelamedu Substation Compound",
+        "asset_type": "Electrical Substation",
+        "easement_buffer_m": 25.0,
+        "voltage_kv": 110.0,
+        "source": "IndianOpenMaps Power Infra"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9515,
+              11.000800000000002
+            ],
+            [
+              76.9522,
+              11.000800000000002
+            ],
+            [
+              76.9522,
+              11.0013
+            ],
+            [
+              76.9515,
+              11.0013
+            ],
+            [
+              76.9515,
+              11.000800000000002
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

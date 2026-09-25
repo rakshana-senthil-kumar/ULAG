@@ -1,0 +1,71 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "IOM-WTR-001",
+      "properties": {
+        "water_id": "IOM-WTR-001",
+        "name": "Noyyal River Main Channel",
+        "water_type": "River Corridor",
+        "buffer_req_m": 15.0,
+        "source": "IndianOpenMaps Water Features"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.948,
+            10.9982
+          ],
+          [
+            76.951,
+            10.998800000000003
+          ],
+          [
+            76.956,
+            10.999500000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-WTR-002",
+      "properties": {
+        "water_id": "IOM-WTR-002",
+        "name": "Singanallur Water Reservoir",
+        "water_type": "Lake Waterbody",
+        "buffer_req_m": 30.0,
+        "source": "IndianOpenMaps Water Features"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9502,
+              11.0
+            ],
+            [
+              76.9508,
+              11.0
+            ],
+            [
+              76.9508,
+              11.000600000000002
+            ],
+            [
+              76.9502,
+              11.000600000000002
+            ],
+            [
+              76.9502,
+              11.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

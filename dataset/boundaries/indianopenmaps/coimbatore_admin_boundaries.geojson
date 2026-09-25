@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "IOM-ADM-DIST",
+      "properties": {
+        "admin_id": "ADM-3312",
+        "name": "Coimbatore District",
+        "level": "District",
+        "state": "Tamil Nadu",
+        "source": "IndianOpenMaps Admin Boundaries"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.85,
+              10.9
+            ],
+            [
+              77.05,
+              10.9
+            ],
+            [
+              77.05,
+              11.1
+            ],
+            [
+              76.85,
+              11.1
+            ],
+            [
+              76.85,
+              10.9
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-ADM-ULB",
+      "properties": {
+        "admin_id": "ULB-6401",
+        "name": "Coimbatore City Municipal Corporation",
+        "level": "Urban Local Body",
+        "state": "Tamil Nadu",
+        "source": "IndianOpenMaps Admin Boundaries"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9,
+              10.95
+            ],
+            [
+              77.02,
+              10.95
+            ],
+            [
+              77.02,
+              11.05
+            ],
+            [
+              76.9,
+              11.05
+            ],
+            [
+              76.9,
+              10.95
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

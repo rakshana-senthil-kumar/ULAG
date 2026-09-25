@@ -1,0 +1,26 @@
+{
+  "dataset": "indianopenmaps_buildings",
+  "provider": "IndianOpenMaps (ramSeraph/indianopenmaps)",
+  "underlying_source": "OpenStreetMap / Overture Maps / Survey of India Open Data",
+  "category": "buildings",
+  "aoi": "Coimbatore, Tamil Nadu",
+  "aoi_bbox": [
+    76.85,
+    10.9,
+    77.05,
+    11.1
+  ],
+  "download_date": "2026-09-25",
+  "source_url": "https://github.com/ramSeraph/indianopenmaps",
+  "license": "Open Data Commons Open Database License (ODbL) / Open Government Data",
+  "original_format": "GeoParquet / GeoJSON",
+  "processed_format": "GeoJSON Normalized",
+  "record_count": 30,
+  "crs": "EPSG:4326 (Internal Metric EPSG:32643)",
+  "processing": [
+    "AOI Bounding Box Extraction",
+    "CRS Transformation & Metric Normalization",
+    "Geometry Repair & Topology Validation",
+    "Spatial Indexing & Multi-Source Conflict Detection"
+  ]
+}

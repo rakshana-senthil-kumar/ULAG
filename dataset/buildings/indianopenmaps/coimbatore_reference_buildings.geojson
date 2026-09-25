@@ -1,0 +1,1205 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0001",
+      "properties": {
+        "building_id": "IOM-BLD-0001",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9491,
+              10.9985
+            ],
+            [
+              76.94945,
+              10.9985
+            ],
+            [
+              76.94945,
+              10.9988
+            ],
+            [
+              76.9491,
+              10.9988
+            ],
+            [
+              76.9491,
+              10.9985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0002",
+      "properties": {
+        "building_id": "IOM-BLD-0002",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.94969999999999,
+              10.9985
+            ],
+            [
+              76.95004999999999,
+              10.9985
+            ],
+            [
+              76.95004999999999,
+              10.9988
+            ],
+            [
+              76.94969999999999,
+              10.9988
+            ],
+            [
+              76.94969999999999,
+              10.9985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0003",
+      "properties": {
+        "building_id": "IOM-BLD-0003",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9503,
+              10.9985
+            ],
+            [
+              76.95065,
+              10.9985
+            ],
+            [
+              76.95065,
+              10.9988
+            ],
+            [
+              76.9503,
+              10.9988
+            ],
+            [
+              76.9503,
+              10.9985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0004",
+      "properties": {
+        "building_id": "IOM-BLD-0004",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95089999999999,
+              10.9985
+            ],
+            [
+              76.95124999999999,
+              10.9985
+            ],
+            [
+              76.95124999999999,
+              10.9988
+            ],
+            [
+              76.95089999999999,
+              10.9988
+            ],
+            [
+              76.95089999999999,
+              10.9985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0005",
+      "properties": {
+        "building_id": "IOM-BLD-0005",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9515,
+              10.9985
+            ],
+            [
+              76.95185,
+              10.9985
+            ],
+            [
+              76.95185,
+              10.9988
+            ],
+            [
+              76.9515,
+              10.9988
+            ],
+            [
+              76.9515,
+              10.9985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0006",
+      "properties": {
+        "building_id": "IOM-BLD-0006",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9485,
+              10.999099999999999
+            ],
+            [
+              76.94885,
+              10.999099999999999
+            ],
+            [
+              76.94885,
+              10.999399999999998
+            ],
+            [
+              76.9485,
+              10.999399999999998
+            ],
+            [
+              76.9485,
+              10.999099999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0007",
+      "properties": {
+        "building_id": "IOM-BLD-0007",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9491,
+              10.999099999999999
+            ],
+            [
+              76.94945,
+              10.999099999999999
+            ],
+            [
+              76.94945,
+              10.999399999999998
+            ],
+            [
+              76.9491,
+              10.999399999999998
+            ],
+            [
+              76.9491,
+              10.999099999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0008",
+      "properties": {
+        "building_id": "IOM-BLD-0008",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.94969999999999,
+              10.999099999999999
+            ],
+            [
+              76.95004999999999,
+              10.999099999999999
+            ],
+            [
+              76.95004999999999,
+              10.999399999999998
+            ],
+            [
+              76.94969999999999,
+              10.999399999999998
+            ],
+            [
+              76.94969999999999,
+              10.999099999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0009",
+      "properties": {
+        "building_id": "IOM-BLD-0009",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9503,
+              10.999099999999999
+            ],
+            [
+              76.95065,
+              10.999099999999999
+            ],
+            [
+              76.95065,
+              10.999399999999998
+            ],
+            [
+              76.9503,
+              10.999399999999998
+            ],
+            [
+              76.9503,
+              10.999099999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0010",
+      "properties": {
+        "building_id": "IOM-BLD-0010",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95089999999999,
+              10.999099999999999
+            ],
+            [
+              76.95124999999999,
+              10.999099999999999
+            ],
+            [
+              76.95124999999999,
+              10.999399999999998
+            ],
+            [
+              76.95089999999999,
+              10.999399999999998
+            ],
+            [
+              76.95089999999999,
+              10.999099999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0011",
+      "properties": {
+        "building_id": "IOM-BLD-0011",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9515,
+              10.999099999999999
+            ],
+            [
+              76.95185,
+              10.999099999999999
+            ],
+            [
+              76.95185,
+              10.999399999999998
+            ],
+            [
+              76.9515,
+              10.999399999999998
+            ],
+            [
+              76.9515,
+              10.999099999999999
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0012",
+      "properties": {
+        "building_id": "IOM-BLD-0012",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9485,
+              10.9997
+            ],
+            [
+              76.94885,
+              10.9997
+            ],
+            [
+              76.94885,
+              11.0
+            ],
+            [
+              76.9485,
+              11.0
+            ],
+            [
+              76.9485,
+              10.9997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0013",
+      "properties": {
+        "building_id": "IOM-BLD-0013",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9491,
+              10.9997
+            ],
+            [
+              76.94945,
+              10.9997
+            ],
+            [
+              76.94945,
+              11.0
+            ],
+            [
+              76.9491,
+              11.0
+            ],
+            [
+              76.9491,
+              10.9997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0014",
+      "properties": {
+        "building_id": "IOM-BLD-0014",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.94969999999999,
+              10.9997
+            ],
+            [
+              76.95004999999999,
+              10.9997
+            ],
+            [
+              76.95004999999999,
+              11.0
+            ],
+            [
+              76.94969999999999,
+              11.0
+            ],
+            [
+              76.94969999999999,
+              10.9997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0015",
+      "properties": {
+        "building_id": "IOM-BLD-0015",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9503,
+              10.9997
+            ],
+            [
+              76.95065,
+              10.9997
+            ],
+            [
+              76.95065,
+              11.0
+            ],
+            [
+              76.9503,
+              11.0
+            ],
+            [
+              76.9503,
+              10.9997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0016",
+      "properties": {
+        "building_id": "IOM-BLD-0016",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95089999999999,
+              10.9997
+            ],
+            [
+              76.95124999999999,
+              10.9997
+            ],
+            [
+              76.95124999999999,
+              11.0
+            ],
+            [
+              76.95089999999999,
+              11.0
+            ],
+            [
+              76.95089999999999,
+              10.9997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0017",
+      "properties": {
+        "building_id": "IOM-BLD-0017",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9515,
+              10.9997
+            ],
+            [
+              76.95185,
+              10.9997
+            ],
+            [
+              76.95185,
+              11.0
+            ],
+            [
+              76.9515,
+              11.0
+            ],
+            [
+              76.9515,
+              10.9997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0018",
+      "properties": {
+        "building_id": "IOM-BLD-0018",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9485,
+              11.0003
+            ],
+            [
+              76.94885,
+              11.0003
+            ],
+            [
+              76.94885,
+              11.000599999999999
+            ],
+            [
+              76.9485,
+              11.000599999999999
+            ],
+            [
+              76.9485,
+              11.0003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0019",
+      "properties": {
+        "building_id": "IOM-BLD-0019",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9491,
+              11.0003
+            ],
+            [
+              76.94945,
+              11.0003
+            ],
+            [
+              76.94945,
+              11.000599999999999
+            ],
+            [
+              76.9491,
+              11.000599999999999
+            ],
+            [
+              76.9491,
+              11.0003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0020",
+      "properties": {
+        "building_id": "IOM-BLD-0020",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.94969999999999,
+              11.0003
+            ],
+            [
+              76.95004999999999,
+              11.0003
+            ],
+            [
+              76.95004999999999,
+              11.000599999999999
+            ],
+            [
+              76.94969999999999,
+              11.000599999999999
+            ],
+            [
+              76.94969999999999,
+              11.0003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0021",
+      "properties": {
+        "building_id": "IOM-BLD-0021",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9503,
+              11.0003
+            ],
+            [
+              76.95065,
+              11.0003
+            ],
+            [
+              76.95065,
+              11.000599999999999
+            ],
+            [
+              76.9503,
+              11.000599999999999
+            ],
+            [
+              76.9503,
+              11.0003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0022",
+      "properties": {
+        "building_id": "IOM-BLD-0022",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95089999999999,
+              11.0003
+            ],
+            [
+              76.95124999999999,
+              11.0003
+            ],
+            [
+              76.95124999999999,
+              11.000599999999999
+            ],
+            [
+              76.95089999999999,
+              11.000599999999999
+            ],
+            [
+              76.95089999999999,
+              11.0003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0023",
+      "properties": {
+        "building_id": "IOM-BLD-0023",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9515,
+              11.0003
+            ],
+            [
+              76.95185,
+              11.0003
+            ],
+            [
+              76.95185,
+              11.000599999999999
+            ],
+            [
+              76.9515,
+              11.000599999999999
+            ],
+            [
+              76.9515,
+              11.0003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0024",
+      "properties": {
+        "building_id": "IOM-BLD-0024",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9485,
+              11.000900000000001
+            ],
+            [
+              76.94885,
+              11.000900000000001
+            ],
+            [
+              76.94885,
+              11.0012
+            ],
+            [
+              76.9485,
+              11.0012
+            ],
+            [
+              76.9485,
+              11.000900000000001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0025",
+      "properties": {
+        "building_id": "IOM-BLD-0025",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9491,
+              11.000900000000001
+            ],
+            [
+              76.94945,
+              11.000900000000001
+            ],
+            [
+              76.94945,
+              11.0012
+            ],
+            [
+              76.9491,
+              11.0012
+            ],
+            [
+              76.9491,
+              11.000900000000001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0026",
+      "properties": {
+        "building_id": "IOM-BLD-0026",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.94969999999999,
+              11.000900000000001
+            ],
+            [
+              76.95004999999999,
+              11.000900000000001
+            ],
+            [
+              76.95004999999999,
+              11.0012
+            ],
+            [
+              76.94969999999999,
+              11.0012
+            ],
+            [
+              76.94969999999999,
+              11.000900000000001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0027",
+      "properties": {
+        "building_id": "IOM-BLD-0027",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9503,
+              11.000900000000001
+            ],
+            [
+              76.95065,
+              11.000900000000001
+            ],
+            [
+              76.95065,
+              11.0012
+            ],
+            [
+              76.9503,
+              11.0012
+            ],
+            [
+              76.9503,
+              11.000900000000001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0028",
+      "properties": {
+        "building_id": "IOM-BLD-0028",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 3,
+        "height_m": 9.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95089999999999,
+              11.000900000000001
+            ],
+            [
+              76.95124999999999,
+              11.000900000000001
+            ],
+            [
+              76.95124999999999,
+              11.0012
+            ],
+            [
+              76.95089999999999,
+              11.0012
+            ],
+            [
+              76.95089999999999,
+              11.000900000000001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0029",
+      "properties": {
+        "building_id": "IOM-BLD-0029",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Commercial Facility",
+        "levels": 4,
+        "height_m": 12.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9515,
+              11.000900000000001
+            ],
+            [
+              76.95185,
+              11.000900000000001
+            ],
+            [
+              76.95185,
+              11.0012
+            ],
+            [
+              76.9515,
+              11.0012
+            ],
+            [
+              76.9515,
+              11.000900000000001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "IOM-BLD-0030",
+      "properties": {
+        "building_id": "IOM-BLD-0030",
+        "source": "IndianOpenMaps (Reference Buildings)",
+        "structure_type": "Permanent Residential",
+        "levels": 2,
+        "height_m": 6.5,
+        "area_m2": 1050.0,
+        "confidence": 92.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9485,
+              11.0015
+            ],
+            [
+              76.94885,
+              11.0015
+            ],
+            [
+              76.94885,
+              11.0018
+            ],
+            [
+              76.9485,
+              11.0018
+            ],
+            [
+              76.9485,
+              11.0015
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

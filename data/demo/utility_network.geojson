@@ -1,0 +1,123 @@
+{
+  "type": "FeatureCollection",
+  "name": "DEMO DATASET (Municipal Utility Network)",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "ELEC-001",
+        "utility_type": "Electricity",
+        "asset_type": "line",
+        "status": "active",
+        "voltage": "11kV Underground Feed"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.7370, 18.5900],
+          [73.7385, 18.5912],
+          [73.7400, 18.5925]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "ELEC-002",
+        "utility_type": "Electricity",
+        "asset_type": "point",
+        "status": "active",
+        "asset_name": "Transformer Substation T-14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.7382, 18.5910]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "WATER-001",
+        "utility_type": "Water",
+        "asset_type": "line",
+        "status": "active",
+        "diameter_mm": 300
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.7368, 18.5898],
+          [73.7382, 18.5908],
+          [73.7398, 18.5920]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "SEWER-001",
+        "utility_type": "Sewer",
+        "asset_type": "line",
+        "status": "active",
+        "pipe_type": "RCC Trunk Line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.7372, 18.5895],
+          [73.7388, 18.5905],
+          [73.7402, 18.5918]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "GAS-001",
+        "utility_type": "Gas",
+        "asset_type": "line",
+        "status": "planned",
+        "pipeline_class": "PNG Main"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.7375, 18.5902],
+          [73.7392, 18.5914]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "TEL-001",
+        "utility_type": "Telecom",
+        "asset_type": "line",
+        "status": "active",
+        "network_type": "OFC Fiber Duct"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [73.7365, 18.5905],
+          [73.7380, 18.5916],
+          [73.7395, 18.5928]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "utility_id": "TEL-002",
+        "utility_type": "Telecom",
+        "asset_type": "point",
+        "status": "active",
+        "asset_name": "Optical Distribution Box ODB-09"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.7384, 18.5915]
+      }
+    }
+  ]
+}
