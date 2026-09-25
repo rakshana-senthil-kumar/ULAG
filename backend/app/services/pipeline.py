@@ -90,21 +90,21 @@ class ReconciliationPipeline:
             legacy_area = float(props.get("area", 1000.0))
             land_use = props.get("land_use", "Residential")
 
-            # Match with Drone
-            drone_cand, evidence, runners_up = self.matcher.match_parcel(legacy_feat)
-
-            # Look up Revenue and GNSS
+            # Look up Revenue and GNSS prior to matching
             rev_rec = revenue_map.get(full_survey) or revenue_map.get(survey_no)
             gnss_for_parcel = gnss_map.get(full_survey) or gnss_map.get(survey_no) or []
 
-            # Calculate real GNSS surface area estimate if points available
+            # Match with Drone incorporating GNSS verification
+            drone_cand, evidence, runners_up = self.matcher.match_parcel(legacy_feat, gnss_for_parcel)
+
+            # Calculate real GNSS surface area estimate if points available using projected metric CRS
             gnss_area_val = None
             if len(gnss_for_parcel) >= 3:
                 try:
                     from shapely.geometry import Polygon
-                    from backend.app.services.matching.matcher import M_PER_DEG_LON, M_PER_DEG_LAT, BASE_LON, BASE_LAT
-                    pts = [(pt["longitude"], pt["latitude"]) for pt in gnss_for_parcel]
-                    m_pts = [((x - BASE_LON) * M_PER_DEG_LON, (y - BASE_LAT) * M_PER_DEG_LAT) for x, y in pts]
+                    from backend.app.services.geometry.crs import project_point
+                    proj_crs = self.matcher.projected_crs
+                    m_pts = [project_point(pt["longitude"], pt["latitude"], src_crs="EPSG:4326", target_crs=proj_crs) for pt in gnss_for_parcel]
                     gnss_poly = Polygon(m_pts)
                     gnss_area_val = round(abs(gnss_poly.area), 1)
                 except Exception:
@@ -133,7 +133,7 @@ class ReconciliationPipeline:
                 evidence=evidence
             )
 
-            # Determine parcel status
+            # Determine parcel status (gated by hard constraints and conflict detector)
             if conflict_item:
                 status = "Conflict"
                 conflicts_count += 1
@@ -158,6 +158,8 @@ class ReconciliationPipeline:
             # Determine reconciled geometry
             reconciled_geom = drone_cand["geometry"] if drone_cand else legacy_feat["geometry"]
 
+            drone_cand_id = drone_cand.get("id") or drone_cand.get("properties", {}).get("feature_id") if drone_cand else None
+
             parcels_data.append({
                 "parcel_id": p_id,
                 "survey_no": survey_no,
@@ -173,6 +175,7 @@ class ReconciliationPipeline:
                 "recommendation": rec.model_dump(),
                 "legacy_geometry": legacy_feat.get("geometry"),
                 "drone_geometry": drone_cand.get("geometry") if drone_cand else None,
+                "drone_candidate_id": drone_cand_id,
                 "reconciled_geometry": reconciled_geom,
                 "gnss_points": gnss_for_parcel
             })

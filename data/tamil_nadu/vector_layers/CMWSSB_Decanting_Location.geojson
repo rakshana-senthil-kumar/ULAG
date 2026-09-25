@@ -1,0 +1,88 @@
+{
+  "type": "FeatureCollection",
+  "name": "CMWSSB_Decanting_Location",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CMWSSB_DEC_01",
+      "properties": {
+        "decanting_point_id": "DEC-TN-01",
+        "location_name": "Koyambedu Decanting Facility",
+        "sewage_treatment_plant_linked": "Koyambedu 120 MLD STP",
+        "tanker_lorry_capacity_daily": 350,
+        "operating_agency": "Chennai Metropolitan Water Supply and Sewerage Board",
+        "monitoring": "Automated Flow Metres & Bio-sensor SCADA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.198,
+          13.064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMWSSB_DEC_02",
+      "properties": {
+        "decanting_point_id": "DEC-TN-02",
+        "location_name": "Nesapakkam Decanting Station",
+        "sewage_treatment_plant_linked": "Nesapakkam 114 MLD STP",
+        "tanker_lorry_capacity_daily": 280,
+        "operating_agency": "Chennai Metropolitan Water Supply and Sewerage Board",
+        "monitoring": "Automated Flow Metres & Bio-sensor SCADA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.192,
+          13.029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMWSSB_DEC_03",
+      "properties": {
+        "decanting_point_id": "DEC-TN-03",
+        "location_name": "Perungudi OMR Decanting Depot",
+        "sewage_treatment_plant_linked": "Perungudi 126 MLD STP",
+        "tanker_lorry_capacity_daily": 420,
+        "operating_agency": "Chennai Metropolitan Water Supply and Sewerage Board",
+        "monitoring": "Automated Flow Metres & Bio-sensor SCADA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.236,
+          12.955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMWSSB_DEC_04",
+      "properties": {
+        "decanting_point_id": "DEC-TN-04",
+        "location_name": "Kodungaiyur North Decanting Hub",
+        "sewage_treatment_plant_linked": "Kodungaiyur 270 MLD STP",
+        "tanker_lorry_capacity_daily": 500,
+        "operating_agency": "Chennai Metropolitan Water Supply and Sewerage Board",
+        "monitoring": "Automated Flow Metres & Bio-sensor SCADA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.262,
+          13.136
+        ]
+      }
+    }
+  ]
+}

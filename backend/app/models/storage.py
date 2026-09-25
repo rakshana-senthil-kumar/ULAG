@@ -15,7 +15,16 @@ from pathlib import Path
 DB_DIR = os.path.join(str(Path(__file__).resolve().parents[3]), "data")
 _ulag_db = os.path.join(DB_DIR, "ulag.db")
 _legacy_db = os.path.join(DB_DIR, "bhumi_fusion.db")
-DB_FILE = _ulag_db if os.path.exists(_ulag_db) or not os.path.exists(_legacy_db) else _legacy_db
+
+# If legacy db has data but ulag.db is empty or missing, sync it automatically
+if os.path.exists(_legacy_db) and (not os.path.exists(_ulag_db) or os.path.getsize(_ulag_db) < 100000):
+    try:
+        import shutil
+        shutil.copyfile(_legacy_db, _ulag_db)
+    except Exception:
+        pass
+
+DB_FILE = _ulag_db if os.path.exists(_ulag_db) else _legacy_db
 
 class StorageRepository:
     def __init__(self, db_path: str = DB_FILE):

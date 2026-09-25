@@ -1,301 +1,301 @@
 survey_no,subdivision_no,owner_ref,area,land_use,status
-200,1,IND-MH-PN-1000,1270.8,Mixed Use,Active
-201,2,IND-MH-PN-1001,1361.2,Industrial,Active
-184,2,IND-MH-PN-1002,1520.0,Institutional,Active
-203,4,IND-MH-PN-1003,1323.2,Agricultural,Active
-204,1,IND-MH-PN-1004,1353.6,Agricultural,Active
-205,2,IND-MH-PN-1005,1396.3,Agricultural,Active
-206,3,IND-MH-PN-1006,1253.8,Commercial,Active
-207,4,IND-MH-PN-1007,1334.9,Agricultural,Active
-208,1,IND-MH-PN-1008,1312.6,Agricultural,Active
-209,2,IND-MH-PN-1009,1354.2,Institutional,Active
-210,3,IND-MH-PN-1010,1306.9,Commercial,Active
-211,4,IND-MH-PN-1011,1315.4,Institutional,Active
-212,1,IND-MH-PN-1012,1316.5,Residential,Active
-213,2,IND-MH-PN-1013,1355.5,Mixed Use,Active
-214,3,IND-MH-PN-1014,1334.2,Residential,Active
-215,4,IND-MH-PN-1015,1395.9,Residential,Active
-216,1,IND-MH-PN-1016,1375.5,Mixed Use,Active
-217,2,IND-MH-PN-1017,1259.4,Agricultural,Active
-218,3,IND-MH-PN-1018,1331.0,Institutional,Active
-219,4,IND-MH-PN-1019,1322.1,Industrial,Active
-220,1,IND-MH-PN-1020,1483.5,Agricultural,Active
-221,2,IND-MH-PN-1021,1312.3,Mixed Use,Active
-222,3,IND-MH-PN-1022,1280.7,Mixed Use,Active
-223,4,IND-MH-PN-1023,1292.7,Agricultural,Active
-224,1,IND-MH-PN-1024,1264.6,Institutional,Active
-225,2,IND-MH-PN-1025,1321.2,Industrial,Active
-226,3,IND-MH-PN-1026,1380.0,Agricultural,Active
-227,4,IND-MH-PN-1027,1278.7,Commercial,Active
-228,1,IND-MH-PN-1028,1359.0,Industrial,Active
-229,2,IND-MH-PN-1029,1277.2,Commercial,Active
-230,3,IND-MH-PN-1030,1327.9,Mixed Use,Active
-231,4,IND-MH-PN-1031,1309.0,Industrial,Active
-232,1,IND-MH-PN-1032,1300.9,Agricultural,Active
-233,2,IND-MH-PN-1033,1326.7,Residential,Active
-234,3,IND-MH-PN-1034,1336.9,Mixed Use,Active
-235,4,IND-MH-PN-1035,1248.8,Residential,Active
-236,1,IND-MH-PN-1036,1216.6,Agricultural,Active
-237,2,IND-MH-PN-1037,1242.2,Mixed Use,Active
-238,3,IND-MH-PN-1038,1309.3,Mixed Use,Active
-239,4,IND-MH-PN-1039,1243.6,Industrial,Active
-240,1,IND-MH-PN-1040,1279.6,Agricultural,Active
-241,2,IND-MH-PN-1041,1263.1,Agricultural,Active
-242,3,IND-MH-PN-1042,1286.4,Commercial,Active
-243,4,IND-MH-PN-1043,1283.8,Residential,Active
-244,1,IND-MH-PN-1044,1317.8,Industrial,Active
-245,2,IND-MH-PN-1045,1307.6,Residential,Active
-246,3,IND-MH-PN-1046,1291.3,Commercial,Active
-247,4,IND-MH-PN-1047,1286.2,Industrial,Active
-248,1,IND-MH-PN-1048,1327.4,Institutional,Active
-249,2,IND-MH-PN-1049,1339.9,Mixed Use,Active
-250,3,IND-MH-PN-1050,1287.5,Institutional,Active
-251,4,IND-MH-PN-1051,1283.1,Mixed Use,Active
-252,1,IND-MH-PN-1052,1263.0,Agricultural,Active
-253,2,IND-MH-PN-1053,1267.2,Residential,Active
-254,3,IND-MH-PN-1054,1276.9,Residential,Active
-255,4,IND-MH-PN-1055,1303.4,Institutional,Active
-256,1,IND-MH-PN-1056,1255.0,Agricultural,Active
-257,2,IND-MH-PN-1057,1206.4,Mixed Use,Active
-258,3,IND-MH-PN-1058,1293.4,Mixed Use,Active
-259,4,IND-MH-PN-1059,1326.3,Commercial,Active
-260,1,IND-MH-PN-1060,1333.2,Industrial,Active
-261,2,IND-MH-PN-1061,1282.9,Mixed Use,Active
-262,3,IND-MH-PN-1062,1250.3,Industrial,Disputed
-263,4,IND-MH-PN-1063,1342.6,Mixed Use,Active
-264,1,IND-MH-PN-1064,1313.9,Agricultural,Active
-265,2,IND-MH-PN-1065,1254.1,Industrial,Active
-266,3,IND-MH-PN-1066,1078.6,Mixed Use,Active
-267,4,IND-MH-PN-1067,1331.5,Commercial,Active
-268,1,IND-MH-PN-1068,1330.6,Institutional,Active
-269,2,IND-MH-PN-1069,1312.6,Industrial,Active
-270,3,IND-MH-PN-1070,1331.2,Mixed Use,Active
-271,4,IND-MH-PN-1071,1386.7,Commercial,Active
-272,1,IND-MH-PN-1072,1269.8,Agricultural,Active
-273,2,IND-MH-PN-1073,1305.5,Institutional,Active
-274,3,IND-MH-PN-1074,1334.9,Institutional,Active
-275,4,IND-MH-PN-1075,1359.8,Industrial,Active
-276,1,IND-MH-PN-1076,1290.3,Industrial,Active
-277,2,IND-MH-PN-1077,1353.8,Industrial,Active
-278,3,IND-MH-PN-1078,1232.3,Commercial,Active
-279,4,IND-MH-PN-1079,1319.9,Agricultural,Disputed
-280,1,IND-MH-PN-1080,1291.1,Commercial,Active
-281,2,IND-MH-PN-1081,1388.1,Industrial,Active
-282,3,IND-MH-PN-1082,1323.3,Institutional,Active
-283,4,IND-MH-PN-1083,1276.9,Residential,Active
-284,1,IND-MH-PN-1084,1279.5,Residential,Active
-285,2,IND-MH-PN-1085,1335.9,Residential,Active
-286,3,IND-MH-PN-1086,1303.8,Agricultural,Active
-287,4,IND-MH-PN-1087,1215.3,Institutional,Active
-288,1,IND-MH-PN-1088,1308.1,Industrial,Active
-289,2,IND-MH-PN-1089,1328.2,Mixed Use,Active
-290,3,IND-MH-PN-1090,1382.6,Industrial,Active
-291,4,IND-MH-PN-1091,1291.3,Mixed Use,Active
-292,1,IND-MH-PN-1092,1361.8,Residential,Active
-293,2,IND-MH-PN-1093,1310.2,Residential,Active
-294,3,IND-MH-PN-1094,1313.8,Residential,Active
-295,4,IND-MH-PN-1095,1297.9,Mixed Use,Active
-296,1,IND-MH-PN-1096,1326.4,Mixed Use,Active
-297,2,IND-MH-PN-1097,1330.4,Residential,Active
-298,3,IND-MH-PN-1098,1352.4,Commercial,Active
-299,4,IND-MH-PN-1099,1406.3,Residential,Active
-300,1,IND-MH-PN-1100,1346.5,Commercial,Active
-301,2,IND-MH-PN-1101,1287.4,Residential,Active
-302,3,IND-MH-PN-1102,1301.2,Industrial,Active
-303,4,IND-MH-PN-1103,1331.1,Industrial,Active
-304,1,IND-MH-PN-1104,1283.6,Residential,Active
-305,2,IND-MH-PN-1105,1251.5,Commercial,Active
-306,3,IND-MH-PN-1106,1474.2,Mixed Use,Active
-307,4,IND-MH-PN-1107,1337.7,Institutional,Active
-308,1,IND-MH-PN-1108,1284.0,Agricultural,Active
-309,2,IND-MH-PN-1109,1370.5,Institutional,Active
-310,3,IND-MH-PN-1110,1299.1,Mixed Use,Active
-311,4,IND-MH-PN-1111,1326.6,Agricultural,Active
-312,1,IND-MH-PN-1112,1344.6,Residential,Active
-313,2,IND-MH-PN-1113,1264.9,Commercial,Active
-314,3,IND-MH-PN-1114,1207.0,Commercial,Active
-315,4,IND-MH-PN-1115,1303.6,Commercial,Active
-316,1,IND-MH-PN-1116,1273.2,Commercial,Active
-317,2,IND-MH-PN-1117,1406.7,Institutional,Active
-318,3,IND-MH-PN-1118,1206.3,Industrial,Active
-319,4,IND-MH-PN-1119,1385.8,Mixed Use,Active
-320,1,IND-MH-PN-1120,1227.5,Mixed Use,Active
-321,2,IND-MH-PN-1121,1289.2,Residential,Active
-322,3,IND-MH-PN-1122,1359.7,Residential,Active
-323,4,IND-MH-PN-1123,1263.2,Mixed Use,Active
-324,1,IND-MH-PN-1124,1314.6,Residential,Active
-325,2,IND-MH-PN-1125,1323.6,Agricultural,Active
-326,3,IND-MH-PN-1126,1350.9,Mixed Use,Active
-327,4,IND-MH-PN-1127,1363.7,Commercial,Active
-328,1,IND-MH-PN-1128,1313.6,Agricultural,Active
-329,2,IND-MH-PN-1129,1346.9,Agricultural,Active
-330,3,IND-MH-PN-1130,1342.3,Commercial,Active
-331,4,IND-MH-PN-1131,1276.6,Agricultural,Active
-332,1,IND-MH-PN-1132,1259.9,Residential,Active
-333,2,IND-MH-PN-1133,1228.1,Industrial,Active
-334,3,IND-MH-PN-1134,1256.7,Residential,Active
-335,4,IND-MH-PN-1135,1288.3,Industrial,Active
-336,1,IND-MH-PN-1136,1285.9,Industrial,Active
-337,2,IND-MH-PN-1137,1339.0,Industrial,Active
-338,3,IND-MH-PN-1138,1238.8,Industrial,Active
-339,4,IND-MH-PN-1139,1549.2,Industrial,Active
-340,1,IND-MH-PN-1140,1287.1,Agricultural,Active
-341,2,IND-MH-PN-1141,1266.0,Commercial,Active
-342,3,IND-MH-PN-1142,1310.6,Industrial,Active
-343,4,IND-MH-PN-1143,1308.7,Mixed Use,Active
-344,1,IND-MH-PN-1144,1314.0,Industrial,Active
-345,2,IND-MH-PN-1145,1317.6,Industrial,Active
-346,3,IND-MH-PN-1146,1320.7,Commercial,Active
-347,4,IND-MH-PN-1147,1349.7,Institutional,Active
-348,1,IND-MH-PN-1148,1272.6,Industrial,Active
-349,2,IND-MH-PN-1149,1328.3,Residential,Active
-350,3,IND-MH-PN-1150,1391.9,Commercial,Active
-351,4,IND-MH-PN-1151,1282.1,Residential,Active
-352,1,IND-MH-PN-1152,1203.6,Industrial,Active
-353,2,IND-MH-PN-1153,1345.6,Industrial,Active
-354,3,IND-MH-PN-1154,1320.5,Commercial,Active
-355,4,IND-MH-PN-1155,1257.2,Mixed Use,Active
-356,1,IND-MH-PN-1156,1282.5,Mixed Use,Active
-357,2,IND-MH-PN-1157,1312.2,Agricultural,Active
-358,3,IND-MH-PN-1158,1292.8,Residential,Active
-359,4,IND-MH-PN-1159,1332.2,Mixed Use,Active
-360,1,IND-MH-PN-1160,1361.5,Mixed Use,Active
-361,2,IND-MH-PN-1161,1338.4,Institutional,Active
-362,3,IND-MH-PN-1162,1246.8,Institutional,Active
-363,4,IND-MH-PN-1163,1398.8,Agricultural,Active
-364,1,IND-MH-PN-1164,1304.2,Institutional,Active
-365,2,IND-MH-PN-1165,1356.8,Commercial,Active
-366,3,IND-MH-PN-1166,1341.4,Institutional,Active
-367,4,IND-MH-PN-1167,1353.2,Agricultural,Active
-368,1,IND-MH-PN-1168,1256.4,Agricultural,Active
-369,2,IND-MH-PN-1169,1318.9,Agricultural,Active
-370,3,IND-MH-PN-1170,1253.5,Residential,Active
-371,4,IND-MH-PN-1171,1286.4,Institutional,Active
-372,1,IND-MH-PN-1172,1292.1,Agricultural,Active
-373,2,IND-MH-PN-1173,1332.6,Industrial,Active
-374,3,IND-MH-PN-1174,1280.4,Industrial,Active
-375,4,IND-MH-PN-1175,1330.3,Agricultural,Active
-376,1,IND-MH-PN-1176,1324.1,Institutional,Active
-377,2,IND-MH-PN-1177,1315.4,Commercial,Active
-378,3,IND-MH-PN-1178,1333.2,Mixed Use,Active
-379,4,IND-MH-PN-1179,1305.6,Commercial,Active
-380,1,IND-MH-PN-1180,1276.0,Commercial,Active
-381,2,IND-MH-PN-1181,1282.5,Commercial,Active
-382,3,IND-MH-PN-1182,1207.8,Commercial,Active
-383,4,IND-MH-PN-1183,1238.8,Residential,Active
-384,1,IND-MH-PN-1184,1324.9,Industrial,Active
-385,2,IND-MH-PN-1185,1340.1,Residential,Active
-386,3,IND-MH-PN-1186,1333.6,Mixed Use,Active
-387,4,IND-MH-PN-1187,1255.0,Residential,Active
-388,1,IND-MH-PN-1188,1268.5,Agricultural,Active
-389,2,IND-MH-PN-1189,1530.2,Commercial,Active
-390,3,IND-MH-PN-1190,1294.2,Residential,Active
-391,4,IND-MH-PN-1191,1203.7,Agricultural,Active
-392,1,IND-MH-PN-1192,1306.4,Industrial,Active
-393,2,IND-MH-PN-1193,1278.2,Agricultural,Active
-394,3,IND-MH-PN-1194,1359.7,Institutional,Active
-395,4,IND-MH-PN-1195,1302.3,Residential,Active
-396,1,IND-MH-PN-1196,1217.9,Commercial,Active
-397,2,IND-MH-PN-1197,1361.3,Mixed Use,Active
-398,3,IND-MH-PN-1198,1243.4,Industrial,Active
-399,4,IND-MH-PN-1199,1273.2,Agricultural,Active
-400,1,IND-MH-PN-1200,1274.4,Agricultural,Active
-401,2,IND-MH-PN-1201,1309.5,Mixed Use,Active
-402,3,IND-MH-PN-1202,1309.0,Industrial,Active
-403,4,IND-MH-PN-1203,1317.5,Industrial,Active
-404,1,IND-MH-PN-1204,1305.4,Residential,Active
-405,2,IND-MH-PN-1205,1282.8,Industrial,Active
-406,3,IND-MH-PN-1206,1288.4,Residential,Active
-407,4,IND-MH-PN-1207,1310.7,Institutional,Active
-408,1,IND-MH-PN-1208,1324.9,Mixed Use,Active
-409,2,IND-MH-PN-1209,1279.5,Agricultural,Active
-410,3,IND-MH-PN-1210,1311.0,Mixed Use,Active
-411,4,IND-MH-PN-1211,1281.5,Commercial,Active
-412,1,IND-MH-PN-1212,1262.3,Industrial,Active
-413,2,IND-MH-PN-1213,1358.4,Industrial,Active
-414,3,IND-MH-PN-1214,1317.7,Institutional,Active
-415,4,IND-MH-PN-1215,1271.7,Residential,Active
-416,1,IND-MH-PN-1216,1317.6,Institutional,Active
-417,2,IND-MH-PN-1217,1302.6,Institutional,Active
-418,3,IND-MH-PN-1218,1255.7,Industrial,Active
-419,4,IND-MH-PN-1219,1318.3,Commercial,Active
-420,1,IND-MH-PN-1220,1256.1,Agricultural,Active
-421,2,IND-MH-PN-1221,1400.1,Commercial,Active
-422,3,IND-MH-PN-1222,1317.5,Institutional,Active
-423,4,IND-MH-PN-1223,1300.2,Agricultural,Active
-424,1,IND-MH-PN-1224,1354.9,Commercial,Active
-425,2,IND-MH-PN-1225,1353.3,Institutional,Active
-426,3,IND-MH-PN-1226,1327.5,Industrial,Active
-427,4,IND-MH-PN-1227,1215.4,Residential,Active
-428,1,IND-MH-PN-1228,1397.1,Agricultural,Active
-429,2,IND-MH-PN-1229,1311.0,Agricultural,Active
-430,3,IND-MH-PN-1230,1323.9,Institutional,Active
-431,4,IND-MH-PN-1231,1303.6,Residential,Active
-432,1,IND-MH-PN-1232,1265.7,Commercial,Active
-433,2,IND-MH-PN-1233,1262.8,Commercial,Active
-434,3,IND-MH-PN-1234,1345.2,Commercial,Active
-435,4,IND-MH-PN-1235,1323.5,Industrial,Active
-436,1,IND-MH-PN-1236,1284.8,Residential,Active
-437,2,IND-MH-PN-1237,1292.9,Institutional,Active
-438,3,IND-MH-PN-1238,1098.8,Commercial,Active
-439,4,IND-MH-PN-1239,1272.7,Residential,Active
-440,1,IND-MH-PN-1240,1198.9,Commercial,Active
-441,2,IND-MH-PN-1241,1403.0,Agricultural,Active
-442,3,IND-MH-PN-1242,1300.6,Agricultural,Active
-443,4,IND-MH-PN-1243,1219.1,Institutional,Active
-444,1,IND-MH-PN-1244,1288.8,Mixed Use,Active
-445,2,IND-MH-PN-1245,1337.2,Industrial,Active
-446,3,IND-MH-PN-1246,1301.9,Agricultural,Active
-447,4,IND-MH-PN-1247,1307.0,Industrial,Disputed
-448,1,IND-MH-PN-1248,1280.9,Residential,Active
-449,2,IND-MH-PN-1249,1398.2,Industrial,Active
-450,3,IND-MH-PN-1250,1319.8,Mixed Use,Active
-451,4,IND-MH-PN-1251,1276.1,Mixed Use,Active
-452,1,IND-MH-PN-1252,1313.0,Institutional,Active
-453,2,IND-MH-PN-1253,1263.3,Industrial,Active
-454,3,IND-MH-PN-1254,1281.0,Residential,Active
-455,4,IND-MH-PN-1255,1305.0,Mixed Use,Active
-456,1,IND-MH-PN-1256,1222.6,Agricultural,Active
-457,2,IND-MH-PN-1257,1363.3,Commercial,Active
-458,3,IND-MH-PN-1258,1318.1,Mixed Use,Active
-459,4,IND-MH-PN-1259,1264.1,Commercial,Active
-460,1,IND-MH-PN-1260,1334.8,Industrial,Active
-461,2,IND-MH-PN-1261,1269.2,Commercial,Active
-462,3,IND-MH-PN-1262,1277.6,Institutional,Active
-463,4,IND-MH-PN-1263,1397.9,Industrial,Active
-464,1,IND-MH-PN-1264,1292.2,Mixed Use,Active
-465,2,IND-MH-PN-1265,1215.5,Residential,Active
-466,3,IND-MH-PN-1266,1289.5,Residential,Active
-467,4,IND-MH-PN-1267,1246.4,Agricultural,Active
-468,1,IND-MH-PN-1268,1281.9,Industrial,Active
-469,2,IND-MH-PN-1269,1368.6,Commercial,Active
-470,3,IND-MH-PN-1270,1392.3,Commercial,Active
-471,4,IND-MH-PN-1271,1375.8,Commercial,Active
-472,1,IND-MH-PN-1272,1371.2,Industrial,Active
-473,2,IND-MH-PN-1273,1264.3,Mixed Use,Active
-474,3,IND-MH-PN-1274,1346.9,Agricultural,Active
-475,4,IND-MH-PN-1275,1346.0,Residential,Active
-476,1,IND-MH-PN-1276,1318.2,Agricultural,Active
-477,2,IND-MH-PN-1277,1271.1,Mixed Use,Active
-478,3,IND-MH-PN-1278,1339.5,Residential,Active
-479,4,IND-MH-PN-1279,1280.8,Institutional,Active
-480,1,IND-MH-PN-1280,1358.8,Industrial,Active
-481,2,IND-MH-PN-1281,1330.7,Agricultural,Active
-482,3,IND-MH-PN-1282,1360.1,Residential,Active
-483,4,IND-MH-PN-1283,1245.6,Residential,Active
-484,1,IND-MH-PN-1284,1299.6,Institutional,Active
-485,2,IND-MH-PN-1285,1300.2,Agricultural,Active
-486,3,IND-MH-PN-1286,1310.2,Agricultural,Active
-487,4,IND-MH-PN-1287,1355.2,Institutional,Active
-488,1,IND-MH-PN-1288,1270.7,Mixed Use,Active
-489,2,IND-MH-PN-1289,1349.6,Residential,Active
-490,3,IND-MH-PN-1290,1250.1,Residential,Active
-491,4,IND-MH-PN-1291,1369.1,Residential,Active
-492,1,IND-MH-PN-1292,1270.4,Residential,Active
-493,2,IND-MH-PN-1293,1328.9,Mixed Use,Active
-494,3,IND-MH-PN-1294,1324.1,Residential,Active
-495,4,IND-MH-PN-1295,1403.2,Industrial,Disputed
-496,1,IND-MH-PN-1296,1362.1,Commercial,Active
-497,2,IND-MH-PN-1297,1352.4,Mixed Use,Active
-498,3,IND-MH-PN-1298,1274.7,Agricultural,Active
-499,4,IND-MH-PN-1299,1209.4,Institutional,Active
+200,1,IND-TN-CBE-1000,1270.8,Mixed Use,Active
+201,2,IND-TN-CBE-1001,1361.2,Industrial,Active
+184,2,IND-TN-CBE-1002,1520.0,Institutional,Active
+203,4,IND-TN-CBE-1003,1323.2,Agricultural,Active
+204,1,IND-TN-CBE-1004,1353.6,Agricultural,Active
+205,2,IND-TN-CBE-1005,1396.3,Agricultural,Active
+206,3,IND-TN-CBE-1006,1253.8,Commercial,Active
+207,4,IND-TN-CBE-1007,1334.9,Agricultural,Active
+208,1,IND-TN-CBE-1008,1312.6,Agricultural,Active
+209,2,IND-TN-CBE-1009,1354.2,Institutional,Active
+210,3,IND-TN-CBE-1010,1306.9,Commercial,Active
+211,4,IND-TN-CBE-1011,1315.4,Institutional,Active
+212,1,IND-TN-CBE-1012,1316.5,Residential,Active
+213,2,IND-TN-CBE-1013,1355.5,Mixed Use,Active
+214,3,IND-TN-CBE-1014,1334.2,Residential,Active
+215,4,IND-TN-CBE-1015,1395.9,Residential,Active
+216,1,IND-TN-CBE-1016,1375.5,Mixed Use,Active
+217,2,IND-TN-CBE-1017,1259.4,Agricultural,Active
+218,3,IND-TN-CBE-1018,1331.0,Institutional,Active
+219,4,IND-TN-CBE-1019,1322.1,Industrial,Active
+220,1,IND-TN-CBE-1020,1483.5,Agricultural,Active
+221,2,IND-TN-CBE-1021,1312.3,Mixed Use,Active
+222,3,IND-TN-CBE-1022,1280.7,Mixed Use,Active
+223,4,IND-TN-CBE-1023,1292.7,Agricultural,Active
+224,1,IND-TN-CBE-1024,1264.6,Institutional,Active
+225,2,IND-TN-CBE-1025,1321.2,Industrial,Active
+226,3,IND-TN-CBE-1026,1380.0,Agricultural,Active
+227,4,IND-TN-CBE-1027,1278.7,Commercial,Active
+228,1,IND-TN-CBE-1028,1359.0,Industrial,Active
+229,2,IND-TN-CBE-1029,1277.2,Commercial,Active
+230,3,IND-TN-CBE-1030,1327.9,Mixed Use,Active
+231,4,IND-TN-CBE-1031,1309.0,Industrial,Active
+232,1,IND-TN-CBE-1032,1300.9,Agricultural,Active
+233,2,IND-TN-CBE-1033,1326.7,Residential,Active
+234,3,IND-TN-CBE-1034,1336.9,Mixed Use,Active
+235,4,IND-TN-CBE-1035,1248.8,Residential,Active
+236,1,IND-TN-CBE-1036,1216.6,Agricultural,Active
+237,2,IND-TN-CBE-1037,1242.2,Mixed Use,Active
+238,3,IND-TN-CBE-1038,1309.3,Mixed Use,Active
+239,4,IND-TN-CBE-1039,1243.6,Industrial,Active
+240,1,IND-TN-CBE-1040,1279.6,Agricultural,Active
+241,2,IND-TN-CBE-1041,1263.1,Agricultural,Active
+242,3,IND-TN-CBE-1042,1286.4,Commercial,Active
+243,4,IND-TN-CBE-1043,1283.8,Residential,Active
+244,1,IND-TN-CBE-1044,1317.8,Industrial,Active
+245,2,IND-TN-CBE-1045,1307.6,Residential,Active
+246,3,IND-TN-CBE-1046,1291.3,Commercial,Active
+247,4,IND-TN-CBE-1047,1286.2,Industrial,Active
+248,1,IND-TN-CBE-1048,1327.4,Institutional,Active
+249,2,IND-TN-CBE-1049,1339.9,Mixed Use,Active
+250,3,IND-TN-CBE-1050,1287.5,Institutional,Active
+251,4,IND-TN-CBE-1051,1283.1,Mixed Use,Active
+252,1,IND-TN-CBE-1052,1263.0,Agricultural,Active
+253,2,IND-TN-CBE-1053,1267.2,Residential,Active
+254,3,IND-TN-CBE-1054,1276.9,Residential,Active
+255,4,IND-TN-CBE-1055,1303.4,Institutional,Active
+256,1,IND-TN-CBE-1056,1255.0,Agricultural,Active
+257,2,IND-TN-CBE-1057,1206.4,Mixed Use,Active
+258,3,IND-TN-CBE-1058,1293.4,Mixed Use,Active
+259,4,IND-TN-CBE-1059,1326.3,Commercial,Active
+260,1,IND-TN-CBE-1060,1333.2,Industrial,Active
+261,2,IND-TN-CBE-1061,1282.9,Mixed Use,Active
+262,3,IND-TN-CBE-1062,1250.3,Industrial,Disputed
+263,4,IND-TN-CBE-1063,1342.6,Mixed Use,Active
+264,1,IND-TN-CBE-1064,1313.9,Agricultural,Active
+265,2,IND-TN-CBE-1065,1254.1,Industrial,Active
+266,3,IND-TN-CBE-1066,1078.6,Mixed Use,Active
+267,4,IND-TN-CBE-1067,1331.5,Commercial,Active
+268,1,IND-TN-CBE-1068,1330.6,Institutional,Active
+269,2,IND-TN-CBE-1069,1312.6,Industrial,Active
+270,3,IND-TN-CBE-1070,1331.2,Mixed Use,Active
+271,4,IND-TN-CBE-1071,1386.7,Commercial,Active
+272,1,IND-TN-CBE-1072,1269.8,Agricultural,Active
+273,2,IND-TN-CBE-1073,1305.5,Institutional,Active
+274,3,IND-TN-CBE-1074,1334.9,Institutional,Active
+275,4,IND-TN-CBE-1075,1359.8,Industrial,Active
+276,1,IND-TN-CBE-1076,1290.3,Industrial,Active
+277,2,IND-TN-CBE-1077,1353.8,Industrial,Active
+278,3,IND-TN-CBE-1078,1232.3,Commercial,Active
+279,4,IND-TN-CBE-1079,1319.9,Agricultural,Disputed
+280,1,IND-TN-CBE-1080,1291.1,Commercial,Active
+281,2,IND-TN-CBE-1081,1388.1,Industrial,Active
+282,3,IND-TN-CBE-1082,1323.3,Institutional,Active
+283,4,IND-TN-CBE-1083,1276.9,Residential,Active
+284,1,IND-TN-CBE-1084,1279.5,Residential,Active
+285,2,IND-TN-CBE-1085,1335.9,Residential,Active
+286,3,IND-TN-CBE-1086,1303.8,Agricultural,Active
+287,4,IND-TN-CBE-1087,1215.3,Institutional,Active
+288,1,IND-TN-CBE-1088,1308.1,Industrial,Active
+289,2,IND-TN-CBE-1089,1328.2,Mixed Use,Active
+290,3,IND-TN-CBE-1090,1382.6,Industrial,Active
+291,4,IND-TN-CBE-1091,1291.3,Mixed Use,Active
+292,1,IND-TN-CBE-1092,1361.8,Residential,Active
+293,2,IND-TN-CBE-1093,1310.2,Residential,Active
+294,3,IND-TN-CBE-1094,1313.8,Residential,Active
+295,4,IND-TN-CBE-1095,1297.9,Mixed Use,Active
+296,1,IND-TN-CBE-1096,1326.4,Mixed Use,Active
+297,2,IND-TN-CBE-1097,1330.4,Residential,Active
+298,3,IND-TN-CBE-1098,1352.4,Commercial,Active
+299,4,IND-TN-CBE-1099,1406.3,Residential,Active
+300,1,IND-TN-CBE-1100,1346.5,Commercial,Active
+301,2,IND-TN-CBE-1101,1287.4,Residential,Active
+302,3,IND-TN-CBE-1102,1301.2,Industrial,Active
+303,4,IND-TN-CBE-1103,1331.1,Industrial,Active
+304,1,IND-TN-CBE-1104,1283.6,Residential,Active
+305,2,IND-TN-CBE-1105,1251.5,Commercial,Active
+306,3,IND-TN-CBE-1106,1474.2,Mixed Use,Active
+307,4,IND-TN-CBE-1107,1337.7,Institutional,Active
+308,1,IND-TN-CBE-1108,1284.0,Agricultural,Active
+309,2,IND-TN-CBE-1109,1370.5,Institutional,Active
+310,3,IND-TN-CBE-1110,1299.1,Mixed Use,Active
+311,4,IND-TN-CBE-1111,1326.6,Agricultural,Active
+312,1,IND-TN-CBE-1112,1344.6,Residential,Active
+313,2,IND-TN-CBE-1113,1264.9,Commercial,Active
+314,3,IND-TN-CBE-1114,1207.0,Commercial,Active
+315,4,IND-TN-CBE-1115,1303.6,Commercial,Active
+316,1,IND-TN-CBE-1116,1273.2,Commercial,Active
+317,2,IND-TN-CBE-1117,1406.7,Institutional,Active
+318,3,IND-TN-CBE-1118,1206.3,Industrial,Active
+319,4,IND-TN-CBE-1119,1385.8,Mixed Use,Active
+320,1,IND-TN-CBE-1120,1227.5,Mixed Use,Active
+321,2,IND-TN-CBE-1121,1289.2,Residential,Active
+322,3,IND-TN-CBE-1122,1359.7,Residential,Active
+323,4,IND-TN-CBE-1123,1263.2,Mixed Use,Active
+324,1,IND-TN-CBE-1124,1314.6,Residential,Active
+325,2,IND-TN-CBE-1125,1323.6,Agricultural,Active
+326,3,IND-TN-CBE-1126,1350.9,Mixed Use,Active
+327,4,IND-TN-CBE-1127,1363.7,Commercial,Active
+328,1,IND-TN-CBE-1128,1313.6,Agricultural,Active
+329,2,IND-TN-CBE-1129,1346.9,Agricultural,Active
+330,3,IND-TN-CBE-1130,1342.3,Commercial,Active
+331,4,IND-TN-CBE-1131,1276.6,Agricultural,Active
+332,1,IND-TN-CBE-1132,1259.9,Residential,Active
+333,2,IND-TN-CBE-1133,1228.1,Industrial,Active
+334,3,IND-TN-CBE-1134,1256.7,Residential,Active
+335,4,IND-TN-CBE-1135,1288.3,Industrial,Active
+336,1,IND-TN-CBE-1136,1285.9,Industrial,Active
+337,2,IND-TN-CBE-1137,1339.0,Industrial,Active
+338,3,IND-TN-CBE-1138,1238.8,Industrial,Active
+339,4,IND-TN-CBE-1139,1549.2,Industrial,Active
+340,1,IND-TN-CBE-1140,1287.1,Agricultural,Active
+341,2,IND-TN-CBE-1141,1266.0,Commercial,Active
+342,3,IND-TN-CBE-1142,1310.6,Industrial,Active
+343,4,IND-TN-CBE-1143,1308.7,Mixed Use,Active
+344,1,IND-TN-CBE-1144,1314.0,Industrial,Active
+345,2,IND-TN-CBE-1145,1317.6,Industrial,Active
+346,3,IND-TN-CBE-1146,1320.7,Commercial,Active
+347,4,IND-TN-CBE-1147,1349.7,Institutional,Active
+348,1,IND-TN-CBE-1148,1272.6,Industrial,Active
+349,2,IND-TN-CBE-1149,1328.3,Residential,Active
+350,3,IND-TN-CBE-1150,1391.9,Commercial,Active
+351,4,IND-TN-CBE-1151,1282.1,Residential,Active
+352,1,IND-TN-CBE-1152,1203.6,Industrial,Active
+353,2,IND-TN-CBE-1153,1345.6,Industrial,Active
+354,3,IND-TN-CBE-1154,1320.5,Commercial,Active
+355,4,IND-TN-CBE-1155,1257.2,Mixed Use,Active
+356,1,IND-TN-CBE-1156,1282.5,Mixed Use,Active
+357,2,IND-TN-CBE-1157,1312.2,Agricultural,Active
+358,3,IND-TN-CBE-1158,1292.8,Residential,Active
+359,4,IND-TN-CBE-1159,1332.2,Mixed Use,Active
+360,1,IND-TN-CBE-1160,1361.5,Mixed Use,Active
+361,2,IND-TN-CBE-1161,1338.4,Institutional,Active
+362,3,IND-TN-CBE-1162,1246.8,Institutional,Active
+363,4,IND-TN-CBE-1163,1398.8,Agricultural,Active
+364,1,IND-TN-CBE-1164,1304.2,Institutional,Active
+365,2,IND-TN-CBE-1165,1356.8,Commercial,Active
+366,3,IND-TN-CBE-1166,1341.4,Institutional,Active
+367,4,IND-TN-CBE-1167,1353.2,Agricultural,Active
+368,1,IND-TN-CBE-1168,1256.4,Agricultural,Active
+369,2,IND-TN-CBE-1169,1318.9,Agricultural,Active
+370,3,IND-TN-CBE-1170,1253.5,Residential,Active
+371,4,IND-TN-CBE-1171,1286.4,Institutional,Active
+372,1,IND-TN-CBE-1172,1292.1,Agricultural,Active
+373,2,IND-TN-CBE-1173,1332.6,Industrial,Active
+374,3,IND-TN-CBE-1174,1280.4,Industrial,Active
+375,4,IND-TN-CBE-1175,1330.3,Agricultural,Active
+376,1,IND-TN-CBE-1176,1324.1,Institutional,Active
+377,2,IND-TN-CBE-1177,1315.4,Commercial,Active
+378,3,IND-TN-CBE-1178,1333.2,Mixed Use,Active
+379,4,IND-TN-CBE-1179,1305.6,Commercial,Active
+380,1,IND-TN-CBE-1180,1276.0,Commercial,Active
+381,2,IND-TN-CBE-1181,1282.5,Commercial,Active
+382,3,IND-TN-CBE-1182,1207.8,Commercial,Active
+383,4,IND-TN-CBE-1183,1238.8,Residential,Active
+384,1,IND-TN-CBE-1184,1324.9,Industrial,Active
+385,2,IND-TN-CBE-1185,1340.1,Residential,Active
+386,3,IND-TN-CBE-1186,1333.6,Mixed Use,Active
+387,4,IND-TN-CBE-1187,1255.0,Residential,Active
+388,1,IND-TN-CBE-1188,1268.5,Agricultural,Active
+389,2,IND-TN-CBE-1189,1530.2,Commercial,Active
+390,3,IND-TN-CBE-1190,1294.2,Residential,Active
+391,4,IND-TN-CBE-1191,1203.7,Agricultural,Active
+392,1,IND-TN-CBE-1192,1306.4,Industrial,Active
+393,2,IND-TN-CBE-1193,1278.2,Agricultural,Active
+394,3,IND-TN-CBE-1194,1359.7,Institutional,Active
+395,4,IND-TN-CBE-1195,1302.3,Residential,Active
+396,1,IND-TN-CBE-1196,1217.9,Commercial,Active
+397,2,IND-TN-CBE-1197,1361.3,Mixed Use,Active
+398,3,IND-TN-CBE-1198,1243.4,Industrial,Active
+399,4,IND-TN-CBE-1199,1273.2,Agricultural,Active
+400,1,IND-TN-CBE-1200,1274.4,Agricultural,Active
+401,2,IND-TN-CBE-1201,1309.5,Mixed Use,Active
+402,3,IND-TN-CBE-1202,1309.0,Industrial,Active
+403,4,IND-TN-CBE-1203,1317.5,Industrial,Active
+404,1,IND-TN-CBE-1204,1305.4,Residential,Active
+405,2,IND-TN-CBE-1205,1282.8,Industrial,Active
+406,3,IND-TN-CBE-1206,1288.4,Residential,Active
+407,4,IND-TN-CBE-1207,1310.7,Institutional,Active
+408,1,IND-TN-CBE-1208,1324.9,Mixed Use,Active
+409,2,IND-TN-CBE-1209,1279.5,Agricultural,Active
+410,3,IND-TN-CBE-1210,1311.0,Mixed Use,Active
+411,4,IND-TN-CBE-1211,1281.5,Commercial,Active
+412,1,IND-TN-CBE-1212,1262.3,Industrial,Active
+413,2,IND-TN-CBE-1213,1358.4,Industrial,Active
+414,3,IND-TN-CBE-1214,1317.7,Institutional,Active
+415,4,IND-TN-CBE-1215,1271.7,Residential,Active
+416,1,IND-TN-CBE-1216,1317.6,Institutional,Active
+417,2,IND-TN-CBE-1217,1302.6,Institutional,Active
+418,3,IND-TN-CBE-1218,1255.7,Industrial,Active
+419,4,IND-TN-CBE-1219,1318.3,Commercial,Active
+420,1,IND-TN-CBE-1220,1256.1,Agricultural,Active
+421,2,IND-TN-CBE-1221,1400.1,Commercial,Active
+422,3,IND-TN-CBE-1222,1317.5,Institutional,Active
+423,4,IND-TN-CBE-1223,1300.2,Agricultural,Active
+424,1,IND-TN-CBE-1224,1354.9,Commercial,Active
+425,2,IND-TN-CBE-1225,1353.3,Institutional,Active
+426,3,IND-TN-CBE-1226,1327.5,Industrial,Active
+427,4,IND-TN-CBE-1227,1215.4,Residential,Active
+428,1,IND-TN-CBE-1228,1397.1,Agricultural,Active
+429,2,IND-TN-CBE-1229,1311.0,Agricultural,Active
+430,3,IND-TN-CBE-1230,1323.9,Institutional,Active
+431,4,IND-TN-CBE-1231,1303.6,Residential,Active
+432,1,IND-TN-CBE-1232,1265.7,Commercial,Active
+433,2,IND-TN-CBE-1233,1262.8,Commercial,Active
+434,3,IND-TN-CBE-1234,1345.2,Commercial,Active
+435,4,IND-TN-CBE-1235,1323.5,Industrial,Active
+436,1,IND-TN-CBE-1236,1284.8,Residential,Active
+437,2,IND-TN-CBE-1237,1292.9,Institutional,Active
+438,3,IND-TN-CBE-1238,1098.8,Commercial,Active
+439,4,IND-TN-CBE-1239,1272.7,Residential,Active
+440,1,IND-TN-CBE-1240,1198.9,Commercial,Active
+441,2,IND-TN-CBE-1241,1403.0,Agricultural,Active
+442,3,IND-TN-CBE-1242,1300.6,Agricultural,Active
+443,4,IND-TN-CBE-1243,1219.1,Institutional,Active
+444,1,IND-TN-CBE-1244,1288.8,Mixed Use,Active
+445,2,IND-TN-CBE-1245,1337.2,Industrial,Active
+446,3,IND-TN-CBE-1246,1301.9,Agricultural,Active
+447,4,IND-TN-CBE-1247,1307.0,Industrial,Disputed
+448,1,IND-TN-CBE-1248,1280.9,Residential,Active
+449,2,IND-TN-CBE-1249,1398.2,Industrial,Active
+450,3,IND-TN-CBE-1250,1319.8,Mixed Use,Active
+451,4,IND-TN-CBE-1251,1276.1,Mixed Use,Active
+452,1,IND-TN-CBE-1252,1313.0,Institutional,Active
+453,2,IND-TN-CBE-1253,1263.3,Industrial,Active
+454,3,IND-TN-CBE-1254,1281.0,Residential,Active
+455,4,IND-TN-CBE-1255,1305.0,Mixed Use,Active
+456,1,IND-TN-CBE-1256,1222.6,Agricultural,Active
+457,2,IND-TN-CBE-1257,1363.3,Commercial,Active
+458,3,IND-TN-CBE-1258,1318.1,Mixed Use,Active
+459,4,IND-TN-CBE-1259,1264.1,Commercial,Active
+460,1,IND-TN-CBE-1260,1334.8,Industrial,Active
+461,2,IND-TN-CBE-1261,1269.2,Commercial,Active
+462,3,IND-TN-CBE-1262,1277.6,Institutional,Active
+463,4,IND-TN-CBE-1263,1397.9,Industrial,Active
+464,1,IND-TN-CBE-1264,1292.2,Mixed Use,Active
+465,2,IND-TN-CBE-1265,1215.5,Residential,Active
+466,3,IND-TN-CBE-1266,1289.5,Residential,Active
+467,4,IND-TN-CBE-1267,1246.4,Agricultural,Active
+468,1,IND-TN-CBE-1268,1281.9,Industrial,Active
+469,2,IND-TN-CBE-1269,1368.6,Commercial,Active
+470,3,IND-TN-CBE-1270,1392.3,Commercial,Active
+471,4,IND-TN-CBE-1271,1375.8,Commercial,Active
+472,1,IND-TN-CBE-1272,1371.2,Industrial,Active
+473,2,IND-TN-CBE-1273,1264.3,Mixed Use,Active
+474,3,IND-TN-CBE-1274,1346.9,Agricultural,Active
+475,4,IND-TN-CBE-1275,1346.0,Residential,Active
+476,1,IND-TN-CBE-1276,1318.2,Agricultural,Active
+477,2,IND-TN-CBE-1277,1271.1,Mixed Use,Active
+478,3,IND-TN-CBE-1278,1339.5,Residential,Active
+479,4,IND-TN-CBE-1279,1280.8,Institutional,Active
+480,1,IND-TN-CBE-1280,1358.8,Industrial,Active
+481,2,IND-TN-CBE-1281,1330.7,Agricultural,Active
+482,3,IND-TN-CBE-1282,1360.1,Residential,Active
+483,4,IND-TN-CBE-1283,1245.6,Residential,Active
+484,1,IND-TN-CBE-1284,1299.6,Institutional,Active
+485,2,IND-TN-CBE-1285,1300.2,Agricultural,Active
+486,3,IND-TN-CBE-1286,1310.2,Agricultural,Active
+487,4,IND-TN-CBE-1287,1355.2,Institutional,Active
+488,1,IND-TN-CBE-1288,1270.7,Mixed Use,Active
+489,2,IND-TN-CBE-1289,1349.6,Residential,Active
+490,3,IND-TN-CBE-1290,1250.1,Residential,Active
+491,4,IND-TN-CBE-1291,1369.1,Residential,Active
+492,1,IND-TN-CBE-1292,1270.4,Residential,Active
+493,2,IND-TN-CBE-1293,1328.9,Mixed Use,Active
+494,3,IND-TN-CBE-1294,1324.1,Residential,Active
+495,4,IND-TN-CBE-1295,1403.2,Industrial,Disputed
+496,1,IND-TN-CBE-1296,1362.1,Commercial,Active
+497,2,IND-TN-CBE-1297,1352.4,Mixed Use,Active
+498,3,IND-TN-CBE-1298,1274.7,Agricultural,Active
+499,4,IND-TN-CBE-1299,1209.4,Institutional,Active

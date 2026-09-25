@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "name": "CUMTA_Outer_Boundary",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CUMTA_OUTER_JURISDICTION",
+      "properties": {
+        "authority": "Chennai Unified Metropolitan Transport Authority (CUMTA)",
+        "statutory_act": "CUMTA Act, 2010 (Amended 2019)",
+        "purpose": "Integrated Multimodal Public Transport Planning and Governance",
+        "jurisdiction_area_sq_km": 1189.0,
+        "transport_modes_coordinated": "CMRL Metro, Southern Railway Suburban, MTC Buses, MRTS, Feeder Micro-mobility"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.12,
+              13.34
+            ],
+            [
+              80.36,
+              13.31
+            ],
+            [
+              80.38,
+              13.12
+            ],
+            [
+              80.31,
+              12.8
+            ],
+            [
+              80.18,
+              12.72
+            ],
+            [
+              79.98,
+              12.79
+            ],
+            [
+              79.92,
+              13.05
+            ],
+            [
+              80.01,
+              13.28
+            ],
+            [
+              80.12,
+              13.34
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

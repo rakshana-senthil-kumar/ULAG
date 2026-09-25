@@ -1,0 +1,107 @@
+{
+  "type": "FeatureCollection",
+  "name": "Burial_Ground_Locations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "BG_001",
+      "properties": {
+        "facility_id": "BG_001",
+        "name": "Mylapore Electric Crematorium",
+        "facility_type": "Gasifier & Electric Crematorium",
+        "crematorium_units": 2,
+        "maintaining_authority": "Greater Chennai Corporation",
+        "area_acres": 4.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.274,
+          13.031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BG_002",
+      "properties": {
+        "facility_id": "BG_002",
+        "name": "Besant Nagar Cremation Ground",
+        "facility_type": "LPG Crematorium & Burial Grounds",
+        "crematorium_units": 2,
+        "maintaining_authority": "Greater Chennai Corporation",
+        "area_acres": 6.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.267,
+          12.999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BG_003",
+      "properties": {
+        "facility_id": "BG_003",
+        "name": "Kilpauk Cemetery & Crematorium",
+        "facility_type": "Crematorium & Multi-faith Cemetery",
+        "crematorium_units": 2,
+        "maintaining_authority": "Greater Chennai Corporation",
+        "area_acres": 8.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.24,
+          13.078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BG_004",
+      "properties": {
+        "facility_id": "BG_004",
+        "name": "Otteri Cremation Grounds",
+        "facility_type": "Electric Crematorium",
+        "crematorium_units": 2,
+        "maintaining_authority": "Greater Chennai Corporation",
+        "area_acres": 5.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.252,
+          13.094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BG_005",
+      "properties": {
+        "facility_id": "BG_005",
+        "name": "Coimbatore Sungam Gas Crematorium",
+        "facility_type": "LPG Gas Crematorium",
+        "crematorium_units": 3,
+        "maintaining_authority": "Coimbatore City Municipal Corporation",
+        "area_acres": 4.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.982,
+          10.994
+        ]
+      }
+    }
+  ]
+}

@@ -178,6 +178,20 @@ async def get_parcel_evidence(id: str):
         "sources_comparison": detail["sources_comparison"]
     }
 
+@router.get("/parcels/{id}/candidates")
+async def get_parcel_candidates(id: str):
+    """Returns candidate audit records, boundary deviations, ranking, and rejection reasons."""
+    detail = storage_repo.get_parcel_detail(id)
+    if not detail:
+        raise HTTPException(status_code=404, detail=f"Parcel '{id}' not found")
+    evidence = detail.get("evidence", {})
+    return {
+        "parcel_id": detail["parcel_id"],
+        "survey_no": detail["full_survey"],
+        "selected_candidate_id": detail.get("drone_candidate_id") or detail.get("drone_geometry_geojson", {}).get("properties", {}).get("feature_id"),
+        "candidates": evidence.get("candidates_audit", [])
+    }
+
 @router.get("/conflicts", response_model=List[ConflictItem])
 async def list_conflicts(
     conflict_type: Optional[str] = Query("All", alias="type")
@@ -454,4 +468,33 @@ async def get_parcels_geojson():
             "features": features
         }
     )
+
+# --- TAMIL NADU GEOSPATIAL & MUNICIPAL DATASETS ENDPOINTS ---
+from backend.app.services.tamil_nadu.service import tn_service
+from backend.app.schemas.tamil_nadu import (
+    TamilNaduCatalogResponse, RoadInventoryResponse, TamilNaduDistrictDemographics
+)
+
+@router.get("/tamil-nadu/layers", response_model=TamilNaduCatalogResponse, summary="Get Tamil Nadu GIS layer catalog")
+async def get_tamil_nadu_layer_catalog():
+    """Returns catalog of 20 urban vector layers, thematic maps, and municipal infrastructure datasets."""
+    return tn_service.get_catalog()
+
+@router.get("/tamil-nadu/layers/{layer_name}", summary="Get GeoJSON for specific Tamil Nadu layer")
+async def get_tamil_nadu_layer_geojson(layer_name: str):
+    """Returns GeoJSON FeatureCollection for any registered Tamil Nadu vector or thematic layer."""
+    geojson_data = tn_service.get_layer_geojson(layer_name)
+    if not geojson_data:
+        raise HTTPException(status_code=404, detail=f"Tamil Nadu layer '{layer_name}' not found")
+    return JSONResponse(content=geojson_data)
+
+@router.get("/tamil-nadu/road-inventory", response_model=RoadInventoryResponse, summary="Get Coimbatore & statewide road infrastructure")
+async def get_tamil_nadu_road_inventory():
+    """Returns Coimbatore Corporation road inventory and statewide corporation comparison."""
+    return tn_service.get_road_inventory()
+
+@router.get("/tamil-nadu/census-demographics", response_model=List[TamilNaduDistrictDemographics], summary="Get Census 2011 SC/ST demographics")
+async def get_tamil_nadu_census_demographics():
+    """Returns Census 2011 SC/ST demographic indicators for Tamil Nadu districts."""
+    return tn_service.get_census_demographics()
 

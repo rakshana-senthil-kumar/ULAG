@@ -1,0 +1,180 @@
+{
+  "type": "FeatureCollection",
+  "name": "Aadhar_Enrollment_Center",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "AEC_001",
+      "properties": {
+        "center_id": "AEC_001",
+        "name": "Rippon Building UIDAI Center",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "GCC Headquarters, EVR Periyar Salai, Park Town",
+        "district": "Chennai",
+        "pin_code": 600003,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2764,
+          13.0827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_002",
+      "properties": {
+        "center_id": "AEC_002",
+        "name": "Mylapore Post Office Aadhaar Kiosk",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "Kutchery Road, Mylapore",
+        "district": "Chennai",
+        "pin_code": 600004,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2685,
+          13.0339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_003",
+      "properties": {
+        "center_id": "AEC_003",
+        "name": "T. Nagar Head Post Office AEC",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "Prakasam Road, T. Nagar",
+        "district": "Chennai",
+        "pin_code": 600017,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2337,
+          13.0418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_004",
+      "properties": {
+        "center_id": "AEC_004",
+        "name": "Anna Nagar GCC Regional Office AEC",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "3rd Avenue, Anna Nagar East",
+        "district": "Chennai",
+        "pin_code": 600102,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2185,
+          13.085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_005",
+      "properties": {
+        "center_id": "AEC_005",
+        "name": "Adyar Corporation Community Hall AEC",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "Lattice Bridge Road, Adyar",
+        "district": "Chennai",
+        "pin_code": 600020,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2565,
+          13.0012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_006",
+      "properties": {
+        "center_id": "AEC_006",
+        "name": "Coimbatore Corporation Central Aadhaar Seva Kendra",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "Town Hall, Raja Street",
+        "district": "Coimbatore",
+        "pin_code": 641001,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9616,
+          11.0018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_007",
+      "properties": {
+        "center_id": "AEC_007",
+        "name": "Gandhipuram Post Office Aadhaar Center",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "Cross Cut Road, Gandhipuram",
+        "district": "Coimbatore",
+        "pin_code": 641012,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9678,
+          11.0183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AEC_008",
+      "properties": {
+        "center_id": "AEC_008",
+        "name": "RS Puram Citizen Service Facilitation Center",
+        "center_type": "Bank / Post Office / GCC Center",
+        "address": "DB Road, RS Puram",
+        "district": "Coimbatore",
+        "pin_code": 641002,
+        "contact": "+91 44 2561 9200",
+        "status": "Operational"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9482,
+          11.0089
+        ]
+      }
+    }
+  ]
+}

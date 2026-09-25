@@ -1,0 +1,88 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cold_Storages",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CS_01",
+      "properties": {
+        "storage_id": "CS-TN-01",
+        "facility_name": "Koyambedu Wholesale Perishable Cold Hub",
+        "commodities_handled": "Fruits, Vegetables, Flowers",
+        "capacity_metric_tons": 12000,
+        "temperature_range_celsius": "0\u00b0C to +8\u00b0C",
+        "district": "Chennai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.202,
+          13.067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CS_02",
+      "properties": {
+        "storage_id": "CS-TN-02",
+        "facility_name": "Madhavaram Dairy & Agri Cold Storage",
+        "commodities_handled": "Milk, Dairy Products, Frozen Poultry",
+        "capacity_metric_tons": 8500,
+        "temperature_range_celsius": "-18\u00b0C to +4\u00b0C",
+        "district": "Chennai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.231,
+          13.148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CS_03",
+      "properties": {
+        "storage_id": "CS-TN-03",
+        "facility_name": "Coimbatore Mettupalayam Road Cold Complex",
+        "commodities_handled": "Potatoes, Carrots, Hill Produce",
+        "capacity_metric_tons": 15000,
+        "temperature_range_celsius": "+2\u00b0C to +6\u00b0C",
+        "district": "Coimbatore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.945,
+          11.052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CS_04",
+      "properties": {
+        "storage_id": "CS-TN-04",
+        "facility_name": "Pollachi Agro Processing Cold Unit",
+        "commodities_handled": "Coconut, Tender Coconut Kernels, Spices",
+        "capacity_metric_tons": 6000,
+        "temperature_range_celsius": "+4\u00b0C to +10\u00b0C",
+        "district": "Coimbatore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.008,
+          10.658
+        ]
+      }
+    }
+  ]
+}

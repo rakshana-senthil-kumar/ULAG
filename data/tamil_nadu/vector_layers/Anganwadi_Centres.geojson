@@ -1,0 +1,132 @@
+{
+  "type": "FeatureCollection",
+  "name": "Anganwadi_Centres",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "AW_001",
+      "properties": {
+        "anganwadi_id": "AW_001",
+        "project_name": "ICDS Urban Project Tamil Nadu",
+        "center_name": "Anganwadi Child Care Center - Perambur Subbarayan Nagar",
+        "children_enrolled": 42,
+        "nutrition_scheme": "Puratchi Thalaivar MGR Nutritious Meal Programme",
+        "worker_name": "Tmt. Lakshmi R",
+        "contact": "+91 94440 12345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.238,
+          13.108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AW_002",
+      "properties": {
+        "anganwadi_id": "AW_002",
+        "project_name": "ICDS Urban Project Tamil Nadu",
+        "center_name": "Anganwadi Child Care Center - Triplicane Canal Bank",
+        "children_enrolled": 38,
+        "nutrition_scheme": "Puratchi Thalaivar MGR Nutritious Meal Programme",
+        "worker_name": "Tmt. Revathi M",
+        "contact": "+91 94440 12345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.278,
+          13.055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AW_003",
+      "properties": {
+        "anganwadi_id": "AW_003",
+        "project_name": "ICDS Urban Project Tamil Nadu",
+        "center_name": "Anganwadi Child Care Center - Saidapet West Todd Hunter Nagar",
+        "children_enrolled": 45,
+        "nutrition_scheme": "Puratchi Thalaivar MGR Nutritious Meal Programme",
+        "worker_name": "Tmt. Jayanthi K",
+        "contact": "+91 94440 12345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.221,
+          13.021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AW_004",
+      "properties": {
+        "anganwadi_id": "AW_004",
+        "project_name": "ICDS Urban Project Tamil Nadu",
+        "center_name": "Anganwadi Child Care Center - Velachery Gandhi Salai",
+        "children_enrolled": 50,
+        "nutrition_scheme": "Puratchi Thalaivar MGR Nutritious Meal Programme",
+        "worker_name": "Tmt. Sumathi S",
+        "contact": "+91 94440 12345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.224,
+          12.981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AW_005",
+      "properties": {
+        "anganwadi_id": "AW_005",
+        "project_name": "ICDS Urban Project Tamil Nadu",
+        "center_name": "Anganwadi Child Care Center - Coimbatore Ramanathapuram Ward 64",
+        "children_enrolled": 36,
+        "nutrition_scheme": "Puratchi Thalaivar MGR Nutritious Meal Programme",
+        "worker_name": "Tmt. Vasantha P",
+        "contact": "+91 94440 12345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.992,
+          10.998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AW_006",
+      "properties": {
+        "anganwadi_id": "AW_006",
+        "project_name": "ICDS Urban Project Tamil Nadu",
+        "center_name": "Anganwadi Child Care Center - Coimbatore Saibaba Colony Ward 22",
+        "children_enrolled": 40,
+        "nutrition_scheme": "Puratchi Thalaivar MGR Nutritious Meal Programme",
+        "worker_name": "Tmt. Selvi G",
+        "contact": "+91 94440 12345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.942,
+          11.026
+        ]
+      }
+    }
+  ]
+}

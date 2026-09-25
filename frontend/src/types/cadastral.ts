@@ -15,6 +15,32 @@ export interface ValidationReport {
   issues: string[];
 }
 
+export interface ChecklistItem {
+  status: 'PASS' | 'WARN' | 'FAIL' | 'INFO';
+  text: string;
+}
+
+export interface CandidateAuditItem {
+  candidate_id: string;
+  survey_candidate: string;
+  iou: number;
+  coverage_source: number;
+  coverage_candidate: number;
+  area_diff_pct: number;
+  centroid_dist_m: number;
+  mean_boundary_dev_m: number;
+  max_boundary_dev_m: number;
+  p95_boundary_dev_m: number;
+  hausdorff_m: number;
+  boundary_conformance: number;
+  gnss_inside_pct: number;
+  attribute_match: number;
+  score: number;
+  rank?: number;
+  hard_flags?: string[];
+  rejection_reason?: string;
+}
+
 export interface EvidenceMetrics {
   geometry_match: number;
   area_match: number;
@@ -22,6 +48,24 @@ export interface EvidenceMetrics {
   attribute_match: number;
   proximity_match: number;
   overall_confidence: number;
+  boundary_conformance?: number;
+  mean_boundary_deviation_m?: number;
+  max_boundary_deviation_m?: number;
+  p95_boundary_deviation_m?: number;
+  hausdorff_distance_m?: number;
+  coverage_source?: number;
+  coverage_candidate?: number;
+  area_difference_pct?: number;
+  centroid_distance_m?: number;
+  gnss_points_total?: number;
+  gnss_points_inside?: number;
+  gnss_inside_percentage?: number;
+  gnss_status?: string;
+  drone_legacy_difference_pct?: number;
+  hard_constraint_flags?: string[];
+  decision_reason?: string;
+  candidates_audit?: CandidateAuditItem[];
+  why_matched_checklist?: ChecklistItem[];
 }
 
 export interface SourceAreaComparison {

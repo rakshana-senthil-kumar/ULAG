@@ -1,0 +1,172 @@
+{
+  "type": "FeatureCollection",
+  "name": "Chennai_Metro_Rail_Station",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_01",
+      "properties": {
+        "station_id": "CMRL-S01",
+        "station_name": "Chennai Central Metro",
+        "line": "Blue & Green Line Interchange",
+        "type": "Underground",
+        "interchange": "Chennai Central Suburban & Southern Railway Hub",
+        "daily_footfall": 38000,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.276,
+          13.082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_02",
+      "properties": {
+        "station_id": "CMRL-S02",
+        "station_name": "Government Estate",
+        "line": "Blue Line",
+        "type": "Underground",
+        "interchange": "Omandurar Medical Multi-Speciality",
+        "daily_footfall": 18500,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.27,
+          13.068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_03",
+      "properties": {
+        "station_id": "CMRL-S03",
+        "station_name": "AG-DMS",
+        "line": "Blue Line",
+        "type": "Underground",
+        "interchange": "Directorate of Medical Services",
+        "daily_footfall": 16200,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.249,
+          13.045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_04",
+      "properties": {
+        "station_id": "CMRL-S04",
+        "station_name": "Nandanam",
+        "line": "Blue Line",
+        "type": "Underground",
+        "interchange": "Anna Salai Junction",
+        "daily_footfall": 14800,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.239,
+          13.031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_05",
+      "properties": {
+        "station_id": "CMRL-S05",
+        "station_name": "Guindy Metro",
+        "line": "Blue Line",
+        "type": "Elevated",
+        "interchange": "Guindy Suburban Railway Hub",
+        "daily_footfall": 26500,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.214,
+          13.008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_06",
+      "properties": {
+        "station_id": "CMRL-S06",
+        "station_name": "Chennai Airport Metro",
+        "line": "Blue Line Terminal",
+        "type": "Elevated",
+        "interchange": "Chennai International Airport T1/T4",
+        "daily_footfall": 32000,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.165,
+          12.981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_07",
+      "properties": {
+        "station_id": "CMRL-S07",
+        "station_name": "Koyambedu Metro",
+        "line": "Green Line",
+        "type": "Elevated",
+        "interchange": "CMBT Bus Terminal & Market Hub",
+        "daily_footfall": 29000,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.205,
+          13.069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_STN_08",
+      "properties": {
+        "station_id": "CMRL-S08",
+        "station_name": "Anna Nagar East",
+        "line": "Green Line",
+        "type": "Underground",
+        "interchange": "Residential & Commercial Center",
+        "daily_footfall": 15200,
+        "accessibility": "Full Barrier-free, Elevators, Tactile Flooring"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.218,
+          13.085
+        ]
+      }
+    }
+  ]
+}

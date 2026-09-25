@@ -1,0 +1,88 @@
+{
+  "type": "FeatureCollection",
+  "name": "Community_Farm_Schools_CFS",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CFS_01",
+      "properties": {
+        "school_id": "CFS-TN-01",
+        "name": "Kancheepuram Organic Rice Farm School",
+        "scheme": "ATMA (Agricultural Technology Management Agency)",
+        "specialization": "System of Rice Intensification (SRI)",
+        "farmer_beneficiaries_trained": 340,
+        "demo_plots_acres": 5.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.712,
+          12.825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CFS_02",
+      "properties": {
+        "school_id": "CFS-TN-02",
+        "name": "Tiruvallur Precision Horticulture School",
+        "scheme": "ATMA (Agricultural Technology Management Agency)",
+        "specialization": "Drip Irrigation & Drip fertigation",
+        "farmer_beneficiaries_trained": 280,
+        "demo_plots_acres": 4.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.915,
+          13.138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CFS_03",
+      "properties": {
+        "school_id": "CFS-TN-03",
+        "name": "Thondamuthur Vegetable & Floriculture School",
+        "scheme": "ATMA (Agricultural Technology Management Agency)",
+        "specialization": "Polyhouse Protected Cultivation",
+        "farmer_beneficiaries_trained": 410,
+        "demo_plots_acres": 6.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.832,
+          10.985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CFS_04",
+      "properties": {
+        "school_id": "CFS-TN-04",
+        "name": "Pollachi Coconut Intercropping Farm School",
+        "scheme": "ATMA (Agricultural Technology Management Agency)",
+        "specialization": "Agroforestry & Intercropping",
+        "farmer_beneficiaries_trained": 320,
+        "demo_plots_acres": 8.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.995,
+          10.662
+        ]
+      }
+    }
+  ]
+}

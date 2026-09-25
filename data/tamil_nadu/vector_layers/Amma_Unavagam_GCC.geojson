@@ -1,0 +1,159 @@
+{
+  "type": "FeatureCollection",
+  "name": "Amma_Unavagam_GCC",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "AU_001",
+      "properties": {
+        "canteen_id": "AU_001",
+        "name": "Amma Unavagam - Royapuram GH",
+        "gcc_zone": "Zone 5 (Royapuram)",
+        "ward_no": 54,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 1200,
+        "women_shg_operating": "Annai Theresa Magalir Kuzhu",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2882,
+          13.1042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AU_002",
+      "properties": {
+        "canteen_id": "AU_002",
+        "name": "Amma Unavagam - Thiru-Vi-Ka Nagar Market",
+        "gcc_zone": "Zone 6 (Thiru-Vi-Ka Nagar)",
+        "ward_no": 72,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 950,
+        "women_shg_operating": "Bharathiyar SHG",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.245,
+          13.1118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AU_003",
+      "properties": {
+        "canteen_id": "AU_003",
+        "name": "Amma Unavagam - Ambattur Estate Road",
+        "gcc_zone": "Zone 7 (Ambattur)",
+        "ward_no": 82,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 1100,
+        "women_shg_operating": "Vaanavil SHG",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.162,
+          13.098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AU_004",
+      "properties": {
+        "canteen_id": "AU_004",
+        "name": "Amma Unavagam - Kilpauk Medical College Hospital",
+        "gcc_zone": "Zone 8 (Anna Nagar)",
+        "ward_no": 102,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 1400,
+        "women_shg_operating": "Karpagam SHG",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2432,
+          13.0805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AU_005",
+      "properties": {
+        "canteen_id": "AU_005",
+        "name": "Amma Unavagam - Teynampet DMS Complex",
+        "gcc_zone": "Zone 9 (Teynampet)",
+        "ward_no": 118,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 1300,
+        "women_shg_operating": "Semmozhi SHG",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.248,
+          13.045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AU_006",
+      "properties": {
+        "canteen_id": "AU_006",
+        "name": "Amma Unavagam - Kodambakkam Trustpuram",
+        "gcc_zone": "Zone 10 (Kodambakkam)",
+        "ward_no": 131,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 850,
+        "women_shg_operating": "Malar SHG",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.224,
+          13.052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "AU_007",
+      "properties": {
+        "canteen_id": "AU_007",
+        "name": "Amma Unavagam - Adyar Shastri Nagar",
+        "gcc_zone": "Zone 13 (Adyar)",
+        "ward_no": 175,
+        "menu": "Idli (Re 1), Sambar Rice (Rs 5), Curd Rice (Rs 3), Chapati (Rs 3)",
+        "beneficiaries_daily": 1050,
+        "women_shg_operating": "Poompuhar SHG",
+        "status": "Functional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.259,
+          12.998
+        ]
+      }
+    }
+  ]
+}

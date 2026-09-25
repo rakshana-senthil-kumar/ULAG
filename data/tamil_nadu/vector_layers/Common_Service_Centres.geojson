@@ -1,0 +1,88 @@
+{
+  "type": "FeatureCollection",
+  "name": "Common_Service_Centres",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CSC_001",
+      "properties": {
+        "csc_id": "CSC-TN-001",
+        "vle_name": "S. Murugesan VLE",
+        "center_location": "Thiruvanmiyur Bus Terminus",
+        "district": "Chennai",
+        "digital_services": "PM-Kisan, Digital Seva, PAN Card, Ayushman Bharat, Insurance, Land Mutation Support",
+        "monthly_transactions": 480
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.26,
+          12.986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CSC_002",
+      "properties": {
+        "csc_id": "CSC-TN-002",
+        "vle_name": "P. Sundaram VLE",
+        "center_location": "Kolathur Market Salai",
+        "district": "Chennai",
+        "digital_services": "PM-Kisan, Digital Seva, PAN Card, Ayushman Bharat, Insurance, Land Mutation Support",
+        "monthly_transactions": 520
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.218,
+          13.125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CSC_003",
+      "properties": {
+        "csc_id": "CSC-TN-003",
+        "vle_name": "K. Selvam VLE",
+        "center_location": "Peelamedu Main Bazaar",
+        "district": "Coimbatore",
+        "digital_services": "PM-Kisan, Digital Seva, PAN Card, Ayushman Bharat, Insurance, Land Mutation Support",
+        "monthly_transactions": 610
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.018,
+          11.028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CSC_004",
+      "properties": {
+        "csc_id": "CSC-TN-004",
+        "vle_name": "M. Natarajan VLE",
+        "center_location": "Saravanampatti Tech Corridor",
+        "district": "Coimbatore",
+        "digital_services": "PM-Kisan, Digital Seva, PAN Card, Ayushman Bharat, Insurance, Land Mutation Support",
+        "monthly_transactions": 580
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.998,
+          11.078
+        ]
+      }
+    }
+  ]
+}

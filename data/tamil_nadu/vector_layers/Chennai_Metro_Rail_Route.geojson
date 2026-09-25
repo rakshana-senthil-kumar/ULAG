@@ -1,0 +1,116 @@
+{
+  "type": "FeatureCollection",
+  "name": "Chennai_Metro_Rail_Route",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CMRL_LINE_1",
+      "properties": {
+        "line_id": "CMRL-L1",
+        "line_name": "Blue Line (Corridor 1)",
+        "terminal_stations": "Wimco Nagar Depot <-> Chennai International Airport",
+        "length_km": 32.65,
+        "status": "Operational",
+        "track_gauge": "Standard Gauge (1435 mm)",
+        "traction": "25 kV AC Overhead Catenary"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            80.308,
+            13.165
+          ],
+          [
+            80.292,
+            13.125
+          ],
+          [
+            80.285,
+            13.098
+          ],
+          [
+            80.276,
+            13.082
+          ],
+          [
+            80.264,
+            13.064
+          ],
+          [
+            80.25,
+            13.046
+          ],
+          [
+            80.238,
+            13.03
+          ],
+          [
+            80.218,
+            13.008
+          ],
+          [
+            80.198,
+            12.992
+          ],
+          [
+            80.165,
+            12.981
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CMRL_LINE_2",
+      "properties": {
+        "line_id": "CMRL-L2",
+        "line_name": "Green Line (Corridor 2)",
+        "terminal_stations": "Puratchi Thalaivar Dr. M.G. Ramachandran Central <-> St. Thomas Mount",
+        "length_km": 22.0,
+        "status": "Operational",
+        "track_gauge": "Standard Gauge (1435 mm)",
+        "traction": "25 kV AC Overhead Catenary"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            80.276,
+            13.082
+          ],
+          [
+            80.245,
+            13.081
+          ],
+          [
+            80.218,
+            13.085
+          ],
+          [
+            80.205,
+            13.069
+          ],
+          [
+            80.208,
+            13.042
+          ],
+          [
+            80.212,
+            13.024
+          ],
+          [
+            80.198,
+            12.992
+          ]
+        ]
+      }
+    }
+  ]
+}

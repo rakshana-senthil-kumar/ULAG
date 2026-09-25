@@ -1,0 +1,246 @@
+{
+  "type": "FeatureCollection",
+  "name": "Buildings_Locations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "BLD_001",
+      "properties": {
+        "building_id": "BLD_001",
+        "building_name": "Ripon Building - GCC Secretariat",
+        "use_category": "Government / Heritage",
+        "floors": 3,
+        "footprint_area_sqm": 7800,
+        "construction_year": 1913
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.2756,
+              13.0821
+            ],
+            [
+              80.2772,
+              13.0821
+            ],
+            [
+              80.2772,
+              13.0833
+            ],
+            [
+              80.2756,
+              13.0833
+            ],
+            [
+              80.2756,
+              13.0821
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLD_002",
+      "properties": {
+        "building_id": "BLD_002",
+        "building_name": "Tamil Nadu Legislative Assembly Secretariat (Fort St. George)",
+        "use_category": "State Government",
+        "floors": 4,
+        "footprint_area_sqm": 14200,
+        "construction_year": 1644
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.2864,
+              13.0789
+            ],
+            [
+              80.288,
+              13.0789
+            ],
+            [
+              80.288,
+              13.0801
+            ],
+            [
+              80.2864,
+              13.0801
+            ],
+            [
+              80.2864,
+              13.0789
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLD_003",
+      "properties": {
+        "building_id": "BLD_003",
+        "building_name": "Madras High Court Administrative Block",
+        "use_category": "Judiciary",
+        "floors": 3,
+        "footprint_area_sqm": 12500,
+        "construction_year": 1892
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.2862,
+              13.0872
+            ],
+            [
+              80.2878,
+              13.0872
+            ],
+            [
+              80.2878,
+              13.0884
+            ],
+            [
+              80.2862,
+              13.0884
+            ],
+            [
+              80.2862,
+              13.0872
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLD_004",
+      "properties": {
+        "building_id": "BLD_004",
+        "building_name": "Coimbatore Municipal Corporation Head Office",
+        "use_category": "Municipal Civic Center",
+        "floors": 4,
+        "footprint_area_sqm": 6200,
+        "construction_year": 1985
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9612,
+              11.0014
+            ],
+            [
+              76.9628,
+              11.0014
+            ],
+            [
+              76.9628,
+              11.0026
+            ],
+            [
+              76.9612,
+              11.0026
+            ],
+            [
+              76.9612,
+              11.0014
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLD_005",
+      "properties": {
+        "building_id": "BLD_005",
+        "building_name": "CMDA Thalamuthu Natarajan Maaligai",
+        "use_category": "Urban Development Authority",
+        "floors": 10,
+        "footprint_area_sqm": 11500,
+        "construction_year": 1982
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.2602,
+              13.0774
+            ],
+            [
+              80.2618,
+              13.0774
+            ],
+            [
+              80.2618,
+              13.0786
+            ],
+            [
+              80.2602,
+              13.0786
+            ],
+            [
+              80.2602,
+              13.0774
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "BLD_006",
+      "properties": {
+        "building_id": "BLD_006",
+        "building_name": "TIDEL Park IT Complex",
+        "use_category": "Commercial IT / SEZ",
+        "floors": 13,
+        "footprint_area_sqm": 28000,
+        "construction_year": 2000
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.2462,
+              12.9884
+            ],
+            [
+              80.2478,
+              12.9884
+            ],
+            [
+              80.2478,
+              12.9896
+            ],
+            [
+              80.2462,
+              12.9896
+            ],
+            [
+              80.2462,
+              12.9884
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

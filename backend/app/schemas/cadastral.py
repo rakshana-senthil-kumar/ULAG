@@ -28,6 +28,28 @@ class EvidenceMetrics(BaseModel):
     attribute_match: float = Field(..., description="Percentage survey & attribute agreement (0-100)")
     proximity_match: float = Field(..., description="Percentage spatial proximity (0-100)")
     overall_confidence: float = Field(..., description="Final weighted match confidence score (0-100)")
+    # Rigorous Geodetic & Boundary Metrics
+    boundary_conformance: float = Field(default=95.0, description="Percentage of boundary within tolerance (0-100)")
+    mean_boundary_deviation_m: float = Field(default=0.0, description="Mean boundary deviation in meters")
+    max_boundary_deviation_m: float = Field(default=0.0, description="Maximum boundary deviation in meters")
+    p95_boundary_deviation_m: float = Field(default=0.0, description="95th percentile boundary deviation in meters")
+    hausdorff_distance_m: float = Field(default=0.0, description="Symmetric Hausdorff distance in meters")
+    coverage_source: float = Field(default=100.0, description="Area(A ∩ B) / Area(A) in percent")
+    coverage_candidate: float = Field(default=100.0, description="Area(A ∩ B) / Area(B) in percent")
+    area_difference_pct: float = Field(default=0.0, description="Area difference percentage")
+    centroid_distance_m: float = Field(default=0.0, description="Projected Euclidean centroid distance in meters")
+    # GNSS RTK Ground Evidence
+    gnss_points_total: int = Field(default=0, description="Total GNSS survey points for parcel")
+    gnss_points_inside: int = Field(default=0, description="GNSS survey points inside candidate polygon")
+    gnss_inside_percentage: float = Field(default=0.0, description="Percentage of GNSS points inside candidate")
+    gnss_status: str = Field(default="NO_DATA", description="HIGH, MEDIUM, LOW, or NO_DATA")
+    # Drone vs Legacy Discrepancy
+    drone_legacy_difference_pct: float = Field(default=0.0, description="Discrepancy between legacy and drone geometry")
+    # Audit & Dynamic Reasoning
+    hard_constraint_flags: List[str] = Field(default_factory=list, description="Hard constraint violation flags if any")
+    decision_reason: str = Field(default="", description="Explanatory decision rationale")
+    candidates_audit: List[Dict[str, Any]] = Field(default_factory=list, description="Audit list of all candidate parcels evaluated")
+    why_matched_checklist: List[Dict[str, Any]] = Field(default_factory=list, description="Dynamic explainable checklist items")
 
 class SourceAreaComparison(BaseModel):
     legacy: Optional[float] = None

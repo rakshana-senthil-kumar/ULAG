@@ -341,40 +341,112 @@ export const ReconcileView: React.FC<ReconcileViewProps> = ({
                   </div>
                   <div className="flex justify-between items-center text-slate-600">
                     <span>Boundary Conformance</span>
-                    <span className="font-bold text-slate-900 font-mono">92%</span>
+                    <span className="font-bold text-slate-900 font-mono">
+                      {selectedParcelDetail.evidence?.boundary_conformance !== undefined ? `${selectedParcelDetail.evidence.boundary_conformance}%` : 'N/A'}
+                    </span>
                   </div>
+                  {selectedParcelDetail.evidence?.mean_boundary_deviation_m !== undefined && (
+                    <div className="flex justify-between items-center text-slate-600">
+                      <span>Mean Boundary Dev</span>
+                      <span className="font-bold text-slate-900 font-mono">
+                        {selectedParcelDetail.evidence.mean_boundary_deviation_m} m
+                      </span>
+                    </div>
+                  )}
+                  {selectedParcelDetail.evidence?.gnss_points_total !== undefined && selectedParcelDetail.evidence.gnss_points_total > 0 && (
+                    <div className="flex justify-between items-center text-slate-600">
+                      <span>GNSS Survey Inside</span>
+                      <span className="font-bold text-slate-900 font-mono">
+                        {selectedParcelDetail.evidence.gnss_points_inside} / {selectedParcelDetail.evidence.gnss_points_total} ({selectedParcelDetail.evidence.gnss_inside_percentage}%)
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Explainable Reasoning Checklist */}
+              {/* Explainable Reasoning Checklist (Computed Dynamically from True Evidence) */}
               <div className="bg-white border border-slate-200 rounded-lg p-3.5 space-y-2">
                 <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
                   <Info className="w-3.5 h-3.5 text-blue-600" /> Why this match?
                 </h3>
 
                 <div className="space-y-1.5 text-xs">
-                  <div className="flex items-start gap-2 text-slate-800">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Boundary overlap is high (IoU {selectedParcelDetail.evidence?.geometry_match || 91}%)</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-slate-800">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Area difference is within configured tolerance (±4.5 m²)</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-slate-800">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>GNSS RTK survey point lies inside candidate geometry</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-slate-800">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Survey number agrees with 7/12 revenue register</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-amber-900">
-                    <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                    <span>Legacy geometry differs by 3.8% from high-res Drone ORI</span>
-                  </div>
+                  {selectedParcelDetail.evidence?.why_matched_checklist && selectedParcelDetail.evidence.why_matched_checklist.length > 0 ? (
+                    selectedParcelDetail.evidence.why_matched_checklist.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className={`flex items-start gap-2 ${
+                          item.status === 'FAIL'
+                            ? 'text-red-900 font-medium'
+                            : item.status === 'WARN'
+                            ? 'text-amber-900'
+                            : item.status === 'INFO'
+                            ? 'text-blue-900'
+                            : 'text-slate-800'
+                        }`}
+                      >
+                        {item.status === 'PASS' && (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        )}
+                        {item.status === 'WARN' && (
+                          <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                        )}
+                        {item.status === 'FAIL' && (
+                          <AlertTriangle className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
+                        )}
+                        {item.status === 'INFO' && (
+                          <Info className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                        )}
+                        <span>{item.text}</span>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-slate-500 italic">No checklist items available</div>
+                  )}
                 </div>
               </div>
+
+              {/* Candidate Audit Comparison (Ranked Candidates) */}
+              {selectedParcelDetail.evidence?.candidates_audit && selectedParcelDetail.evidence.candidates_audit.length > 0 && (
+                <div className="bg-white border border-slate-200 rounded-lg p-3.5 space-y-2">
+                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <Split className="w-3.5 h-3.5 text-indigo-600" /> Evaluated Candidates ({selectedParcelDetail.evidence.candidates_audit.length})
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-normal">Ranked by score</span>
+                  </h3>
+                  <div className="space-y-2">
+                    {selectedParcelDetail.evidence.candidates_audit.slice(0, 3).map((cand, idx) => (
+                      <div
+                        key={idx}
+                        className={`p-2 rounded border text-[11px] ${
+                          idx === 0 ? 'bg-indigo-50/50 border-indigo-200' : 'bg-slate-50 border-slate-200'
+                        }`}
+                      >
+                        <div className="flex justify-between font-bold text-slate-800">
+                          <span>
+                            #{cand.rank || idx + 1} {cand.candidate_id} ({cand.survey_candidate || 'Unassigned'})
+                          </span>
+                          <span className={idx === 0 ? 'text-indigo-700' : 'text-slate-600'}>
+                            {cand.score}% Score
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-x-2 text-[10px] text-slate-600 mt-1">
+                          <span>IoU: <b>{cand.iou}%</b></span>
+                          <span>Area Δ: <b>{cand.area_diff_pct}%</b></span>
+                          <span>Centroid: <b>{cand.centroid_dist_m}m</b></span>
+                          <span>Mean Dev: <b>{cand.mean_boundary_dev_m}m</b></span>
+                        </div>
+                        {cand.rejection_reason && (
+                          <div className="text-[10px] text-amber-700 mt-1 font-medium">
+                            ⚠ {cand.rejection_reason}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* System Recommendation Box */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 space-y-1">

@@ -1,0 +1,132 @@
+{
+  "type": "FeatureCollection",
+  "name": "Arts_and_Science_Collage",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "COL_001",
+      "properties": {
+        "institution_id": "COL_001",
+        "institution_name": "Presidency College (Autonomous)",
+        "affiliation": "University of Madras",
+        "established_year": 1840,
+        "naac_grade": "A+",
+        "campus_area_acres": 22.5,
+        "type": "Government / Aided / Autonomous"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2828,
+          13.0617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "COL_002",
+      "properties": {
+        "institution_id": "COL_002",
+        "institution_name": "Madras Christian College (MCC)",
+        "affiliation": "University of Madras",
+        "established_year": 1837,
+        "naac_grade": "A++",
+        "campus_area_acres": 320.0,
+        "type": "Government / Aided / Autonomous"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1235,
+          12.9238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "COL_003",
+      "properties": {
+        "institution_id": "COL_003",
+        "institution_name": "Loyola College (Autonomous)",
+        "affiliation": "University of Madras",
+        "established_year": 1925,
+        "naac_grade": "A++",
+        "campus_area_acres": 96.0,
+        "type": "Government / Aided / Autonomous"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2355,
+          13.0633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "COL_004",
+      "properties": {
+        "institution_id": "COL_004",
+        "institution_name": "Queen Mary's College (Autonomous)",
+        "affiliation": "University of Madras",
+        "established_year": 1914,
+        "naac_grade": "A",
+        "campus_area_acres": 17.0,
+        "type": "Government / Aided / Autonomous"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2801,
+          13.0475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "COL_005",
+      "properties": {
+        "institution_id": "COL_005",
+        "institution_name": "PSG College of Arts and Science",
+        "affiliation": "Bharathiar University",
+        "established_year": 1947,
+        "naac_grade": "A++",
+        "campus_area_acres": 85.0,
+        "type": "Government / Aided / Autonomous"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.034,
+          11.034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "COL_006",
+      "properties": {
+        "institution_id": "COL_006",
+        "institution_name": "Government Arts College, Coimbatore",
+        "affiliation": "Bharathiar University",
+        "established_year": 1852,
+        "naac_grade": "A",
+        "campus_area_acres": 28.0,
+        "type": "Government / Aided / Autonomous"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.974,
+          11.002
+        ]
+      }
+    }
+  ]
+}

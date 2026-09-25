@@ -1,0 +1,1105 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "TN-01",
+      "properties": {
+        "district_code": "TN-01",
+        "district_name": "Chennai",
+        "headquarters": "Chennai",
+        "area_sq_km": 426,
+        "total_population": 4646732,
+        "sc_population": 662584,
+        "sc_percentage": 14.26,
+        "st_population": 10227,
+        "st_percentage": 0.22,
+        "sc_st_combined_population": 672811,
+        "sc_st_combined_percentage": 14.48,
+        "literacy_rate": 90.18,
+        "taluks_count": 16,
+        "centroid": [
+          80.2707,
+          13.0827
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.0507,
+              12.9067
+            ],
+            [
+              80.4907,
+              12.8847
+            ],
+            [
+              80.5127,
+              13.2367
+            ],
+            [
+              80.0947,
+              13.3027
+            ],
+            [
+              80.0507,
+              12.9067
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-02",
+      "properties": {
+        "district_code": "TN-02",
+        "district_name": "Coimbatore",
+        "headquarters": "Coimbatore",
+        "area_sq_km": 4723,
+        "total_population": 3458045,
+        "sc_population": 535496,
+        "sc_percentage": 15.49,
+        "st_population": 28342,
+        "st_percentage": 0.82,
+        "sc_st_combined_population": 563838,
+        "sc_st_combined_percentage": 16.31,
+        "literacy_rate": 83.98,
+        "taluks_count": 11,
+        "centroid": [
+          76.9558,
+          11.0168
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.7358,
+              10.8408
+            ],
+            [
+              77.1758,
+              10.8188
+            ],
+            [
+              77.1978,
+              11.1708
+            ],
+            [
+              76.7798,
+              11.2368
+            ],
+            [
+              76.7358,
+              10.8408
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-03",
+      "properties": {
+        "district_code": "TN-03",
+        "district_name": "Madurai",
+        "headquarters": "Madurai",
+        "area_sq_km": 3741,
+        "total_population": 3038252,
+        "sc_population": 408480,
+        "sc_percentage": 13.44,
+        "st_population": 11202,
+        "st_percentage": 0.37,
+        "sc_st_combined_population": 419682,
+        "sc_st_combined_percentage": 13.81,
+        "literacy_rate": 83.45,
+        "taluks_count": 11,
+        "centroid": [
+          78.1198,
+          9.9252
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.8998,
+              9.7492
+            ],
+            [
+              78.3398,
+              9.7272
+            ],
+            [
+              78.3618,
+              10.0792
+            ],
+            [
+              77.9438,
+              10.1452
+            ],
+            [
+              77.8998,
+              9.7492
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-04",
+      "properties": {
+        "district_code": "TN-04",
+        "district_name": "Tiruchirappalli",
+        "headquarters": "Tiruchirappalli",
+        "area_sq_km": 4403,
+        "total_population": 2722290,
+        "sc_population": 466847,
+        "sc_percentage": 17.15,
+        "st_population": 18236,
+        "st_percentage": 0.67,
+        "sc_st_combined_population": 485083,
+        "sc_st_combined_percentage": 17.82,
+        "literacy_rate": 83.23,
+        "taluks_count": 11,
+        "centroid": [
+          78.7047,
+          10.7905
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4847,
+              10.6145
+            ],
+            [
+              78.9247,
+              10.5925
+            ],
+            [
+              78.9467,
+              10.9445
+            ],
+            [
+              78.5287,
+              11.0105
+            ],
+            [
+              78.4847,
+              10.6145
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-05",
+      "properties": {
+        "district_code": "TN-05",
+        "district_name": "Salem",
+        "headquarters": "Salem",
+        "area_sq_km": 5245,
+        "total_population": 3482056,
+        "sc_population": 579893,
+        "sc_percentage": 16.65,
+        "st_population": 119369,
+        "st_percentage": 3.43,
+        "sc_st_combined_population": 699262,
+        "sc_st_combined_percentage": 20.08,
+        "literacy_rate": 72.86,
+        "taluks_count": 13,
+        "centroid": [
+          78.146,
+          11.6643
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.926,
+              11.4883
+            ],
+            [
+              78.366,
+              11.4663
+            ],
+            [
+              78.388,
+              11.8183
+            ],
+            [
+              77.97,
+              11.8843
+            ],
+            [
+              77.926,
+              11.4883
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-06",
+      "properties": {
+        "district_code": "TN-06",
+        "district_name": "Tiruppur",
+        "headquarters": "Tiruppur",
+        "area_sq_km": 5186,
+        "total_population": 2479052,
+        "sc_population": 396015,
+        "sc_percentage": 15.97,
+        "st_population": 5427,
+        "st_percentage": 0.22,
+        "sc_st_combined_population": 401442,
+        "sc_st_combined_percentage": 16.19,
+        "literacy_rate": 78.68,
+        "taluks_count": 9,
+        "centroid": [
+          77.3411,
+          11.1085
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.1211,
+              10.9325
+            ],
+            [
+              77.5611,
+              10.9105
+            ],
+            [
+              77.5831,
+              11.2625
+            ],
+            [
+              77.1651,
+              11.3285
+            ],
+            [
+              77.1211,
+              10.9325
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-07",
+      "properties": {
+        "district_code": "TN-07",
+        "district_name": "Erode",
+        "headquarters": "Erode",
+        "area_sq_km": 5722,
+        "total_population": 2251744,
+        "sc_population": 369803,
+        "sc_percentage": 16.42,
+        "st_population": 22002,
+        "st_percentage": 0.98,
+        "sc_st_combined_population": 391805,
+        "sc_st_combined_percentage": 17.4,
+        "literacy_rate": 72.58,
+        "taluks_count": 10,
+        "centroid": [
+          77.7172,
+          11.341
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.4972,
+              11.165
+            ],
+            [
+              77.9372,
+              11.143
+            ],
+            [
+              77.9592,
+              11.495
+            ],
+            [
+              77.5412,
+              11.561
+            ],
+            [
+              77.4972,
+              11.165
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-08",
+      "properties": {
+        "district_code": "TN-08",
+        "district_name": "Tirunelveli",
+        "headquarters": "Tirunelveli",
+        "area_sq_km": 6823,
+        "total_population": 1665253,
+        "sc_population": 284126,
+        "sc_percentage": 17.06,
+        "st_population": 5410,
+        "st_percentage": 0.32,
+        "sc_st_combined_population": 289536,
+        "sc_st_combined_percentage": 17.39,
+        "literacy_rate": 82.5,
+        "taluks_count": 8,
+        "centroid": [
+          77.7567,
+          8.7139
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.5367,
+              8.5379
+            ],
+            [
+              77.9767,
+              8.5159
+            ],
+            [
+              77.9987,
+              8.8679
+            ],
+            [
+              77.5807,
+              8.9339
+            ],
+            [
+              77.5367,
+              8.5379
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-09",
+      "properties": {
+        "district_code": "TN-09",
+        "district_name": "Vellore",
+        "headquarters": "Vellore",
+        "area_sq_km": 3925,
+        "total_population": 1614242,
+        "sc_population": 352104,
+        "sc_percentage": 21.81,
+        "st_population": 19482,
+        "st_percentage": 1.21,
+        "sc_st_combined_population": 371586,
+        "sc_st_combined_percentage": 23.02,
+        "literacy_rate": 79.17,
+        "taluks_count": 6,
+        "centroid": [
+          79.1325,
+          12.9165
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.9125,
+              12.7405
+            ],
+            [
+              79.3525,
+              12.7185
+            ],
+            [
+              79.3745,
+              13.0705
+            ],
+            [
+              78.9565,
+              13.1365
+            ],
+            [
+              78.9125,
+              12.7405
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-10",
+      "properties": {
+        "district_code": "TN-10",
+        "district_name": "Thoothukudi",
+        "headquarters": "Thoothukudi",
+        "area_sq_km": 4707,
+        "total_population": 1750176,
+        "sc_population": 348120,
+        "sc_percentage": 19.89,
+        "st_population": 4902,
+        "st_percentage": 0.28,
+        "sc_st_combined_population": 353022,
+        "sc_st_combined_percentage": 20.17,
+        "literacy_rate": 86.16,
+        "taluks_count": 10,
+        "centroid": [
+          78.1348,
+          8.7642
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.9148,
+              8.5882
+            ],
+            [
+              78.3548,
+              8.5662
+            ],
+            [
+              78.3768,
+              8.9182
+            ],
+            [
+              77.9588,
+              8.9842
+            ],
+            [
+              77.9148,
+              8.5882
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-11",
+      "properties": {
+        "district_code": "TN-11",
+        "district_name": "Thanjavur",
+        "headquarters": "Thanjavur",
+        "area_sq_km": 3411,
+        "total_population": 2405890,
+        "sc_population": 455060,
+        "sc_percentage": 18.91,
+        "st_population": 3680,
+        "st_percentage": 0.15,
+        "sc_st_combined_population": 458740,
+        "sc_st_combined_percentage": 19.07,
+        "literacy_rate": 82.64,
+        "taluks_count": 9,
+        "centroid": [
+          79.1378,
+          10.787
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.9178,
+              10.611
+            ],
+            [
+              79.3578,
+              10.589
+            ],
+            [
+              79.3798,
+              10.941
+            ],
+            [
+              78.9618,
+              11.007
+            ],
+            [
+              78.9178,
+              10.611
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-12",
+      "properties": {
+        "district_code": "TN-12",
+        "district_name": "Dindigul",
+        "headquarters": "Dindigul",
+        "area_sq_km": 6266,
+        "total_population": 2159775,
+        "sc_population": 452140,
+        "sc_percentage": 20.93,
+        "st_population": 8214,
+        "st_percentage": 0.38,
+        "sc_st_combined_population": 460354,
+        "sc_st_combined_percentage": 21.31,
+        "literacy_rate": 76.26,
+        "taluks_count": 10,
+        "centroid": [
+          77.9803,
+          10.3673
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.7603,
+              10.1913
+            ],
+            [
+              78.2003,
+              10.1693
+            ],
+            [
+              78.2223,
+              10.5213
+            ],
+            [
+              77.8043,
+              10.5873
+            ],
+            [
+              77.7603,
+              10.1913
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-13",
+      "properties": {
+        "district_code": "TN-13",
+        "district_name": "Kanchipuram",
+        "headquarters": "Kanchipuram",
+        "area_sq_km": 1704,
+        "total_population": 1166401,
+        "sc_population": 282405,
+        "sc_percentage": 24.21,
+        "st_population": 16420,
+        "st_percentage": 1.41,
+        "sc_st_combined_population": 298825,
+        "sc_st_combined_percentage": 25.62,
+        "literacy_rate": 84.49,
+        "taluks_count": 5,
+        "centroid": [
+          79.7036,
+          12.8342
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.4836,
+              12.6582
+            ],
+            [
+              79.9236,
+              12.6362
+            ],
+            [
+              79.9456,
+              12.9882
+            ],
+            [
+              79.5276,
+              13.0542
+            ],
+            [
+              79.4836,
+              12.6582
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-14",
+      "properties": {
+        "district_code": "TN-14",
+        "district_name": "Tiruvallur",
+        "headquarters": "Tiruvallur",
+        "area_sq_km": 3422,
+        "total_population": 3728104,
+        "sc_population": 821190,
+        "sc_percentage": 22.03,
+        "st_population": 47210,
+        "st_percentage": 1.27,
+        "sc_st_combined_population": 868400,
+        "sc_st_combined_percentage": 23.29,
+        "literacy_rate": 84.03,
+        "taluks_count": 9,
+        "centroid": [
+          79.9082,
+          13.1432
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.6882,
+              12.9672
+            ],
+            [
+              80.1282,
+              12.9452
+            ],
+            [
+              80.1502,
+              13.2972
+            ],
+            [
+              79.7322,
+              13.3632
+            ],
+            [
+              79.6882,
+              12.9672
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-15",
+      "properties": {
+        "district_code": "TN-15",
+        "district_name": "Cuddalore",
+        "headquarters": "Cuddalore",
+        "area_sq_km": 3678,
+        "total_population": 2605914,
+        "sc_population": 763914,
+        "sc_percentage": 29.31,
+        "st_population": 15420,
+        "st_percentage": 0.59,
+        "sc_st_combined_population": 779334,
+        "sc_st_combined_percentage": 29.91,
+        "literacy_rate": 78.04,
+        "taluks_count": 10,
+        "centroid": [
+          79.7714,
+          11.748
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.5514,
+              11.572
+            ],
+            [
+              79.9914,
+              11.55
+            ],
+            [
+              80.0134,
+              11.902
+            ],
+            [
+              79.5954,
+              11.968
+            ],
+            [
+              79.5514,
+              11.572
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-16",
+      "properties": {
+        "district_code": "TN-16",
+        "district_name": "Viluppuram",
+        "headquarters": "Viluppuram",
+        "area_sq_km": 3725,
+        "total_population": 2092700,
+        "sc_population": 586320,
+        "sc_percentage": 28.02,
+        "st_population": 48120,
+        "st_percentage": 2.3,
+        "sc_st_combined_population": 634440,
+        "sc_st_combined_percentage": 30.32,
+        "literacy_rate": 71.88,
+        "taluks_count": 9,
+        "centroid": [
+          79.4861,
+          11.9401
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.2661,
+              11.7641
+            ],
+            [
+              79.7061,
+              11.7421
+            ],
+            [
+              79.7281,
+              12.0941
+            ],
+            [
+              79.3101,
+              12.1601
+            ],
+            [
+              79.2661,
+              11.7641
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-17",
+      "properties": {
+        "district_code": "TN-17",
+        "district_name": "Tiruvannamalai",
+        "headquarters": "Tiruvannamalai",
+        "area_sq_km": 6191,
+        "total_population": 2464875,
+        "sc_population": 565240,
+        "sc_percentage": 22.93,
+        "st_population": 91240,
+        "st_percentage": 3.7,
+        "sc_st_combined_population": 656480,
+        "sc_st_combined_percentage": 26.63,
+        "literacy_rate": 74.21,
+        "taluks_count": 12,
+        "centroid": [
+          79.0747,
+          12.2253
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.8547,
+              12.0493
+            ],
+            [
+              79.2947,
+              12.0273
+            ],
+            [
+              79.3167,
+              12.3793
+            ],
+            [
+              78.8987,
+              12.4453
+            ],
+            [
+              78.8547,
+              12.0493
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-18",
+      "properties": {
+        "district_code": "TN-18",
+        "district_name": "Dharmapuri",
+        "headquarters": "Dharmapuri",
+        "area_sq_km": 4497,
+        "total_population": 1506843,
+        "sc_population": 245210,
+        "sc_percentage": 16.27,
+        "st_population": 63210,
+        "st_percentage": 4.19,
+        "sc_st_combined_population": 308420,
+        "sc_st_combined_percentage": 20.47,
+        "literacy_rate": 68.54,
+        "taluks_count": 7,
+        "centroid": [
+          78.1582,
+          12.1211
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.9382,
+              11.9451
+            ],
+            [
+              78.3782,
+              11.9231
+            ],
+            [
+              78.4002,
+              12.2751
+            ],
+            [
+              77.9822,
+              12.3411
+            ],
+            [
+              77.9382,
+              11.9451
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-19",
+      "properties": {
+        "district_code": "TN-19",
+        "district_name": "Krishnagiri",
+        "headquarters": "Krishnagiri",
+        "area_sq_km": 5143,
+        "total_population": 1879809,
+        "sc_population": 267320,
+        "sc_percentage": 14.22,
+        "st_population": 22140,
+        "st_percentage": 1.18,
+        "sc_st_combined_population": 289460,
+        "sc_st_combined_percentage": 15.4,
+        "literacy_rate": 71.46,
+        "taluks_count": 8,
+        "centroid": [
+          78.2137,
+          12.5186
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.9937,
+              12.3426
+            ],
+            [
+              78.4337,
+              12.3206
+            ],
+            [
+              78.4557,
+              12.6726
+            ],
+            [
+              78.0377,
+              12.7386
+            ],
+            [
+              77.9937,
+              12.3426
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-20",
+      "properties": {
+        "district_code": "TN-20",
+        "district_name": "Namakkal",
+        "headquarters": "Namakkal",
+        "area_sq_km": 3368,
+        "total_population": 1726601,
+        "sc_population": 345120,
+        "sc_percentage": 19.99,
+        "st_population": 57840,
+        "st_percentage": 3.35,
+        "sc_st_combined_population": 402960,
+        "sc_st_combined_percentage": 23.34,
+        "literacy_rate": 74.63,
+        "taluks_count": 8,
+        "centroid": [
+          78.1674,
+          11.2189
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.9474,
+              11.0429
+            ],
+            [
+              78.3874,
+              11.0209
+            ],
+            [
+              78.4094,
+              11.3729
+            ],
+            [
+              77.9914,
+              11.4389
+            ],
+            [
+              77.9474,
+              11.0429
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-21",
+      "properties": {
+        "district_code": "TN-21",
+        "district_name": "Nilgiris",
+        "headquarters": "Udhagamandalam",
+        "area_sq_km": 2549,
+        "total_population": 735394,
+        "sc_population": 235840,
+        "sc_percentage": 32.07,
+        "st_population": 32813,
+        "st_percentage": 4.46,
+        "sc_st_combined_population": 268653,
+        "sc_st_combined_percentage": 36.53,
+        "literacy_rate": 85.2,
+        "taluks_count": 6,
+        "centroid": [
+          76.695,
+          11.4102
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.475,
+              11.2342
+            ],
+            [
+              76.915,
+              11.2122
+            ],
+            [
+              76.937,
+              11.5642
+            ],
+            [
+              76.519,
+              11.6302
+            ],
+            [
+              76.475,
+              11.2342
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "TN-22",
+      "properties": {
+        "district_code": "TN-22",
+        "district_name": "Kanyakumari",
+        "headquarters": "Nagercoil",
+        "area_sq_km": 1672,
+        "total_population": 1870374,
+        "sc_population": 74210,
+        "sc_percentage": 3.97,
+        "st_population": 7820,
+        "st_percentage": 0.42,
+        "sc_st_combined_population": 82030,
+        "sc_st_combined_percentage": 4.39,
+        "literacy_rate": 91.75,
+        "taluks_count": 6,
+        "centroid": [
+          77.4119,
+          8.1833
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.1919,
+              8.0073
+            ],
+            [
+              77.6319,
+              7.9853
+            ],
+            [
+              77.6539,
+              8.3373
+            ],
+            [
+              77.2359,
+              8.4033
+            ],
+            [
+              77.1919,
+              8.0073
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

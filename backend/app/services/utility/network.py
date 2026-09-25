@@ -12,7 +12,7 @@ from shapely.geometry import shape, LineString, Point, Polygon, mapping
 from backend.app.schemas.canonical import CanonicalUtilityAsset, ParcelUtilityAssociation
 from backend.app.services.matching.matcher import M_PER_DEG_LON, M_PER_DEG_LAT, BASE_LON, BASE_LAT
 
-# Generate Canonical Municipal Utility Assets in Pune urban sector
+# Generate Canonical Municipal Utility Assets in Coimbatore urban sector
 def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
     assets = [
         CanonicalUtilityAsset(
@@ -20,11 +20,11 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Electricity",
             asset_type="line",
             status="Operational",
-            source="MSEDCL Urban Grid GIS",
+            source="TANGEDCO Coimbatore Distribution Circle",
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [73.7370, 18.5900], [73.7385, 18.5912], [73.7400, 18.5925], [73.7420, 18.5935]
+                    [76.9548, 11.0158], [76.9563, 11.0170], [76.9578, 11.0183], [76.9598, 11.0193]
                 ]
             },
             crs="EPSG:4326",
@@ -35,11 +35,11 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Water",
             asset_type="line",
             status="Operational",
-            source="PMC Water Distribution Network",
+            source="CCMC Siruvani & Pilloor Water Supply Grid",
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [73.7365, 18.5905], [73.7380, 18.5915], [73.7395, 18.5922], [73.7415, 18.5930]
+                    [76.9543, 11.0163], [76.9558, 11.0173], [76.9573, 11.0180], [76.9593, 11.0188]
                 ]
             },
             crs="EPSG:4326",
@@ -50,11 +50,11 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Sewer",
             asset_type="line",
             status="Operational",
-            source="Municipal Drainage GIS",
+            source="CCMC Underground Drainage Network (UGD)",
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [73.7360, 18.5908], [73.7378, 18.5918], [73.7390, 18.5928]
+                    [76.9538, 11.0166], [76.9556, 11.0176], [76.9568, 11.0186]
                 ]
             },
             crs="EPSG:4326",
@@ -65,11 +65,11 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Telecom",
             asset_type="line",
             status="Operational",
-            source="National Optical Fiber Grid",
+            source="BharatNet / Tamil Nadu FiberNet (TANFINET)",
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [73.7372, 18.5898], [73.7388, 18.5910], [73.7405, 18.5920]
+                    [76.9550, 11.0156], [76.9566, 11.0168], [76.9583, 11.0178]
                 ]
             },
             crs="EPSG:4326",
@@ -80,11 +80,11 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Gas",
             asset_type="line",
             status="Operational",
-            source="MNGL City Gas Network",
+            source="Indian Oil-Adani City Gas Network (IOAGPL Coimbatore)",
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [73.7375, 18.5902], [73.7392, 18.5916], [73.7410, 18.5928]
+                    [76.9553, 11.0160], [76.9570, 11.0174], [76.9588, 11.0186]
                 ]
             },
             crs="EPSG:4326",
@@ -95,10 +95,10 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Electricity",
             asset_type="point",
             status="Operational",
-            source="MSEDCL Urban Grid GIS",
+            source="TANGEDCO Coimbatore Distribution Circle",
             geometry_geojson={
                 "type": "Point",
-                "coordinates": [73.7382, 18.5913]
+                "coordinates": [76.9560, 11.0171]
             },
             crs="EPSG:4326",
             dataset_version="v2.0"
@@ -108,10 +108,10 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             utility_type="Water",
             asset_type="point",
             status="Operational",
-            source="PMC Water Distribution Network",
+            source="CCMC Siruvani & Pilloor Water Supply Grid",
             geometry_geojson={
                 "type": "Point",
-                "coordinates": [73.7379, 18.5914]
+                "coordinates": [76.9557, 11.0172]
             },
             crs="EPSG:4326",
             dataset_version="v1.8"

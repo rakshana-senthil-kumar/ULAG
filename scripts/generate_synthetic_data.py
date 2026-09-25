@@ -32,9 +32,9 @@ random.seed(42)
 OUT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "demo")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# Base anchor in urban fringe: Pune / Hinjewadi region (EPSG:4326)
-BASE_LAT = 18.5910
-BASE_LON = 73.7380
+# Base anchor in Coimbatore urban corporation sector (EPSG:4326)
+BASE_LAT = 11.0168
+BASE_LON = 76.9558
 
 # Approximate degrees per meter at this latitude
 M_PER_DEG_LAT = 111132.95
@@ -159,7 +159,7 @@ def generate_datasets():
         
         full_survey = f"{survey_no}/{subdiv_no}"
         land_use = random.choice(land_uses)
-        owner_ref = f"IND-MH-PN-{idx+1000:04d}"
+        owner_ref = f"IND-TN-CBE-{idx+1000:04d}"
 
         # Base geometry
         if idx == flagship_idx:

@@ -122,6 +122,33 @@ class ProvenanceService:
                 record_count=7,
                 crs="EPSG:4326",
                 status="Active"
+            ),
+            RegisteredDataset(
+                dataset_id="DS-TN-VectorLayers",
+                name="Tamil Nadu / GCC Urban Infrastructure & Civic Vector Layers (20 Layers)",
+                source_type="TNGIS / GCC / CMRL / CUMTA / CMWSSB",
+                format="GeoJSON (20 Layers)",
+                record_count=138,
+                crs="EPSG:4326",
+                status="Active"
+            ),
+            RegisteredDataset(
+                dataset_id="DS-TN-ThematicMaps",
+                name="Tamil Nadu Districts & e-Sevai Distribution (Census 2011)",
+                source_type="TNeGA / Revenue Administration / Census India",
+                format="GeoJSON & CSV",
+                record_count=132,
+                crs="EPSG:4326",
+                status="Active"
+            ),
+            RegisteredDataset(
+                dataset_id="DS-TN-Roads",
+                name="Municipal Road Infrastructure Inventory (Coimbatore & Statewide)",
+                source_type="Municipal Administration & Water Supply (CCMC / GCC)",
+                format="CSV",
+                record_count=14,
+                crs="N/A",
+                status="Active"
             )
         ]
 

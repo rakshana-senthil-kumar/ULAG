@@ -91,8 +91,10 @@ def validate_and_normalize_datasets(
                     fix_description="Self-intersecting ring untangled and normalized via make_valid"
                 ))
 
-            # Sliver check (area to perimeter ratio)
-            if poly.length > 0 and (poly.area / (poly.length * poly.length)) < 0.005:
+            # Sliver check in projected meters (isoperimetric compactness)
+            from backend.app.services.geometry.crs import project_geometry
+            poly_proj = project_geometry(poly)
+            if poly_proj.length > 0 and (poly_proj.area / (poly_proj.length * poly_proj.length)) < 0.005:
                 topology_issues.append(TopologyIssue(
                     issue_id=f"TOP-{len(topology_issues)+1:03d}",
                     feature_id=p_id,
@@ -109,26 +111,29 @@ def validate_and_normalize_datasets(
         except Exception as e:
             issues.append(f"Error parsing legacy geometry: {str(e)}")
 
-    # 2. Inter-parcel overlap check using STRtree spatial index
+    # 2. Inter-parcel overlap check using STRtree spatial index in projected metric coordinates
     if legacy_polys:
-        polys_only = [p[1] for p in legacy_polys]
-        s_tree = STRtree(polys_only)
-        for i, (p_id, poly) in enumerate(legacy_polys):
-            candidate_idxs = s_tree.query(poly)
+        from backend.app.services.geometry.crs import project_geometry
+        proj_polys = [project_geometry(p[1]) for p in legacy_polys]
+        s_tree = STRtree(proj_polys)
+        for i, (p_id, orig_poly) in enumerate(legacy_polys):
+            poly_p = proj_polys[i]
+            candidate_idxs = s_tree.query(poly_p)
             for c_idx in candidate_idxs:
                 if c_idx > i:  # Avoid self-check and duplicates
-                    other_id, other_poly = legacy_polys[c_idx]
+                    other_id = legacy_polys[c_idx][0]
+                    other_poly_p = proj_polys[c_idx]
                     try:
-                        inter = poly.intersection(other_poly)
-                        # Significant overlap (> 0.5 sq meters in degrees approximation)
-                        if inter.area > 0.00000005:
+                        inter = poly_p.intersection(other_poly_p)
+                        # Significant planar overlap (> 2.0 square meters)
+                        if inter.area > 2.0:
                             topology_issues.append(TopologyIssue(
                                 issue_id=f"TOP-{len(topology_issues)+1:03d}",
                                 feature_id=f"{p_id} & {other_id}",
                                 issue_type="Overlap",
                                 severity="High",
                                 auto_fixed=False,
-                                fix_description=f"Adjacent parcels {p_id} and {other_id} exhibit boundary overlap of ~{round(inter.area * 10000000000.0, 1)} m²"
+                                fix_description=f"Adjacent parcels {p_id} and {other_id} exhibit planar boundary overlap of {round(inter.area, 1)} m²"
                             ))
                     except Exception:
                         pass

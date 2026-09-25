@@ -1,0 +1,2167 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0001",
+      "properties": {
+        "centre_id": "ESV-TN-0001",
+        "centre_name": "e-Sevai Centre - Chennai Centre #1",
+        "district": "Chennai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.0527,
+        "longitude": 80.2407
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2407,
+          13.0527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0002",
+      "properties": {
+        "centre_id": "ESV-TN-0002",
+        "centre_name": "e-Sevai Centre - Chennai Centre #2",
+        "district": "Chennai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.0677,
+        "longitude": 80.2587
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2587,
+          13.0677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0003",
+      "properties": {
+        "centre_id": "ESV-TN-0003",
+        "centre_name": "e-Sevai Centre - Chennai Centre #3",
+        "district": "Chennai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.0827,
+        "longitude": 80.2767
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2767,
+          13.0827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0004",
+      "properties": {
+        "centre_id": "ESV-TN-0004",
+        "centre_name": "e-Sevai Centre - Chennai Centre #4",
+        "district": "Chennai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.0977,
+        "longitude": 80.2947
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2947,
+          13.0977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0005",
+      "properties": {
+        "centre_id": "ESV-TN-0005",
+        "centre_name": "e-Sevai Centre - Chennai Centre #5",
+        "district": "Chennai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 240,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.1127,
+        "longitude": 80.3127
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.3127,
+          13.1127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0006",
+      "properties": {
+        "centre_id": "ESV-TN-0006",
+        "centre_name": "e-Sevai Centre - Chennai Centre #6",
+        "district": "Chennai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 265,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.1277,
+        "longitude": 80.3307
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.3307,
+          13.1277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0007",
+      "properties": {
+        "centre_id": "ESV-TN-0007",
+        "centre_name": "e-Sevai Centre - Coimbatore Centre #1",
+        "district": "Coimbatore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.9868,
+        "longitude": 76.9258
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9258,
+          10.9868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0008",
+      "properties": {
+        "centre_id": "ESV-TN-0008",
+        "centre_name": "e-Sevai Centre - Coimbatore Centre #2",
+        "district": "Coimbatore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0018,
+        "longitude": 76.9438
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9438,
+          11.0018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0009",
+      "properties": {
+        "centre_id": "ESV-TN-0009",
+        "centre_name": "e-Sevai Centre - Coimbatore Centre #3",
+        "district": "Coimbatore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0168,
+        "longitude": 76.9618
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9618,
+          11.0168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0010",
+      "properties": {
+        "centre_id": "ESV-TN-0010",
+        "centre_name": "e-Sevai Centre - Coimbatore Centre #4",
+        "district": "Coimbatore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0318,
+        "longitude": 76.9798
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9798,
+          11.0318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0011",
+      "properties": {
+        "centre_id": "ESV-TN-0011",
+        "centre_name": "e-Sevai Centre - Coimbatore Centre #5",
+        "district": "Coimbatore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 240,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0468,
+        "longitude": 76.9978
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9978,
+          11.0468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0012",
+      "properties": {
+        "centre_id": "ESV-TN-0012",
+        "centre_name": "e-Sevai Centre - Coimbatore Centre #6",
+        "district": "Coimbatore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 265,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0618,
+        "longitude": 77.0158
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.0158,
+          11.0618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0013",
+      "properties": {
+        "centre_id": "ESV-TN-0013",
+        "centre_name": "e-Sevai Centre - Madurai Centre #1",
+        "district": "Madurai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 9.8952,
+        "longitude": 78.0898
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0898,
+          9.8952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0014",
+      "properties": {
+        "centre_id": "ESV-TN-0014",
+        "centre_name": "e-Sevai Centre - Madurai Centre #2",
+        "district": "Madurai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 9.9102,
+        "longitude": 78.1078
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1078,
+          9.9102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0015",
+      "properties": {
+        "centre_id": "ESV-TN-0015",
+        "centre_name": "e-Sevai Centre - Madurai Centre #3",
+        "district": "Madurai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 9.9252,
+        "longitude": 78.1258
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1258,
+          9.9252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0016",
+      "properties": {
+        "centre_id": "ESV-TN-0016",
+        "centre_name": "e-Sevai Centre - Madurai Centre #4",
+        "district": "Madurai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 9.9402,
+        "longitude": 78.1438
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1438,
+          9.9402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0017",
+      "properties": {
+        "centre_id": "ESV-TN-0017",
+        "centre_name": "e-Sevai Centre - Madurai Centre #5",
+        "district": "Madurai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 240,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 9.9552,
+        "longitude": 78.1618
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1618,
+          9.9552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0018",
+      "properties": {
+        "centre_id": "ESV-TN-0018",
+        "centre_name": "e-Sevai Centre - Madurai Centre #6",
+        "district": "Madurai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 265,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 9.9702,
+        "longitude": 78.1798
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1798,
+          9.9702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0019",
+      "properties": {
+        "centre_id": "ESV-TN-0019",
+        "centre_name": "e-Sevai Centre - Tiruchirappalli Centre #1",
+        "district": "Tiruchirappalli",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.7605,
+        "longitude": 78.6747
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6747,
+          10.7605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0020",
+      "properties": {
+        "centre_id": "ESV-TN-0020",
+        "centre_name": "e-Sevai Centre - Tiruchirappalli Centre #2",
+        "district": "Tiruchirappalli",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.7755,
+        "longitude": 78.6927
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.6927,
+          10.7755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0021",
+      "properties": {
+        "centre_id": "ESV-TN-0021",
+        "centre_name": "e-Sevai Centre - Tiruchirappalli Centre #3",
+        "district": "Tiruchirappalli",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.7905,
+        "longitude": 78.7107
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7107,
+          10.7905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0022",
+      "properties": {
+        "centre_id": "ESV-TN-0022",
+        "centre_name": "e-Sevai Centre - Tiruchirappalli Centre #4",
+        "district": "Tiruchirappalli",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.8055,
+        "longitude": 78.7287
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.7287,
+          10.8055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0023",
+      "properties": {
+        "centre_id": "ESV-TN-0023",
+        "centre_name": "e-Sevai Centre - Salem Centre #1",
+        "district": "Salem",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.6343,
+        "longitude": 78.116
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.116,
+          11.6343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0024",
+      "properties": {
+        "centre_id": "ESV-TN-0024",
+        "centre_name": "e-Sevai Centre - Salem Centre #2",
+        "district": "Salem",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.6493,
+        "longitude": 78.134
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.134,
+          11.6493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0025",
+      "properties": {
+        "centre_id": "ESV-TN-0025",
+        "centre_name": "e-Sevai Centre - Salem Centre #3",
+        "district": "Salem",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.6643,
+        "longitude": 78.152
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.152,
+          11.6643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0026",
+      "properties": {
+        "centre_id": "ESV-TN-0026",
+        "centre_name": "e-Sevai Centre - Salem Centre #4",
+        "district": "Salem",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.6793,
+        "longitude": 78.17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.17,
+          11.6793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0027",
+      "properties": {
+        "centre_id": "ESV-TN-0027",
+        "centre_name": "e-Sevai Centre - Tiruppur Centre #1",
+        "district": "Tiruppur",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0785,
+        "longitude": 77.3111
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3111,
+          11.0785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0028",
+      "properties": {
+        "centre_id": "ESV-TN-0028",
+        "centre_name": "e-Sevai Centre - Tiruppur Centre #2",
+        "district": "Tiruppur",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.0935,
+        "longitude": 77.3291
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3291,
+          11.0935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0029",
+      "properties": {
+        "centre_id": "ESV-TN-0029",
+        "centre_name": "e-Sevai Centre - Tiruppur Centre #3",
+        "district": "Tiruppur",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.1085,
+        "longitude": 77.3471
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3471,
+          11.1085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0030",
+      "properties": {
+        "centre_id": "ESV-TN-0030",
+        "centre_name": "e-Sevai Centre - Tiruppur Centre #4",
+        "district": "Tiruppur",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.1235,
+        "longitude": 77.3651
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3651,
+          11.1235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0031",
+      "properties": {
+        "centre_id": "ESV-TN-0031",
+        "centre_name": "e-Sevai Centre - Erode Centre #1",
+        "district": "Erode",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.311,
+        "longitude": 77.6872
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.6872,
+          11.311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0032",
+      "properties": {
+        "centre_id": "ESV-TN-0032",
+        "centre_name": "e-Sevai Centre - Erode Centre #2",
+        "district": "Erode",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.326,
+        "longitude": 77.7052
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7052,
+          11.326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0033",
+      "properties": {
+        "centre_id": "ESV-TN-0033",
+        "centre_name": "e-Sevai Centre - Erode Centre #3",
+        "district": "Erode",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.341,
+        "longitude": 77.7232
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7232,
+          11.341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0034",
+      "properties": {
+        "centre_id": "ESV-TN-0034",
+        "centre_name": "e-Sevai Centre - Erode Centre #4",
+        "district": "Erode",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.356,
+        "longitude": 77.7412
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7412,
+          11.356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0035",
+      "properties": {
+        "centre_id": "ESV-TN-0035",
+        "centre_name": "e-Sevai Centre - Tirunelveli Centre #1",
+        "district": "Tirunelveli",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.6839,
+        "longitude": 77.7267
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7267,
+          8.6839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0036",
+      "properties": {
+        "centre_id": "ESV-TN-0036",
+        "centre_name": "e-Sevai Centre - Tirunelveli Centre #2",
+        "district": "Tirunelveli",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.6989,
+        "longitude": 77.7447
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7447,
+          8.6989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0037",
+      "properties": {
+        "centre_id": "ESV-TN-0037",
+        "centre_name": "e-Sevai Centre - Tirunelveli Centre #3",
+        "district": "Tirunelveli",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.7139,
+        "longitude": 77.7627
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7627,
+          8.7139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0038",
+      "properties": {
+        "centre_id": "ESV-TN-0038",
+        "centre_name": "e-Sevai Centre - Tirunelveli Centre #4",
+        "district": "Tirunelveli",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.7289,
+        "longitude": 77.7807
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.7807,
+          8.7289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0039",
+      "properties": {
+        "centre_id": "ESV-TN-0039",
+        "centre_name": "e-Sevai Centre - Vellore Centre #1",
+        "district": "Vellore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.8865,
+        "longitude": 79.1025
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1025,
+          12.8865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0040",
+      "properties": {
+        "centre_id": "ESV-TN-0040",
+        "centre_name": "e-Sevai Centre - Vellore Centre #2",
+        "district": "Vellore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.9015,
+        "longitude": 79.1205
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1205,
+          12.9015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0041",
+      "properties": {
+        "centre_id": "ESV-TN-0041",
+        "centre_name": "e-Sevai Centre - Vellore Centre #3",
+        "district": "Vellore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.9165,
+        "longitude": 79.1385
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1385,
+          12.9165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0042",
+      "properties": {
+        "centre_id": "ESV-TN-0042",
+        "centre_name": "e-Sevai Centre - Vellore Centre #4",
+        "district": "Vellore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.9315,
+        "longitude": 79.1565
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1565,
+          12.9315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0043",
+      "properties": {
+        "centre_id": "ESV-TN-0043",
+        "centre_name": "e-Sevai Centre - Thoothukudi Centre #1",
+        "district": "Thoothukudi",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.7342,
+        "longitude": 78.1048
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1048,
+          8.7342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0044",
+      "properties": {
+        "centre_id": "ESV-TN-0044",
+        "centre_name": "e-Sevai Centre - Thoothukudi Centre #2",
+        "district": "Thoothukudi",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.7492,
+        "longitude": 78.1228
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1228,
+          8.7492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0045",
+      "properties": {
+        "centre_id": "ESV-TN-0045",
+        "centre_name": "e-Sevai Centre - Thoothukudi Centre #3",
+        "district": "Thoothukudi",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.7642,
+        "longitude": 78.1408
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1408,
+          8.7642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0046",
+      "properties": {
+        "centre_id": "ESV-TN-0046",
+        "centre_name": "e-Sevai Centre - Thoothukudi Centre #4",
+        "district": "Thoothukudi",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.7792,
+        "longitude": 78.1588
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1588,
+          8.7792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0047",
+      "properties": {
+        "centre_id": "ESV-TN-0047",
+        "centre_name": "e-Sevai Centre - Thanjavur Centre #1",
+        "district": "Thanjavur",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.757,
+        "longitude": 79.1078
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1078,
+          10.757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0048",
+      "properties": {
+        "centre_id": "ESV-TN-0048",
+        "centre_name": "e-Sevai Centre - Thanjavur Centre #2",
+        "district": "Thanjavur",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.772,
+        "longitude": 79.1258
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1258,
+          10.772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0049",
+      "properties": {
+        "centre_id": "ESV-TN-0049",
+        "centre_name": "e-Sevai Centre - Thanjavur Centre #3",
+        "district": "Thanjavur",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.787,
+        "longitude": 79.1438
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1438,
+          10.787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0050",
+      "properties": {
+        "centre_id": "ESV-TN-0050",
+        "centre_name": "e-Sevai Centre - Thanjavur Centre #4",
+        "district": "Thanjavur",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.802,
+        "longitude": 79.1618
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.1618,
+          10.802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0051",
+      "properties": {
+        "centre_id": "ESV-TN-0051",
+        "centre_name": "e-Sevai Centre - Dindigul Centre #1",
+        "district": "Dindigul",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.3373,
+        "longitude": 77.9503
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9503,
+          10.3373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0052",
+      "properties": {
+        "centre_id": "ESV-TN-0052",
+        "centre_name": "e-Sevai Centre - Dindigul Centre #2",
+        "district": "Dindigul",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.3523,
+        "longitude": 77.9683
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9683,
+          10.3523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0053",
+      "properties": {
+        "centre_id": "ESV-TN-0053",
+        "centre_name": "e-Sevai Centre - Dindigul Centre #3",
+        "district": "Dindigul",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.3673,
+        "longitude": 77.9863
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.9863,
+          10.3673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0054",
+      "properties": {
+        "centre_id": "ESV-TN-0054",
+        "centre_name": "e-Sevai Centre - Dindigul Centre #4",
+        "district": "Dindigul",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 10.3823,
+        "longitude": 78.0043
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.0043,
+          10.3823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0055",
+      "properties": {
+        "centre_id": "ESV-TN-0055",
+        "centre_name": "e-Sevai Centre - Kanchipuram Centre #1",
+        "district": "Kanchipuram",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.8042,
+        "longitude": 79.6736
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6736,
+          12.8042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0056",
+      "properties": {
+        "centre_id": "ESV-TN-0056",
+        "centre_name": "e-Sevai Centre - Kanchipuram Centre #2",
+        "district": "Kanchipuram",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.8192,
+        "longitude": 79.6916
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.6916,
+          12.8192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0057",
+      "properties": {
+        "centre_id": "ESV-TN-0057",
+        "centre_name": "e-Sevai Centre - Kanchipuram Centre #3",
+        "district": "Kanchipuram",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.8342,
+        "longitude": 79.7096
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7096,
+          12.8342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0058",
+      "properties": {
+        "centre_id": "ESV-TN-0058",
+        "centre_name": "e-Sevai Centre - Kanchipuram Centre #4",
+        "district": "Kanchipuram",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.8492,
+        "longitude": 79.7276
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7276,
+          12.8492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0059",
+      "properties": {
+        "centre_id": "ESV-TN-0059",
+        "centre_name": "e-Sevai Centre - Tiruvallur Centre #1",
+        "district": "Tiruvallur",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.1132,
+        "longitude": 79.8782
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8782,
+          13.1132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0060",
+      "properties": {
+        "centre_id": "ESV-TN-0060",
+        "centre_name": "e-Sevai Centre - Tiruvallur Centre #2",
+        "district": "Tiruvallur",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.1282,
+        "longitude": 79.8962
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8962,
+          13.1282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0061",
+      "properties": {
+        "centre_id": "ESV-TN-0061",
+        "centre_name": "e-Sevai Centre - Tiruvallur Centre #3",
+        "district": "Tiruvallur",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.1432,
+        "longitude": 79.9142
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9142,
+          13.1432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0062",
+      "properties": {
+        "centre_id": "ESV-TN-0062",
+        "centre_name": "e-Sevai Centre - Tiruvallur Centre #4",
+        "district": "Tiruvallur",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 13.1582,
+        "longitude": 79.9322
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9322,
+          13.1582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0063",
+      "properties": {
+        "centre_id": "ESV-TN-0063",
+        "centre_name": "e-Sevai Centre - Cuddalore Centre #1",
+        "district": "Cuddalore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.718,
+        "longitude": 79.7414
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7414,
+          11.718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0064",
+      "properties": {
+        "centre_id": "ESV-TN-0064",
+        "centre_name": "e-Sevai Centre - Cuddalore Centre #2",
+        "district": "Cuddalore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.733,
+        "longitude": 79.7594
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7594,
+          11.733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0065",
+      "properties": {
+        "centre_id": "ESV-TN-0065",
+        "centre_name": "e-Sevai Centre - Cuddalore Centre #3",
+        "district": "Cuddalore",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.748,
+        "longitude": 79.7774
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7774,
+          11.748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0066",
+      "properties": {
+        "centre_id": "ESV-TN-0066",
+        "centre_name": "e-Sevai Centre - Cuddalore Centre #4",
+        "district": "Cuddalore",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.763,
+        "longitude": 79.7954
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.7954,
+          11.763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0067",
+      "properties": {
+        "centre_id": "ESV-TN-0067",
+        "centre_name": "e-Sevai Centre - Viluppuram Centre #1",
+        "district": "Viluppuram",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.9101,
+        "longitude": 79.4561
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4561,
+          11.9101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0068",
+      "properties": {
+        "centre_id": "ESV-TN-0068",
+        "centre_name": "e-Sevai Centre - Viluppuram Centre #2",
+        "district": "Viluppuram",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.9251,
+        "longitude": 79.4741
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4741,
+          11.9251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0069",
+      "properties": {
+        "centre_id": "ESV-TN-0069",
+        "centre_name": "e-Sevai Centre - Viluppuram Centre #3",
+        "district": "Viluppuram",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.9401,
+        "longitude": 79.4921
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.4921,
+          11.9401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0070",
+      "properties": {
+        "centre_id": "ESV-TN-0070",
+        "centre_name": "e-Sevai Centre - Viluppuram Centre #4",
+        "district": "Viluppuram",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.9551,
+        "longitude": 79.5101
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.5101,
+          11.9551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0071",
+      "properties": {
+        "centre_id": "ESV-TN-0071",
+        "centre_name": "e-Sevai Centre - Tiruvannamalai Centre #1",
+        "district": "Tiruvannamalai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.1953,
+        "longitude": 79.0447
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0447,
+          12.1953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0072",
+      "properties": {
+        "centre_id": "ESV-TN-0072",
+        "centre_name": "e-Sevai Centre - Tiruvannamalai Centre #2",
+        "district": "Tiruvannamalai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.2103,
+        "longitude": 79.0627
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0627,
+          12.2103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0073",
+      "properties": {
+        "centre_id": "ESV-TN-0073",
+        "centre_name": "e-Sevai Centre - Tiruvannamalai Centre #3",
+        "district": "Tiruvannamalai",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.2253,
+        "longitude": 79.0807
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0807,
+          12.2253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0074",
+      "properties": {
+        "centre_id": "ESV-TN-0074",
+        "centre_name": "e-Sevai Centre - Tiruvannamalai Centre #4",
+        "district": "Tiruvannamalai",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.2403,
+        "longitude": 79.0987
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0987,
+          12.2403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0075",
+      "properties": {
+        "centre_id": "ESV-TN-0075",
+        "centre_name": "e-Sevai Centre - Dharmapuri Centre #1",
+        "district": "Dharmapuri",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.0911,
+        "longitude": 78.1282
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1282,
+          12.0911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0076",
+      "properties": {
+        "centre_id": "ESV-TN-0076",
+        "centre_name": "e-Sevai Centre - Dharmapuri Centre #2",
+        "district": "Dharmapuri",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.1061,
+        "longitude": 78.1462
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1462,
+          12.1061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0077",
+      "properties": {
+        "centre_id": "ESV-TN-0077",
+        "centre_name": "e-Sevai Centre - Dharmapuri Centre #3",
+        "district": "Dharmapuri",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.1211,
+        "longitude": 78.1642
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1642,
+          12.1211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0078",
+      "properties": {
+        "centre_id": "ESV-TN-0078",
+        "centre_name": "e-Sevai Centre - Dharmapuri Centre #4",
+        "district": "Dharmapuri",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.1361,
+        "longitude": 78.1822
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1822,
+          12.1361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0079",
+      "properties": {
+        "centre_id": "ESV-TN-0079",
+        "centre_name": "e-Sevai Centre - Krishnagiri Centre #1",
+        "district": "Krishnagiri",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.4886,
+        "longitude": 78.1837
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1837,
+          12.4886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0080",
+      "properties": {
+        "centre_id": "ESV-TN-0080",
+        "centre_name": "e-Sevai Centre - Krishnagiri Centre #2",
+        "district": "Krishnagiri",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.5036,
+        "longitude": 78.2017
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2017,
+          12.5036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0081",
+      "properties": {
+        "centre_id": "ESV-TN-0081",
+        "centre_name": "e-Sevai Centre - Krishnagiri Centre #3",
+        "district": "Krishnagiri",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.5186,
+        "longitude": 78.2197
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2197,
+          12.5186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0082",
+      "properties": {
+        "centre_id": "ESV-TN-0082",
+        "centre_name": "e-Sevai Centre - Krishnagiri Centre #4",
+        "district": "Krishnagiri",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 12.5336,
+        "longitude": 78.2377
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.2377,
+          12.5336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0083",
+      "properties": {
+        "centre_id": "ESV-TN-0083",
+        "centre_name": "e-Sevai Centre - Namakkal Centre #1",
+        "district": "Namakkal",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.1889,
+        "longitude": 78.1374
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1374,
+          11.1889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0084",
+      "properties": {
+        "centre_id": "ESV-TN-0084",
+        "centre_name": "e-Sevai Centre - Namakkal Centre #2",
+        "district": "Namakkal",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.2039,
+        "longitude": 78.1554
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1554,
+          11.2039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0085",
+      "properties": {
+        "centre_id": "ESV-TN-0085",
+        "centre_name": "e-Sevai Centre - Namakkal Centre #3",
+        "district": "Namakkal",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.2189,
+        "longitude": 78.1734
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1734,
+          11.2189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0086",
+      "properties": {
+        "centre_id": "ESV-TN-0086",
+        "centre_name": "e-Sevai Centre - Namakkal Centre #4",
+        "district": "Namakkal",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.2339,
+        "longitude": 78.1914
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.1914,
+          11.2339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0087",
+      "properties": {
+        "centre_id": "ESV-TN-0087",
+        "centre_name": "e-Sevai Centre - Nilgiris Centre #1",
+        "district": "Nilgiris",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.3802,
+        "longitude": 76.665
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.665,
+          11.3802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0088",
+      "properties": {
+        "centre_id": "ESV-TN-0088",
+        "centre_name": "e-Sevai Centre - Nilgiris Centre #2",
+        "district": "Nilgiris",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.3952,
+        "longitude": 76.683
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.683,
+          11.3952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0089",
+      "properties": {
+        "centre_id": "ESV-TN-0089",
+        "centre_name": "e-Sevai Centre - Nilgiris Centre #3",
+        "district": "Nilgiris",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.4102,
+        "longitude": 76.701
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.701,
+          11.4102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0090",
+      "properties": {
+        "centre_id": "ESV-TN-0090",
+        "centre_name": "e-Sevai Centre - Nilgiris Centre #4",
+        "district": "Nilgiris",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 11.4252,
+        "longitude": 76.719
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.719,
+          11.4252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0091",
+      "properties": {
+        "centre_id": "ESV-TN-0091",
+        "centre_name": "e-Sevai Centre - Kanyakumari Centre #1",
+        "district": "Kanyakumari",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 140,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.1533,
+        "longitude": 77.3819
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3819,
+          8.1533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0092",
+      "properties": {
+        "centre_id": "ESV-TN-0092",
+        "centre_name": "e-Sevai Centre - Kanyakumari Centre #2",
+        "district": "Kanyakumari",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 165,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.1683,
+        "longitude": 77.3999
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.3999,
+          8.1683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0093",
+      "properties": {
+        "centre_id": "ESV-TN-0093",
+        "centre_name": "e-Sevai Centre - Kanyakumari Centre #3",
+        "district": "Kanyakumari",
+        "operating_agency": "TACTV (Tamil Nadu Arasu Cable TV Corporation)",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 190,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.1833,
+        "longitude": 77.4179
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4179,
+          8.1833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ESV-TN-0094",
+      "properties": {
+        "centre_id": "ESV-TN-0094",
+        "centre_name": "e-Sevai Centre - Kanyakumari Centre #4",
+        "district": "Kanyakumari",
+        "operating_agency": "PACCS / VLE",
+        "services": "Patta/Chitta, Income Certificate, Community Certificate, Encumbrance, Aadhar Services, Utility Bills",
+        "daily_avg_footfall": 215,
+        "status": "Active / Operational",
+        "working_hours": "09:30 AM - 05:30 PM",
+        "latitude": 8.1983,
+        "longitude": 77.4359
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.4359,
+          8.1983
+        ]
+      }
+    }
+  ]
+}

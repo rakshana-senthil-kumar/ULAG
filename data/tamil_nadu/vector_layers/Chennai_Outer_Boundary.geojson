@@ -1,0 +1,67 @@
+{
+  "type": "FeatureCollection",
+  "name": "Chennai_Outer_Boundary",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "GCC_BOUNDARY_426SQKM",
+      "properties": {
+        "entity": "Greater Chennai Corporation (GCC)",
+        "jurisdiction": "15 Zones, 200 Wards",
+        "statutory_area_sq_km": 426.0,
+        "population_2011": 4646732,
+        "estimated_current_pop": 7100000,
+        "crs": "EPSG:4326"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.18,
+              13.21
+            ],
+            [
+              80.315,
+              13.2
+            ],
+            [
+              80.335,
+              13.12
+            ],
+            [
+              80.295,
+              12.98
+            ],
+            [
+              80.255,
+              12.87
+            ],
+            [
+              80.19,
+              12.89
+            ],
+            [
+              80.13,
+              12.99
+            ],
+            [
+              80.12,
+              13.11
+            ],
+            [
+              80.18,
+              13.21
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

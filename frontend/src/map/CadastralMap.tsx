@@ -48,9 +48,9 @@ export const CadastralMap: React.FC<CadastralMapProps> = ({
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
-    // Centered around the demo Pune / Hinjewadi region
+    // Centered around Coimbatore Corporation, Tamil Nadu
     const map = L.map(mapContainer.current, {
-      center: [18.5910, 73.7380],
+      center: [11.0168, 76.9558],
       zoom: 17,
       zoomControl: false
     });

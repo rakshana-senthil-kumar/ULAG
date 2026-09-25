@@ -1,0 +1,95 @@
+Centre ID,Centre Name,District,Agency,Daily Footfall,Status,Latitude,Longitude
+ESV-TN-0001,e-Sevai Centre - Chennai Centre #1,Chennai,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,13.0527,80.2407
+ESV-TN-0002,e-Sevai Centre - Chennai Centre #2,Chennai,PACCS / VLE,165,Active,13.0677,80.2587
+ESV-TN-0003,e-Sevai Centre - Chennai Centre #3,Chennai,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,13.0827,80.2767
+ESV-TN-0004,e-Sevai Centre - Chennai Centre #4,Chennai,PACCS / VLE,215,Active,13.0977,80.2947
+ESV-TN-0005,e-Sevai Centre - Chennai Centre #5,Chennai,TACTV (Tamil Nadu Arasu Cable TV Corporation),240,Active,13.1127,80.3127
+ESV-TN-0006,e-Sevai Centre - Chennai Centre #6,Chennai,PACCS / VLE,265,Active,13.1277,80.3307
+ESV-TN-0007,e-Sevai Centre - Coimbatore Centre #1,Coimbatore,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,10.9868,76.9258
+ESV-TN-0008,e-Sevai Centre - Coimbatore Centre #2,Coimbatore,PACCS / VLE,165,Active,11.0018,76.9438
+ESV-TN-0009,e-Sevai Centre - Coimbatore Centre #3,Coimbatore,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.0168,76.9618
+ESV-TN-0010,e-Sevai Centre - Coimbatore Centre #4,Coimbatore,PACCS / VLE,215,Active,11.0318,76.9798
+ESV-TN-0011,e-Sevai Centre - Coimbatore Centre #5,Coimbatore,TACTV (Tamil Nadu Arasu Cable TV Corporation),240,Active,11.0468,76.9978
+ESV-TN-0012,e-Sevai Centre - Coimbatore Centre #6,Coimbatore,PACCS / VLE,265,Active,11.0618,77.0158
+ESV-TN-0013,e-Sevai Centre - Madurai Centre #1,Madurai,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,9.8952,78.0898
+ESV-TN-0014,e-Sevai Centre - Madurai Centre #2,Madurai,PACCS / VLE,165,Active,9.9102,78.1078
+ESV-TN-0015,e-Sevai Centre - Madurai Centre #3,Madurai,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,9.9252,78.1258
+ESV-TN-0016,e-Sevai Centre - Madurai Centre #4,Madurai,PACCS / VLE,215,Active,9.9402,78.1438
+ESV-TN-0017,e-Sevai Centre - Madurai Centre #5,Madurai,TACTV (Tamil Nadu Arasu Cable TV Corporation),240,Active,9.9552,78.1618
+ESV-TN-0018,e-Sevai Centre - Madurai Centre #6,Madurai,PACCS / VLE,265,Active,9.9702,78.1798
+ESV-TN-0019,e-Sevai Centre - Tiruchirappalli Centre #1,Tiruchirappalli,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,10.7605,78.6747
+ESV-TN-0020,e-Sevai Centre - Tiruchirappalli Centre #2,Tiruchirappalli,PACCS / VLE,165,Active,10.7755,78.6927
+ESV-TN-0021,e-Sevai Centre - Tiruchirappalli Centre #3,Tiruchirappalli,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,10.7905,78.7107
+ESV-TN-0022,e-Sevai Centre - Tiruchirappalli Centre #4,Tiruchirappalli,PACCS / VLE,215,Active,10.8055,78.7287
+ESV-TN-0023,e-Sevai Centre - Salem Centre #1,Salem,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.6343,78.116
+ESV-TN-0024,e-Sevai Centre - Salem Centre #2,Salem,PACCS / VLE,165,Active,11.6493,78.134
+ESV-TN-0025,e-Sevai Centre - Salem Centre #3,Salem,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.6643,78.152
+ESV-TN-0026,e-Sevai Centre - Salem Centre #4,Salem,PACCS / VLE,215,Active,11.6793,78.17
+ESV-TN-0027,e-Sevai Centre - Tiruppur Centre #1,Tiruppur,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.0785,77.3111
+ESV-TN-0028,e-Sevai Centre - Tiruppur Centre #2,Tiruppur,PACCS / VLE,165,Active,11.0935,77.3291
+ESV-TN-0029,e-Sevai Centre - Tiruppur Centre #3,Tiruppur,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.1085,77.3471
+ESV-TN-0030,e-Sevai Centre - Tiruppur Centre #4,Tiruppur,PACCS / VLE,215,Active,11.1235,77.3651
+ESV-TN-0031,e-Sevai Centre - Erode Centre #1,Erode,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.311,77.6872
+ESV-TN-0032,e-Sevai Centre - Erode Centre #2,Erode,PACCS / VLE,165,Active,11.326,77.7052
+ESV-TN-0033,e-Sevai Centre - Erode Centre #3,Erode,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.341,77.7232
+ESV-TN-0034,e-Sevai Centre - Erode Centre #4,Erode,PACCS / VLE,215,Active,11.356,77.7412
+ESV-TN-0035,e-Sevai Centre - Tirunelveli Centre #1,Tirunelveli,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,8.6839,77.7267
+ESV-TN-0036,e-Sevai Centre - Tirunelveli Centre #2,Tirunelveli,PACCS / VLE,165,Active,8.6989,77.7447
+ESV-TN-0037,e-Sevai Centre - Tirunelveli Centre #3,Tirunelveli,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,8.7139,77.7627
+ESV-TN-0038,e-Sevai Centre - Tirunelveli Centre #4,Tirunelveli,PACCS / VLE,215,Active,8.7289,77.7807
+ESV-TN-0039,e-Sevai Centre - Vellore Centre #1,Vellore,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,12.8865,79.1025
+ESV-TN-0040,e-Sevai Centre - Vellore Centre #2,Vellore,PACCS / VLE,165,Active,12.9015,79.1205
+ESV-TN-0041,e-Sevai Centre - Vellore Centre #3,Vellore,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,12.9165,79.1385
+ESV-TN-0042,e-Sevai Centre - Vellore Centre #4,Vellore,PACCS / VLE,215,Active,12.9315,79.1565
+ESV-TN-0043,e-Sevai Centre - Thoothukudi Centre #1,Thoothukudi,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,8.7342,78.1048
+ESV-TN-0044,e-Sevai Centre - Thoothukudi Centre #2,Thoothukudi,PACCS / VLE,165,Active,8.7492,78.1228
+ESV-TN-0045,e-Sevai Centre - Thoothukudi Centre #3,Thoothukudi,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,8.7642,78.1408
+ESV-TN-0046,e-Sevai Centre - Thoothukudi Centre #4,Thoothukudi,PACCS / VLE,215,Active,8.7792,78.1588
+ESV-TN-0047,e-Sevai Centre - Thanjavur Centre #1,Thanjavur,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,10.757,79.1078
+ESV-TN-0048,e-Sevai Centre - Thanjavur Centre #2,Thanjavur,PACCS / VLE,165,Active,10.772,79.1258
+ESV-TN-0049,e-Sevai Centre - Thanjavur Centre #3,Thanjavur,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,10.787,79.1438
+ESV-TN-0050,e-Sevai Centre - Thanjavur Centre #4,Thanjavur,PACCS / VLE,215,Active,10.802,79.1618
+ESV-TN-0051,e-Sevai Centre - Dindigul Centre #1,Dindigul,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,10.3373,77.9503
+ESV-TN-0052,e-Sevai Centre - Dindigul Centre #2,Dindigul,PACCS / VLE,165,Active,10.3523,77.9683
+ESV-TN-0053,e-Sevai Centre - Dindigul Centre #3,Dindigul,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,10.3673,77.9863
+ESV-TN-0054,e-Sevai Centre - Dindigul Centre #4,Dindigul,PACCS / VLE,215,Active,10.3823,78.0043
+ESV-TN-0055,e-Sevai Centre - Kanchipuram Centre #1,Kanchipuram,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,12.8042,79.6736
+ESV-TN-0056,e-Sevai Centre - Kanchipuram Centre #2,Kanchipuram,PACCS / VLE,165,Active,12.8192,79.6916
+ESV-TN-0057,e-Sevai Centre - Kanchipuram Centre #3,Kanchipuram,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,12.8342,79.7096
+ESV-TN-0058,e-Sevai Centre - Kanchipuram Centre #4,Kanchipuram,PACCS / VLE,215,Active,12.8492,79.7276
+ESV-TN-0059,e-Sevai Centre - Tiruvallur Centre #1,Tiruvallur,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,13.1132,79.8782
+ESV-TN-0060,e-Sevai Centre - Tiruvallur Centre #2,Tiruvallur,PACCS / VLE,165,Active,13.1282,79.8962
+ESV-TN-0061,e-Sevai Centre - Tiruvallur Centre #3,Tiruvallur,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,13.1432,79.9142
+ESV-TN-0062,e-Sevai Centre - Tiruvallur Centre #4,Tiruvallur,PACCS / VLE,215,Active,13.1582,79.9322
+ESV-TN-0063,e-Sevai Centre - Cuddalore Centre #1,Cuddalore,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.718,79.7414
+ESV-TN-0064,e-Sevai Centre - Cuddalore Centre #2,Cuddalore,PACCS / VLE,165,Active,11.733,79.7594
+ESV-TN-0065,e-Sevai Centre - Cuddalore Centre #3,Cuddalore,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.748,79.7774
+ESV-TN-0066,e-Sevai Centre - Cuddalore Centre #4,Cuddalore,PACCS / VLE,215,Active,11.763,79.7954
+ESV-TN-0067,e-Sevai Centre - Viluppuram Centre #1,Viluppuram,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.9101,79.4561
+ESV-TN-0068,e-Sevai Centre - Viluppuram Centre #2,Viluppuram,PACCS / VLE,165,Active,11.9251,79.4741
+ESV-TN-0069,e-Sevai Centre - Viluppuram Centre #3,Viluppuram,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.9401,79.4921
+ESV-TN-0070,e-Sevai Centre - Viluppuram Centre #4,Viluppuram,PACCS / VLE,215,Active,11.9551,79.5101
+ESV-TN-0071,e-Sevai Centre - Tiruvannamalai Centre #1,Tiruvannamalai,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,12.1953,79.0447
+ESV-TN-0072,e-Sevai Centre - Tiruvannamalai Centre #2,Tiruvannamalai,PACCS / VLE,165,Active,12.2103,79.0627
+ESV-TN-0073,e-Sevai Centre - Tiruvannamalai Centre #3,Tiruvannamalai,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,12.2253,79.0807
+ESV-TN-0074,e-Sevai Centre - Tiruvannamalai Centre #4,Tiruvannamalai,PACCS / VLE,215,Active,12.2403,79.0987
+ESV-TN-0075,e-Sevai Centre - Dharmapuri Centre #1,Dharmapuri,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,12.0911,78.1282
+ESV-TN-0076,e-Sevai Centre - Dharmapuri Centre #2,Dharmapuri,PACCS / VLE,165,Active,12.1061,78.1462
+ESV-TN-0077,e-Sevai Centre - Dharmapuri Centre #3,Dharmapuri,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,12.1211,78.1642
+ESV-TN-0078,e-Sevai Centre - Dharmapuri Centre #4,Dharmapuri,PACCS / VLE,215,Active,12.1361,78.1822
+ESV-TN-0079,e-Sevai Centre - Krishnagiri Centre #1,Krishnagiri,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,12.4886,78.1837
+ESV-TN-0080,e-Sevai Centre - Krishnagiri Centre #2,Krishnagiri,PACCS / VLE,165,Active,12.5036,78.2017
+ESV-TN-0081,e-Sevai Centre - Krishnagiri Centre #3,Krishnagiri,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,12.5186,78.2197
+ESV-TN-0082,e-Sevai Centre - Krishnagiri Centre #4,Krishnagiri,PACCS / VLE,215,Active,12.5336,78.2377
+ESV-TN-0083,e-Sevai Centre - Namakkal Centre #1,Namakkal,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.1889,78.1374
+ESV-TN-0084,e-Sevai Centre - Namakkal Centre #2,Namakkal,PACCS / VLE,165,Active,11.2039,78.1554
+ESV-TN-0085,e-Sevai Centre - Namakkal Centre #3,Namakkal,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.2189,78.1734
+ESV-TN-0086,e-Sevai Centre - Namakkal Centre #4,Namakkal,PACCS / VLE,215,Active,11.2339,78.1914
+ESV-TN-0087,e-Sevai Centre - Nilgiris Centre #1,Nilgiris,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,11.3802,76.665
+ESV-TN-0088,e-Sevai Centre - Nilgiris Centre #2,Nilgiris,PACCS / VLE,165,Active,11.3952,76.683
+ESV-TN-0089,e-Sevai Centre - Nilgiris Centre #3,Nilgiris,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,11.4102,76.701
+ESV-TN-0090,e-Sevai Centre - Nilgiris Centre #4,Nilgiris,PACCS / VLE,215,Active,11.4252,76.719
+ESV-TN-0091,e-Sevai Centre - Kanyakumari Centre #1,Kanyakumari,TACTV (Tamil Nadu Arasu Cable TV Corporation),140,Active,8.1533,77.3819
+ESV-TN-0092,e-Sevai Centre - Kanyakumari Centre #2,Kanyakumari,PACCS / VLE,165,Active,8.1683,77.3999
+ESV-TN-0093,e-Sevai Centre - Kanyakumari Centre #3,Kanyakumari,TACTV (Tamil Nadu Arasu Cable TV Corporation),190,Active,8.1833,77.4179
+ESV-TN-0094,e-Sevai Centre - Kanyakumari Centre #4,Kanyakumari,PACCS / VLE,215,Active,8.1983,77.4359

@@ -31,10 +31,23 @@ MATCH_WEIGHTS: Dict[str, float] = {
 THRESHOLD_HIGH_CONFIDENCE = 90.0
 THRESHOLD_REVIEW = 75.0
 
-def classify_confidence_status(score: float) -> str:
+# Configurable Spatial Harmonization & Geodetic Tolerances
+BOUNDARY_TOLERANCE_METERS = 1.5
+BOUNDARY_SAMPLE_INTERVAL_METERS = 0.5
+MAX_PERMISSIBLE_BOUNDARY_DEVIATION_METERS = 12.0
+MEAN_PERMISSIBLE_BOUNDARY_DEVIATION_METERS = 4.5
+MAX_PERMISSIBLE_AREA_DIFFERENCE_PCT = 25.0
+MIN_IOU_FOR_AUTO_MATCH = 65.0
+GNSS_RTK_BUFFER_TOLERANCE_METERS = 0.75
+SPATIAL_INDEX_SEARCH_RADIUS_METERS = 35.0
+
+def classify_confidence_status(score: float, hard_flags: list = None) -> str:
+    if hard_flags and len(hard_flags) > 0:
+        return "Conflict"
     if score >= THRESHOLD_HIGH_CONFIDENCE:
         return "Matched"
     elif score >= THRESHOLD_REVIEW:
         return "Review"
     else:
         return "Conflict"
+

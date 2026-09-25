@@ -69,7 +69,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
     if (!leftMapContainer.current || !rightMapContainer.current) return;
     if (leftMapRef.current || rightMapRef.current) return;
 
-    const initialCenter: [number, number] = [18.5910, 73.7380];
+    const initialCenter: [number, number] = [11.0168, 76.9558];
     const initialZoom = 17;
 
     // 1. Left Map: Historical Cadastral (2023)

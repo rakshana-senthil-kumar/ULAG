@@ -1,0 +1,1031 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "SOURCE_PARCEL",
+        "parcel_id": "P184",
+        "survey_no": "383/4",
+        "area_m2": 1235.64,
+        "stroke": "#3b82f6",
+        "fill": "#3b82f6",
+        "fill-opacity": 0.25
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95687101731428,
+              11.019881477509236
+            ],
+            [
+              76.95702940404465,
+              11.019894048275512
+            ],
+            [
+              76.9572063730942,
+              11.019879231579427
+            ],
+            [
+              76.95722003970288,
+              11.020037659200023
+            ],
+            [
+              76.95721156864998,
+              11.020194229612574
+            ],
+            [
+              76.9568649647133,
+              11.020169014811719
+            ],
+            [
+              76.95687101731428,
+              11.019881477509236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "CANDIDATE_#1",
+        "candidate_id": "FE_186",
+        "survey_candidate": "383/4",
+        "score": 98.8,
+        "iou": 97.7,
+        "rank": 1,
+        "stroke": "#10b981",
+        "fill": "#10b981",
+        "fill-opacity": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9568689691686,
+              11.019883045686411
+            ],
+            [
+              76.95702735589896,
+              11.019895616452688
+            ],
+            [
+              76.9572043249485,
+              11.019880799756603
+            ],
+            [
+              76.95721799155719,
+              11.020039227377199
+            ],
+            [
+              76.95720952050429,
+              11.02019579778975
+            ],
+            [
+              76.95686291656762,
+              11.020170582988895
+            ],
+            [
+              76.9568689691686,
+              11.019883045686411
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "CANDIDATE_#2",
+        "candidate_id": "FE_206",
+        "survey_candidate": "403/4",
+        "score": 24.9,
+        "iou": 0.0,
+        "rank": 2,
+        "stroke": "#ef4444",
+        "fill": "#ef4444",
+        "fill-opacity": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9568652003041,
+              11.020252948009771
+            ],
+            [
+              76.95704115364015,
+              11.02024162232984
+            ],
+            [
+              76.95721778564892,
+              11.020244863169337
+            ],
+            [
+              76.95719791703262,
+              11.020403394846777
+            ],
+            [
+              76.9572191669955,
+              11.020556227808722
+            ],
+            [
+              76.95686331256273,
+              11.020566050436924
+            ],
+            [
+              76.9568652003041,
+              11.020252948009771
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "CANDIDATE_#3",
+        "candidate_id": "FE_185",
+        "survey_candidate": "382/3",
+        "score": 24.8,
+        "iou": 0.0,
+        "rank": 3,
+        "stroke": "#f59e0b",
+        "fill": "#f59e0b",
+        "fill-opacity": 0.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95644703297451,
+              11.019883550686579
+            ],
+            [
+              76.95661663485038,
+              11.019902592472002
+            ],
+            [
+              76.95679740060886,
+              11.019880773082738
+            ],
+            [
+              76.95677847486296,
+              11.020044011811638
+            ],
+            [
+              76.95680431493595,
+              11.020187527549849
+            ],
+            [
+              76.9564550042257,
+              11.020186590343606
+            ],
+            [
+              76.95644703297451,
+              11.019883550686579
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "INTERSECTION_SOURCE_CANDIDATE_1",
+        "area_m2": 1221.48,
+        "stroke": "#059669",
+        "fill": "#10b981",
+        "fill-opacity": 0.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9568649647133,
+              11.020169014811717
+            ],
+            [
+              76.95720961304569,
+              11.020194087347088
+            ],
+            [
+              76.95721799155719,
+              11.020039227377197
+            ],
+            [
+              76.9572043249485,
+              11.019880799756603
+            ],
+            [
+              76.95702735589896,
+              11.01989561645269
+            ],
+            [
+              76.95687098094334,
+              11.019883205356567
+            ],
+            [
+              76.9568649647133,
+              11.020169014811717
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "SOURCE_ONLY_AREA",
+        "area_m2": 14.16,
+        "stroke": "#f59e0b",
+        "fill": "#f59e0b",
+        "fill-opacity": 0.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.95721156864998,
+              11.020194229612574
+            ],
+            [
+              76.95722003970288,
+              11.020037659200023
+            ],
+            [
+              76.9572063730942,
+              11.019879231579427
+            ],
+            [
+              76.95702940404465,
+              11.01989404827551
+            ],
+            [
+              76.95687101731428,
+              11.019881477509234
+            ],
+            [
+              76.95687098094334,
+              11.019883205356567
+            ],
+            [
+              76.95702735589896,
+              11.01989561645269
+            ],
+            [
+              76.9572043249485,
+              11.019880799756603
+            ],
+            [
+              76.95721799155719,
+              11.020039227377197
+            ],
+            [
+              76.95720961304569,
+              11.020194087347088
+            ],
+            [
+              76.95721156864998,
+              11.020194229612574
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "CANDIDATE_ONLY_AREA",
+        "area_m2": 14.16,
+        "stroke": "#ec4899",
+        "fill": "#ec4899",
+        "fill-opacity": 0.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9568689691686,
+              11.01988304568641
+            ],
+            [
+              76.95686291656763,
+              11.020170582988897
+            ],
+            [
+              76.95720952050429,
+              11.020195797789752
+            ],
+            [
+              76.95720961304569,
+              11.020194087347088
+            ],
+            [
+              76.9568649647133,
+              11.020169014811717
+            ],
+            [
+              76.95687098094334,
+              11.019883205356567
+            ],
+            [
+              76.9568689691686,
+              11.01988304568641
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "SYMMETRIC_DIFFERENCE_DISPLACEMENT",
+        "displacement_area_m2": 28.32,
+        "stroke": "#dc2626",
+        "fill": "#ef4444",
+        "fill-opacity": 0.5
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                76.95721156864998,
+                11.020194229612574
+              ],
+              [
+                76.95722003970288,
+                11.020037659200023
+              ],
+              [
+                76.9572063730942,
+                11.019879231579427
+              ],
+              [
+                76.95702940404465,
+                11.01989404827551
+              ],
+              [
+                76.95687101731428,
+                11.019881477509234
+              ],
+              [
+                76.95687098094334,
+                11.019883205356567
+              ],
+              [
+                76.95702735589896,
+                11.01989561645269
+              ],
+              [
+                76.9572043249485,
+                11.019880799756603
+              ],
+              [
+                76.95721799155719,
+                11.020039227377197
+              ],
+              [
+                76.95720961304569,
+                11.020194087347088
+              ],
+              [
+                76.95721156864998,
+                11.020194229612574
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                76.9568649647133,
+                11.020169014811717
+              ],
+              [
+                76.95687098094334,
+                11.019883205356567
+              ],
+              [
+                76.9568689691686,
+                11.01988304568641
+              ],
+              [
+                76.95686291656763,
+                11.020170582988897
+              ],
+              [
+                76.95720952050429,
+                11.020195797789752
+              ],
+              [
+                76.95720961304569,
+                11.020194087347088
+              ],
+              [
+                76.9568649647133,
+                11.020169014811717
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "CENTROID_SOURCE",
+        "label": "P184 Source Centroid",
+        "marker-color": "#3b82f6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95704407949424,
+          11.02003528069934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "CENTROID_CANDIDATE_1",
+        "label": "FE_186 Candidate Centroid",
+        "marker-color": "#10b981"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95704203134855,
+          11.020036848876513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "GNSS_SURVEY_POINT",
+        "point_id": "GNSS_01097",
+        "survey_no": "383/4",
+        "accuracy_m": 0.018,
+        "marker-color": "#8b5cf6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.956871,
+          11.0198815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "GNSS_SURVEY_POINT",
+        "point_id": "GNSS_01098",
+        "survey_no": "383/4",
+        "accuracy_m": 0.043,
+        "marker-color": "#8b5cf6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9570294,
+          11.019894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "GNSS_SURVEY_POINT",
+        "point_id": "GNSS_01099",
+        "survey_no": "383/4",
+        "accuracy_m": 0.036,
+        "marker-color": "#8b5cf6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9572064,
+          11.0198792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "GNSS_SURVEY_POINT",
+        "point_id": "GNSS_01100",
+        "survey_no": "383/4",
+        "accuracy_m": 0.043,
+        "marker-color": "#8b5cf6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95722,
+          11.0200377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "GNSS_SURVEY_POINT",
+        "point_id": "GNSS_01101",
+        "survey_no": "383/4",
+        "accuracy_m": 0.04,
+        "marker-color": "#8b5cf6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9572116,
+          11.0201942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "GNSS_SURVEY_POINT",
+        "point_id": "GNSS_01102",
+        "survey_no": "383/4",
+        "accuracy_m": 0.031,
+        "marker-color": "#8b5cf6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.956865,
+          11.020169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 0,
+        "deviation_meters": 0.191,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95687101731428,
+          11.019881477509234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 1,
+        "deviation_meters": 0.191,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95691661675536,
+          11.019885096633738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 2,
+        "deviation_meters": 0.191,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95696221619637,
+          11.019888715751183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 3,
+        "deviation_meters": 0.191,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95700781563731,
+          11.019892334861582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 4,
+        "deviation_meters": 0.154,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9570534063975,
+          11.019892038689672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 5,
+        "deviation_meters": 0.154,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95709898935107,
+          11.019888222272835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 6,
+        "deviation_meters": 0.154,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95714457230228,
+          11.019884405849345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 7,
+        "deviation_meters": 0.154,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95719015525111,
+          11.019880589419193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 8,
+        "deviation_meters": 0.238,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95720887558052,
+          11.019908241212804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 9,
+        "deviation_meters": 0.238,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95721276014905,
+          11.01995327236857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 10,
+        "deviation_meters": 0.238,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95721664471996,
+          11.019998303523954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 11,
+        "deviation_meters": 0.214,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95721973196406,
+          11.02004334713276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 12,
+        "deviation_meters": 0.214,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95721729026123,
+          11.020088477100185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 13,
+        "deviation_meters": 0.214,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95721484855883,
+          11.020133607067592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 14,
+        "deviation_meters": 0.214,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95721240685691,
+          11.020178737034986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 15,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95718160756398,
+          11.020192050014527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 16,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95713598469206,
+          11.020188731052828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 17,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95709036181997,
+          11.020185412084084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 18,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9570447389477,
+          11.020182093108293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 19,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95699911607527,
+          11.020178774125462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 20,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95695349320265,
+          11.020175455135583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 21,
+        "deviation_meters": 0.189,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95690787032986,
+          11.020172136138662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 22,
+        "deviation_meters": 0.22,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95686502136138,
+          11.020166323656703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 23,
+        "deviation_meters": 0.22,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95686597248613,
+          11.020121139027223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 24,
+        "deviation_meters": 0.22,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95686692361178,
+          11.020075954397658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 25,
+        "deviation_meters": 0.22,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95686787473836,
+          11.020030769768018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 26,
+        "deviation_meters": 0.22,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95686882586585,
+          11.019985585138297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "layer": "BOUNDARY_DEVIATION_SAMPLE",
+        "sample_idx": 27,
+        "deviation_meters": 0.22,
+        "marker-color": "#0ea5e9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.95686977699427,
+          11.019940400508494
+        ]
+      }
+    }
+  ]
+}
