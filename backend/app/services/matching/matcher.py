@@ -464,3 +464,111 @@ class ParcelMatcher:
             return None, default_evidence, runners_up
 
         return best_feat, best_evidence, runners_up
+
+class ReferenceSpatialMatcher:
+    """Matches drone buildings and parcels against reference spatial layers (e.g. IndianOpenMaps)."""
+    
+    def match_buildings_reference(
+        self,
+        drone_buildings: List[Dict[str, Any]],
+        ref_buildings: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        results = []
+        ref_geoms = []
+        for rf in ref_buildings:
+            rg = rf.get("geometry")
+            if rg:
+                try:
+                    ref_geoms.append((rf.get("id") or rf.get("properties", {}).get("feature_id", "ref"), shape(rg)))
+                except Exception:
+                    pass
+
+        for db in drone_buildings:
+            b_id = db.get("building_id") or db.get("id", "bld")
+            dg = db.get("geometry_geojson") or db.get("geometry")
+            best_iou = 0.0
+            best_ref_id = None
+            if dg and ref_geoms:
+                try:
+                    d_poly = shape(dg)
+                    for r_id, r_poly in ref_geoms:
+                        if d_poly.intersects(r_poly):
+                            inter_a = d_poly.intersection(r_poly).area
+                            union_a = d_poly.union(r_poly).area
+                            iou = (inter_a / union_a * 100.0) if union_a > 0 else 0.0
+                            if iou > best_iou:
+                                best_iou = iou
+                                best_ref_id = r_id
+                except Exception:
+                    pass
+            status = "MATCHED" if best_iou >= 50.0 else ("PARTIAL" if best_iou >= 20.0 else "UNMATCHED")
+            results.append({
+                "building_id": b_id,
+                "match_status": status,
+                "iou_percentage": round(best_iou, 2),
+                "matched_ref_id": best_ref_id
+            })
+        return results
+
+    def evaluate_parcel_reference_layers(
+        self,
+        parcel_geom: Dict[str, Any],
+        iomaps_data: Dict[str, List[Dict[str, Any]]]
+    ) -> Dict[str, Any]:
+        p_poly = shape(parcel_geom)
+        
+        bld_count = 0
+        for b in iomaps_data.get("buildings", []):
+            bg = b.get("geometry")
+            if bg:
+                try:
+                    if p_poly.intersects(shape(bg)):
+                        bld_count += 1
+                except Exception:
+                    pass
+
+        min_dist_m = 999999.0
+        for t in iomaps_data.get("transport", []):
+            tg = t.get("geometry")
+            if tg:
+                try:
+                    t_geom = shape(tg)
+                    deg_dist = p_poly.distance(t_geom)
+                    m_dist = deg_dist * 111139.0
+                    if m_dist < min_dist_m:
+                        min_dist_m = m_dist
+                except Exception:
+                    pass
+        if min_dist_m == 999999.0:
+            min_dist_m = 0.0
+
+        water_overlap = False
+        for w in iomaps_data.get("water", []):
+            wg = w.get("geometry")
+            if wg:
+                try:
+                    if p_poly.intersects(shape(wg)):
+                        water_overlap = True
+                        break
+                except Exception:
+                    pass
+
+        power_intersect = False
+        for p in iomaps_data.get("power", []):
+            pg = p.get("geometry")
+            if pg:
+                try:
+                    if p_poly.intersects(shape(pg)):
+                        power_intersect = True
+                        break
+                except Exception:
+                    pass
+
+        return {
+            "reference_building_count": bld_count,
+            "nearest_road_distance_m": round(min_dist_m, 2),
+            "waterbody_overlap": water_overlap,
+            "power_line_intersection": power_intersect
+        }
+
+spatial_matcher = ReferenceSpatialMatcher()

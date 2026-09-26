@@ -98,6 +98,152 @@ class StorageRepository:
                     last_run_timestamp TEXT
                 )
             """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS dsm_dtm_metadata (
+                    dataset_id TEXT PRIMARY KEY,
+                    dataset_type TEXT,
+                    metadata_json TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS parcel_elevation (
+                    parcel_id TEXT PRIMARY KEY,
+                    elevation_json TEXT,
+                    updated_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS utility_features (
+                    utility_id TEXT PRIMARY KEY,
+                    asset_json TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS parcel_utility (
+                    parcel_id TEXT PRIMARY KEY,
+                    assoc_json TEXT,
+                    updated_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS sync_runs (
+                    dataset_id TEXT PRIMARY KEY,
+                    status_json TEXT,
+                    updated_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS feature_sync_changes (
+                    feature_id TEXT PRIMARY KEY,
+                    change_json TEXT,
+                    updated_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS users (
+                    user_id TEXT PRIMARY KEY,
+                    username TEXT UNIQUE,
+                    password_hash TEXT,
+                    role TEXT,
+                    full_name TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS audit_logs (
+                    log_id TEXT PRIMARY KEY,
+                    username TEXT,
+                    action TEXT,
+                    parcel_id TEXT,
+                    old_status TEXT,
+                    new_status TEXT,
+                    confidence REAL,
+                    details_json TEXT,
+                    timestamp TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS georeferencing_jobs (
+                    job_id TEXT PRIMARY KEY,
+                    image_name TEXT,
+                    control_points_json TEXT,
+                    transform_json TEXT,
+                    rmse REAL,
+                    mean_residual REAL,
+                    max_residual REAL,
+                    status TEXT,
+                    created_by TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS change_detection_results (
+                    change_id TEXT PRIMARY KEY,
+                    change_type TEXT,
+                    confidence REAL,
+                    geometry_json TEXT,
+                    before_date TEXT,
+                    after_date TEXT,
+                    source TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS building_extractions (
+                    building_id TEXT PRIMARY KEY,
+                    parcel_uid TEXT,
+                    survey_number TEXT,
+                    geometry_json TEXT,
+                    area_m2 REAL,
+                    confidence REAL,
+                    model TEXT,
+                    inference_mode TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS shared_boundary_proposals (
+                    proposal_id TEXT PRIMARY KEY,
+                    parcel_a_id TEXT,
+                    parcel_b_id TEXT,
+                    original_geom_a TEXT,
+                    original_geom_b TEXT,
+                    split_geom_a TEXT,
+                    split_geom_b TEXT,
+                    area_diff_a REAL,
+                    area_diff_b REAL,
+                    confidence REAL,
+                    status TEXT,
+                    created_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS processing_jobs (
+                    job_id TEXT PRIMARY KEY,
+                    job_type TEXT,
+                    status TEXT,
+                    progress INTEGER,
+                    processed_count INTEGER,
+                    total_count INTEGER,
+                    error_message TEXT,
+                    metadata_json TEXT,
+                    created_at TEXT,
+                    updated_at TEXT
+                )
+            """)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS ocr_documents (
+                    doc_id TEXT PRIMARY KEY,
+                    filename TEXT,
+                    file_type TEXT,
+                    extracted_fields_json TEXT,
+                    raw_text TEXT,
+                    verified INTEGER,
+                    created_at TEXT
+                )
+            """)
             conn.commit()
 
     def save_pipeline_results(
@@ -361,5 +507,568 @@ class StorageRepository:
                 "reviewed_by": user,
                 "timestamp": now
             }
+
+    # DSM / DTM Elevation
+    def save_dsm_dtm_metadata(self, meta: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO dsm_dtm_metadata (dataset_id, dataset_type, metadata_json, created_at)
+                VALUES (?, ?, ?, ?)
+            """, (
+                meta["dataset_id"],
+                meta.get("dataset_type", "DSM"),
+                json.dumps(meta),
+                meta.get("ingested_at") or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ))
+            conn.commit()
+
+    def get_dsm_dtm_metadata(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT metadata_json FROM dsm_dtm_metadata ORDER BY created_at DESC")
+            return [json.loads(row["metadata_json"]) for row in cursor.fetchall()]
+
+    def save_parcel_elevation(self, parcel_id: str, elev: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO parcel_elevation (parcel_id, elevation_json, updated_at)
+                VALUES (?, ?, ?)
+            """, (parcel_id, json.dumps(elev), datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+            conn.commit()
+
+    def get_parcel_elevation(self, parcel_id: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT elevation_json FROM parcel_elevation WHERE parcel_id = ?", (parcel_id,))
+            r = cursor.fetchone()
+            return json.loads(r["elevation_json"]) if r else None
+
+    # Utility Network
+    def save_utility_features(self, features: List[Dict[str, Any]]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            for f in features:
+                u_id = f.get("utility_id") or f.get("id", f"UTIL-{id(f)}")
+                cursor.execute("""
+                    INSERT OR REPLACE INTO utility_features (utility_id, asset_json, created_at)
+                    VALUES (?, ?, ?)
+                """, (u_id, json.dumps(f), now))
+            conn.commit()
+
+    def get_utility_features(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT asset_json FROM utility_features")
+            return [json.loads(row["asset_json"]) for row in cursor.fetchall()]
+
+    def save_parcel_utility_assoc(self, assoc: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO parcel_utility (parcel_id, assoc_json, updated_at)
+                VALUES (?, ?, ?)
+            """, (assoc["parcel_id"], json.dumps(assoc), datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+            conn.commit()
+
+    def get_parcel_utility_assoc(self, parcel_id: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT assoc_json FROM parcel_utility WHERE parcel_id = ?", (parcel_id,))
+            r = cursor.fetchone()
+            return json.loads(r["assoc_json"]) if r else None
+
+    # Synchronization
+    def save_sync_run(self, run: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO sync_runs (dataset_id, status_json, updated_at)
+                VALUES (?, ?, ?)
+            """, (run["dataset_id"], json.dumps(run), datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+            conn.commit()
+
+    def get_sync_runs(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT status_json FROM sync_runs ORDER BY updated_at DESC")
+            return [json.loads(row["status_json"]) for row in cursor.fetchall()]
+
+    def save_feature_sync_changes(self, changes: List[Dict[str, Any]]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            for ch in changes:
+                cursor.execute("""
+                    INSERT OR REPLACE INTO feature_sync_changes (feature_id, change_json, updated_at)
+                    VALUES (?, ?, ?)
+                """, (ch["feature_id"], json.dumps(ch), now))
+            conn.commit()
+
+    def get_feature_sync_changes(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT change_json FROM feature_sync_changes ORDER BY updated_at DESC")
+            return [json.loads(row["change_json"]) for row in cursor.fetchall()]
+
+    def update_parcel_status(self, parcel_id: str, status: str, conflict_type: Optional[str] = None):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            if conflict_type is not None:
+                cursor.execute("UPDATE parcels SET status = ?, conflict_type = ? WHERE parcel_id = ?", (status, conflict_type, parcel_id))
+            else:
+                cursor.execute("UPDATE parcels SET status = ? WHERE parcel_id = ?", (status, parcel_id))
+            conn.commit()
+
+    # User Management
+    def save_user(self, user: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO users (user_id, username, password_hash, role, full_name, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                user["user_id"],
+                user["username"],
+                user["password_hash"],
+                user.get("role", "STAFF"),
+                user.get("full_name", ""),
+                user.get("created_at") or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ))
+            conn.commit()
+
+    def get_user(self, username: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+            r = cursor.fetchone()
+            if not r:
+                return None
+            return {
+                "user_id": r["user_id"],
+                "username": r["username"],
+                "password_hash": r["password_hash"],
+                "role": r["role"],
+                "full_name": r["full_name"],
+                "created_at": r["created_at"]
+            }
+
+    def get_all_users(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT user_id, username, role, full_name, created_at FROM users")
+            return [dict(r) for r in cursor.fetchall()]
+
+    # Audit Trail
+    def save_audit_log(
+        self,
+        username: str = "admin",
+        action: str = "ACTION",
+        parcel_id: Optional[str] = None,
+        old_status: Optional[str] = None,
+        new_status: Optional[str] = None,
+        confidence: Optional[float] = None,
+        details: Optional[Dict[str, Any]] = None,
+        **kwargs
+    ):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            user = username or kwargs.get("user_id", "admin")
+            target = parcel_id or kwargs.get("target_id", "")
+            d = details or {}
+            if kwargs.get("target_type"):
+                d["target_type"] = kwargs.get("target_type")
+            log_id = f"LOG-{datetime.now().strftime('%Y%m%d%H%M%S%f')}"
+            cursor.execute("""
+                INSERT INTO audit_logs (log_id, username, action, parcel_id, old_status, new_status, confidence, details_json, timestamp)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                log_id,
+                user,
+                action,
+                target,
+                old_status or "",
+                new_status or "",
+                confidence or 0.0,
+                json.dumps(d),
+                datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ))
+            conn.commit()
+
+    def get_audit_logs(self, limit: int = 100) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM audit_logs ORDER BY timestamp DESC LIMIT ?", (limit,))
+            rows = cursor.fetchall()
+            results = []
+            for r in rows:
+                results.append({
+                    "log_id": r["log_id"],
+                    "username": r["username"],
+                    "action": r["action"],
+                    "parcel_id": r["parcel_id"],
+                    "old_status": r["old_status"],
+                    "new_status": r["new_status"],
+                    "confidence": r["confidence"],
+                    "details": json.loads(r["details_json"]) if r["details_json"] else {},
+                    "timestamp": r["timestamp"]
+                })
+            return results
+
+    # Georeferencing
+    def save_georeferencing_job(self, job_or_id: Any, job_data: Optional[Dict[str, Any]] = None):
+        job = job_data if job_data is not None else job_or_id
+        if not isinstance(job, dict):
+            return
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO georeferencing_jobs (
+                    job_id, image_name, control_points_json, transform_json,
+                    rmse, mean_residual, max_residual, status, created_by, created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                job["job_id"],
+                job.get("image_name", ""),
+                json.dumps(job.get("control_points", [])),
+                json.dumps(job.get("transformation", {})),
+                job.get("rmse", 0.0),
+                job.get("mean_residual", 0.0),
+                job.get("max_residual", 0.0),
+                job.get("status", "COMPLETED"),
+                job.get("created_by", "system"),
+                job.get("created_at") or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ))
+            conn.commit()
+
+    def get_georeferencing_job(self, job_id: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM georeferencing_jobs WHERE job_id = ?", (job_id,))
+            r = cursor.fetchone()
+            if not r:
+                return None
+            return {
+                "job_id": r["job_id"],
+                "image_name": r["image_name"],
+                "control_points": json.loads(r["control_points_json"]) if r["control_points_json"] else [],
+                "transformation": json.loads(r["transform_json"]) if r["transform_json"] else {},
+                "rmse": r["rmse"],
+                "mean_residual": r["mean_residual"],
+                "max_residual": r["max_residual"],
+                "status": r["status"],
+                "created_by": r["created_by"],
+                "created_at": r["created_at"]
+            }
+
+    # Change Detection
+    def save_change_detection_results(self, changes: List[Dict[str, Any]]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            for c in changes:
+                cursor.execute("""
+                    INSERT OR REPLACE INTO change_detection_results (
+                        change_id, change_type, confidence, geometry_json, before_date, after_date, source, created_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    c["change_id"],
+                    c.get("change_type", "BUILDING_ADDED"),
+                    c.get("confidence", 0.0),
+                    json.dumps(c.get("geometry", {})),
+                    c.get("before_date", ""),
+                    c.get("after_date", ""),
+                    c.get("source", "RASTER_CHANGE_DETECTION"),
+                    c.get("created_at") or now
+                ))
+            conn.commit()
+
+    def get_change_detection_results(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM change_detection_results ORDER BY created_at DESC")
+            return [{
+                "change_id": r["change_id"],
+                "change_type": r["change_type"],
+                "confidence": r["confidence"],
+                "geometry": json.loads(r["geometry_json"]) if r["geometry_json"] else {},
+                "before_date": r["before_date"],
+                "after_date": r["after_date"],
+                "source": r["source"],
+                "created_at": r["created_at"]
+            } for r in cursor.fetchall()]
+
+    # Building Extractions
+    def save_building_extractions(self, buildings: List[Dict[str, Any]]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            for b in buildings:
+                b_id = b.get("building_id") or f"BLD-{id(b)}"
+                cursor.execute("""
+                    INSERT OR REPLACE INTO building_extractions (
+                        building_id, parcel_uid, survey_number, geometry_json, area_m2, confidence, model, inference_mode, created_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    b_id,
+                    b.get("parcel_uid", ""),
+                    b.get("survey_number", ""),
+                    json.dumps(b.get("geometry_geojson") or b.get("geometry", {})),
+                    b.get("area_m2", 0.0),
+                    b.get("confidence", 0.0),
+                    b.get("model_version") or b.get("model", "YOLOv8-Seg"),
+                    b.get("inference_mode") or b.get("execution_mode", "ONNX"),
+                    b.get("detected_at") or now
+                ))
+            conn.commit()
+
+    def get_building_extractions(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM building_extractions ORDER BY created_at DESC")
+            return [{
+                "building_id": r["building_id"],
+                "parcel_uid": r["parcel_uid"],
+                "survey_number": r["survey_number"],
+                "geometry_geojson": json.loads(r["geometry_json"]) if r["geometry_json"] else {},
+                "area_m2": r["area_m2"],
+                "confidence": r["confidence"],
+                "model_version": r["model"],
+                "inference_mode": r["inference_mode"],
+                "detected_at": r["created_at"]
+            } for r in cursor.fetchall()]
+
+    # Shared Boundary Proposals
+    def save_shared_boundary_proposal(self, proposal_or_id: Any, proposal_data: Optional[Dict[str, Any]] = None):
+        proposal = proposal_data if proposal_data is not None else proposal_or_id
+        if not isinstance(proposal, dict):
+            return
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO shared_boundary_proposals (
+                    proposal_id, parcel_a_id, parcel_b_id, original_geom_a, original_geom_b,
+                    split_geom_a, split_geom_b, area_diff_a, area_diff_b, confidence, status, created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                proposal["proposal_id"],
+                proposal["parcel_a_id"],
+                proposal["parcel_b_id"],
+                json.dumps(proposal.get("original_geom_a", {})),
+                json.dumps(proposal.get("original_geom_b", {})),
+                json.dumps(proposal.get("split_geom_a", {})),
+                json.dumps(proposal.get("split_geom_b", {})),
+                proposal.get("area_diff_a", 0.0),
+                proposal.get("area_diff_b", 0.0),
+                proposal.get("confidence", 0.0),
+                proposal.get("status", "PROPOSED"),
+                proposal.get("created_at") or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ))
+            conn.commit()
+
+    def get_shared_boundary_proposals(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM shared_boundary_proposals ORDER BY created_at DESC")
+            return [{
+                "proposal_id": r["proposal_id"],
+                "parcel_a_id": r["parcel_a_id"],
+                "parcel_b_id": r["parcel_b_id"],
+                "original_geom_a": json.loads(r["original_geom_a"]) if r["original_geom_a"] else {},
+                "original_geom_b": json.loads(r["original_geom_b"]) if r["original_geom_b"] else {},
+                "split_geom_a": json.loads(r["split_geom_a"]) if r["split_geom_a"] else {},
+                "split_geom_b": json.loads(r["split_geom_b"]) if r["split_geom_b"] else {},
+                "area_diff_a": r["area_diff_a"],
+                "area_diff_b": r["area_diff_b"],
+                "confidence": r["confidence"],
+                "status": r["status"],
+                "created_at": r["created_at"]
+            } for r in cursor.fetchall()]
+
+    def get_shared_boundary_proposal(self, proposal_id: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM shared_boundary_proposals WHERE proposal_id = ?", (proposal_id,))
+            r = cursor.fetchone()
+            if not r:
+                return None
+            return {
+                "proposal_id": r["proposal_id"],
+                "parcel_a_id": r["parcel_a_id"],
+                "parcel_b_id": r["parcel_b_id"],
+                "original_geom_a": json.loads(r["original_geom_a"]) if r["original_geom_a"] else {},
+                "original_geom_b": json.loads(r["original_geom_b"]) if r["original_geom_b"] else {},
+                "split_geom_a": json.loads(r["split_geom_a"]) if r["split_geom_a"] else {},
+                "split_geom_b": json.loads(r["split_geom_b"]) if r["split_geom_b"] else {},
+                "area_diff_a": r["area_diff_a"],
+                "area_diff_b": r["area_diff_b"],
+                "confidence": r["confidence"],
+                "status": r["status"],
+                "created_at": r["created_at"]
+            }
+
+    def update_shared_boundary_proposal(self, proposal_id: str, status_or_updates: Any):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            if isinstance(status_or_updates, dict):
+                st = status_or_updates.get("status", "UPDATED")
+            else:
+                st = str(status_or_updates)
+            cursor.execute("UPDATE shared_boundary_proposals SET status = ? WHERE proposal_id = ?", (st, proposal_id))
+            conn.commit()
+
+    # Processing Jobs
+    def save_processing_job(self, job: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            cursor.execute("""
+                INSERT OR REPLACE INTO processing_jobs (
+                    job_id, job_type, status, progress, processed_count, total_count, error_message, metadata_json, created_at, updated_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                job["job_id"],
+                job.get("job_type", "GENERAL"),
+                job.get("status", "QUEUED"),
+                job.get("progress", 0),
+                job.get("processed_count", 0),
+                job.get("total_count", 0),
+                job.get("error_message", ""),
+                json.dumps(job.get("metadata", {})),
+                job.get("created_at") or now,
+                now
+            ))
+            conn.commit()
+
+    def update_processing_job(
+        self,
+        job_id: str,
+        progress: Optional[int] = None,
+        status: Optional[str] = None,
+        processed: Optional[int] = None,
+        total: Optional[int] = None,
+        error: Optional[str] = None
+    ):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            cursor.execute("SELECT * FROM processing_jobs WHERE job_id = ?", (job_id,))
+            r = cursor.fetchone()
+            if not r:
+                return
+            new_status = status if status is not None else r["status"]
+            new_progress = progress if progress is not None else r["progress"]
+            new_processed = processed if processed is not None else r["processed_count"]
+            new_total = total if total is not None else r["total_count"]
+            new_error = error if error is not None else r["error_message"]
+
+            cursor.execute("""
+                UPDATE processing_jobs
+                SET status = ?, progress = ?, processed_count = ?, total_count = ?, error_message = ?, updated_at = ?
+                WHERE job_id = ?
+            """, (new_status, new_progress, new_processed, new_total, new_error, now, job_id))
+            conn.commit()
+
+    def get_processing_job(self, job_id: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM processing_jobs WHERE job_id = ?", (job_id,))
+            r = cursor.fetchone()
+            if not r:
+                return None
+            return {
+                "job_id": r["job_id"],
+                "job_type": r["job_type"],
+                "status": r["status"],
+                "progress": r["progress"],
+                "processed": r["processed_count"],
+                "total": r["total_count"],
+                "errors": 1 if r["error_message"] else 0,
+                "error_message": r["error_message"],
+                "metadata": json.loads(r["metadata_json"]) if r["metadata_json"] else {},
+                "created_at": r["created_at"],
+                "updated_at": r["updated_at"]
+            }
+
+    def get_processing_jobs(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM processing_jobs ORDER BY created_at DESC")
+            return [{
+                "job_id": r["job_id"],
+                "job_type": r["job_type"],
+                "status": r["status"],
+                "progress": r["progress"],
+                "processed": r["processed_count"],
+                "total": r["total_count"],
+                "errors": 1 if r["error_message"] else 0,
+                "error_message": r["error_message"],
+                "metadata": json.loads(r["metadata_json"]) if r["metadata_json"] else {},
+                "created_at": r["created_at"],
+                "updated_at": r["updated_at"]
+            } for r in cursor.fetchall()]
+
+    # OCR Documents
+    def save_ocr_document(self, doc: Dict[str, Any]):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            cursor.execute("""
+                INSERT OR REPLACE INTO ocr_documents (
+                    doc_id, filename, file_type, extracted_fields_json, raw_text, verified, created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (
+                doc["doc_id"],
+                doc.get("filename", ""),
+                doc.get("file_type", "image"),
+                json.dumps(doc.get("fields", {})),
+                doc.get("raw_text", ""),
+                1 if doc.get("verified") else 0,
+                doc.get("created_at") or now
+            ))
+            conn.commit()
+
+    def get_ocr_document(self, doc_id: str) -> Optional[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM ocr_documents WHERE doc_id = ?", (doc_id,))
+            r = cursor.fetchone()
+            if not r:
+                return None
+            return {
+                "doc_id": r["doc_id"],
+                "filename": r["filename"],
+                "file_type": r["file_type"],
+                "fields": json.loads(r["extracted_fields_json"]) if r["extracted_fields_json"] else {},
+                "raw_text": r["raw_text"],
+                "verified": bool(r["verified"]),
+                "created_at": r["created_at"]
+            }
+
+    def get_ocr_documents(self) -> List[Dict[str, Any]]:
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM ocr_documents ORDER BY created_at DESC")
+            return [{
+                "doc_id": r["doc_id"],
+                "filename": r["filename"],
+                "file_type": r["file_type"],
+                "fields": json.loads(r["extracted_fields_json"]) if r["extracted_fields_json"] else {},
+                "raw_text": r["raw_text"],
+                "verified": bool(r["verified"]),
+                "created_at": r["created_at"]
+            } for r in cursor.fetchall()]
+
+    def update_ocr_document(self, doc_id: str, fields: Dict[str, Any], verified: bool = True):
+        with self._get_conn() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                UPDATE ocr_documents
+                SET extracted_fields_json = ?, verified = ?
+                WHERE doc_id = ?
+            """, (json.dumps(fields), 1 if verified else 0, doc_id))
+            conn.commit()
 
 storage_repo = StorageRepository()

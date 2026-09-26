@@ -4,6 +4,7 @@ Defines models for Multi-Source Ingestion, AI Building Extraction,
 Elevation Raster Analysis, Utility Networks, Topology Validation,
 Temporal Change Detection, Dataset Synchronization, and Provenance.
 """
+from datetime import datetime
 from typing import Dict, List, Optional, Any, Literal
 from pydantic import BaseModel, Field
 
@@ -29,7 +30,7 @@ class ProvenanceRecord(BaseModel):
     matching_method: str = "Shapely STRtree + Multi-Factor Consensus"
     reconciliation_decision: Optional[str] = None
     reviewer: Optional[str] = None
-    created_at: str
+    created_at: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 class TopologyIssue(BaseModel):
     issue_id: str
@@ -37,6 +38,8 @@ class TopologyIssue(BaseModel):
     issue_type: str  # "Self-Intersection", "Overlap", "Gap", "Sliver", "Duplicate Geometry"
     severity: Literal["High", "Medium", "Low"]
     location_wkt: Optional[str] = None
+    original_geometry_wkt: Optional[str] = None
+    repaired_geometry_wkt: Optional[str] = None
     auto_fixed: bool = False
     fix_description: Optional[str] = None
 
@@ -50,9 +53,10 @@ class ChangeDetectionItem(BaseModel):
     current_value: Optional[str] = None
     change_magnitude: Optional[float] = None
     confidence: float
-    detected_at: str
+    detected_at: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 class CanonicalBuilding(BaseModel):
+    model_config = {"protected_namespaces": ()}
     building_id: str
     parcel_uid: Optional[str] = None
     survey_number: Optional[str] = None
@@ -62,7 +66,7 @@ class CanonicalBuilding(BaseModel):
     confidence: float
     extraction_source: str = "Drone ORI Feature Extraction"
     model_version: str = "GeoAI-YOLO-v8-Urban"
-    detected_at: str
+    detected_at: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 class AIModelMetrics(BaseModel):
     precision: float
@@ -71,6 +75,7 @@ class AIModelMetrics(BaseModel):
     mean_iou: Optional[float] = None
 
 class AIModelMetadata(BaseModel):
+    model_config = {"protected_namespaces": ()}
     model_name: str
     version: str
     task: str
@@ -167,7 +172,7 @@ class FeatureSyncChange(BaseModel):
         "AREA_CHANGED", "POSITION_CHANGED"
     ]
     sync_status: str
-    detected_at: str
+    detected_at: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 class RegisteredDataset(BaseModel):
     dataset_id: str
@@ -177,3 +182,13 @@ class RegisteredDataset(BaseModel):
     record_count: int
     crs: str
     status: str
+
+class DatasetVersion(BaseModel):
+    version_id: str
+    dataset_id: str
+    version_number: int
+    description: str
+    created_at: str
+    feature_count: int
+    active: bool = True
+

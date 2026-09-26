@@ -72,54 +72,72 @@ class ProvenanceService:
             RegisteredDataset(
                 dataset_id="DS-Cadastral",
                 name="Legacy Village Cadastral Map",
-                source_type="Bhunaksha Cadastral",
+                source_type="Legacy Cadastral",
                 format="GeoJSON",
                 record_count=300,
-                crs="EPSG:4326",
-                status="Active"
-            ),
-            RegisteredDataset(
-                dataset_id="DS-Drone",
-                name="High-Resolution Drone ORI",
-                source_type="Drone / Photogrammetry",
-                format="GeoJSON / GeoTIFF",
-                record_count=310,
-                crs="EPSG:4326",
-                status="Active"
-            ),
-            RegisteredDataset(
-                dataset_id="DS-GNSS",
-                name="CORS / Differential RTK Survey",
-                source_type="GNSS Survey",
-                format="CSV",
-                record_count=1798,
                 crs="EPSG:4326",
                 status="Active"
             ),
             RegisteredDataset(
                 dataset_id="DS-Revenue",
                 name="Tahsil Revenue RoR Register (7/12)",
-                source_type="Revenue Department",
+                source_type="Revenue Records",
                 format="CSV",
                 record_count=300,
                 crs="N/A",
                 status="Active"
             ),
             RegisteredDataset(
+                dataset_id="DS-Drone",
+                name="High-Resolution Drone ORI",
+                source_type="Drone ORI",
+                format="GeoJSON / GeoTIFF",
+                record_count=310,
+                crs="EPSG:4326",
+                status="Active"
+            ),
+            RegisteredDataset(
                 dataset_id="DS-DSM",
-                name="Photogrammetric Surface Elevation",
-                source_type="Drone DSM",
+                name="Photogrammetric Digital Surface Model",
+                source_type="DSM",
                 format="GeoTIFF",
                 record_count=1,
+                crs="EPSG:32643",
+                status="Active"
+            ),
+            RegisteredDataset(
+                dataset_id="DS-DTM",
+                name="Bare Earth Digital Terrain Model",
+                source_type="DTM",
+                format="GeoTIFF",
+                record_count=1,
+                crs="EPSG:32643",
+                status="Active"
+            ),
+            RegisteredDataset(
+                dataset_id="DS-GNSS",
+                name="CORS / Differential RTK Survey",
+                source_type="GNSS/CORS",
+                format="CSV",
+                record_count=1798,
                 crs="EPSG:4326",
                 status="Active"
             ),
             RegisteredDataset(
                 dataset_id="DS-Utility",
-                name="Municipal Infrastructure Layers",
-                source_type="Utility Department",
+                name="Municipal Infrastructure Utility Network",
+                source_type="Utility Network",
                 format="GeoJSON",
                 record_count=7,
+                crs="EPSG:4326",
+                status="Active"
+            ),
+            RegisteredDataset(
+                dataset_id="DS-Buildings",
+                name="AI Extracted Building Footprints",
+                source_type="Building Footprints",
+                format="GeoJSON",
+                record_count=42,
                 crs="EPSG:4326",
                 status="Active"
             ),

@@ -7,10 +7,11 @@ import {
   CheckSquare,
   Activity,
   Award,
-  Server
+  Server,
+  Sparkles
 } from 'lucide-react';
 
-export type NavTab = 'dashboard' | 'workspace' | 'reconcile' | 'conflicts' | 'review' | 'changes' | 'evaluation';
+export type NavTab = 'dashboard' | 'workspace' | 'reconcile' | 'conflicts' | 'review' | 'changes' | 'evaluation' | 'geoai';
 
 interface SidebarProps {
   currentTab: NavTab;
@@ -26,7 +27,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, confl
     { id: 'conflicts' as NavTab, label: 'Conflicts', icon: AlertTriangle, badge: conflictsCount },
     { id: 'review' as NavTab, label: 'Review', icon: CheckSquare },
     { id: 'changes' as NavTab, label: 'Changes', icon: Activity },
-    { id: 'evaluation' as NavTab, label: 'Evaluation', icon: Award }
+    { id: 'evaluation' as NavTab, label: 'Evaluation', icon: Award },
+    { id: 'geoai' as NavTab, label: 'GeoAI & OCR Hub', icon: Sparkles }
   ];
 
   return (

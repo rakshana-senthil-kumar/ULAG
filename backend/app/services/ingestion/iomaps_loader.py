@@ -309,7 +309,8 @@ class IndianOpenMapsLoader:
             source_type="Reference Geospatial Layer",
             crs_used="EPSG:4326 / EPSG:32643",
             transformations_applied=meta_dict["processing"],
-            reconciliation_decision="Reference Evidence Overlay"
+            reconciliation_decision="Reference Evidence Overlay",
+            created_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
 
 iomaps_loader = IndianOpenMapsLoader()

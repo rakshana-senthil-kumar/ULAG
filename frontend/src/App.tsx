@@ -10,6 +10,7 @@ import { ConflictsView } from './pages/ConflictsView';
 import { ReviewView } from './pages/ReviewView';
 import { ChangeDetectionView } from './pages/ChangeDetectionView';
 import { EvaluationView } from './pages/EvaluationView';
+import { GeoAIHubView } from './pages/GeoAIHubView';
 
 import type { ReconciliationSummary, ValidationReport } from './types/cadastral';
 import { getSummary } from './services/api';
@@ -48,7 +49,8 @@ export function App() {
     conflicts: 'Conflict Triage Center',
     review: 'Officer Adjudication Review',
     changes: 'Temporal Change Detection',
-    evaluation: 'Benchmark & Pipeline Evaluation'
+    evaluation: 'Benchmark & Pipeline Evaluation',
+    geoai: 'GeoAI, ONNX & OCR Processing Hub'
   };
 
   return (
@@ -108,6 +110,10 @@ export function App() {
 
           {currentTab === 'evaluation' && (
             <EvaluationView />
+          )}
+
+          {currentTab === 'geoai' && (
+            <GeoAIHubView />
           )}
         </main>
       </div>

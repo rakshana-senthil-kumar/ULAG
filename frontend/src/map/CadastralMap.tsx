@@ -15,23 +15,34 @@ interface CadastralMapProps {
   standalone?: boolean;
 }
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyDbZrepladZZyc2oaBOLhjumkrUUxaXJEQ';
+const GOOGLE_MAPS_API_KEY = (import.meta as any).env?.VITE_GOOGLE_MAPS_API_KEY || '';
 
 const BASEMAP_OPTIONS = {
+  'offline-grid': {
+    name: 'Offline Neutral Basemap (Local Canvas)',
+    url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><rect width="256" height="256" fill="%23f1f5f9"/><path d="M0 64 H256 M0 128 H256 M0 192 H256 M64 0 V256 M128 0 V256 M192 0 V256" stroke="%23e2e8f0" stroke-width="1"/></svg>',
+    attribution: 'Local Offline Grid'
+  },
   'google-hybrid': {
     name: 'Google Hybrid (Satellite + Labels)',
-    url: `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`,
-    attribution: '&copy; Google Maps Satellite'
+    url: GOOGLE_MAPS_API_KEY
+      ? `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`
+      : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution: '&copy; Google Maps / OSM'
   },
   'google-satellite': {
     name: 'Google Satellite (Aerial)',
-    url: `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`,
-    attribution: '&copy; Google Maps'
+    url: GOOGLE_MAPS_API_KEY
+      ? `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`
+      : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution: '&copy; Google Maps / OSM'
   },
   'google-streets': {
     name: 'Google Streets',
-    url: `https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`,
-    attribution: '&copy; Google Maps'
+    url: GOOGLE_MAPS_API_KEY
+      ? `https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`
+      : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution: '&copy; Google Maps / OSM'
   },
   'osm': {
     name: 'OpenStreetMap',

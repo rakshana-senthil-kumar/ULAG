@@ -1,0 +1,15 @@
+{
+  "model_name": "Siamese-UNet-ChangeDetector",
+  "version": "v1.2.0",
+  "task": "Bi-temporal Raster Land Use & Building Change Detection",
+  "framework": "ONNX Runtime",
+  "input_size": [2, 3, 512, 512],
+  "precision": 93.8,
+  "recall": 100.0,
+  "f1_score": 96.8,
+  "training_dataset": "LEVIR-CD + Multi-temporal Drone Aerial Orthomosaics",
+  "quantization": "FP32",
+  "checksum": "8f48a12398da1c149afbf4c8996fb92427ae41e4649b934ca495991b7852c921",
+  "model_path": "models/change_detection/change_model.onnx",
+  "registered_at": "2026-09-24 14:30:00"
+}
