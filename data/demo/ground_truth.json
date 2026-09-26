@@ -5,9 +5,9 @@
     "drone_feature_id": "FE_001"
   },
   "P002": {
-    "matched": false,
-    "conflict_type": "Missing Drone Extraction",
-    "drone_feature_id": null
+    "matched": true,
+    "conflict_type": null,
+    "drone_feature_id": "FE_002"
   },
   "P003": {
     "matched": true,
@@ -126,7 +126,7 @@
   },
   "P026": {
     "matched": true,
-    "conflict_type": "Potential Merge",
+    "conflict_type": null,
     "drone_feature_id": "FE_026"
   },
   "P027": {
@@ -325,9 +325,9 @@
     "drone_feature_id": "FE_066"
   },
   "P066": {
-    "matched": true,
-    "conflict_type": null,
-    "drone_feature_id": "FE_067"
+    "matched": false,
+    "conflict_type": "Missing Drone Extraction",
+    "drone_feature_id": null
   },
   "P067": {
     "matched": true,
@@ -366,7 +366,7 @@
   },
   "P074": {
     "matched": true,
-    "conflict_type": null,
+    "conflict_type": "Geometry Shift",
     "drone_feature_id": "FE_075"
   },
   "P075": {
@@ -386,7 +386,7 @@
   },
   "P078": {
     "matched": true,
-    "conflict_type": null,
+    "conflict_type": "Geometry Shift",
     "drone_feature_id": "FE_079"
   },
   "P079": {
@@ -451,393 +451,393 @@
   },
   "P091": {
     "matched": true,
-    "conflict_type": "Potential Split",
-    "drone_feature_id": "FE_092,FE_093"
+    "conflict_type": null,
+    "drone_feature_id": "FE_092"
   },
   "P092": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_094"
+    "drone_feature_id": "FE_093"
   },
   "P093": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_095"
+    "drone_feature_id": "FE_094"
   },
   "P094": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_096"
+    "drone_feature_id": "FE_095"
   },
   "P095": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_097"
+    "drone_feature_id": "FE_096"
   },
   "P096": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_098"
+    "drone_feature_id": "FE_097"
   },
   "P097": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_099"
+    "drone_feature_id": "FE_098"
   },
   "P098": {
     "matched": true,
-    "conflict_type": "Potential Merge",
-    "drone_feature_id": "FE_100"
+    "conflict_type": null,
+    "drone_feature_id": "FE_099"
   },
   "P099": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_101"
+    "drone_feature_id": "FE_100"
   },
   "P100": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_102"
+    "drone_feature_id": "FE_101"
   },
   "P101": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_103"
+    "drone_feature_id": "FE_102"
   },
   "P102": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_104"
+    "drone_feature_id": "FE_103"
   },
   "P103": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_105"
+    "drone_feature_id": "FE_104"
   },
   "P104": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_106"
+    "drone_feature_id": "FE_105"
   },
   "P105": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_107"
+    "drone_feature_id": "FE_106"
   },
   "P106": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_108"
+    "drone_feature_id": "FE_107"
   },
   "P107": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_109"
+    "drone_feature_id": "FE_108"
   },
   "P108": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_110"
+    "drone_feature_id": "FE_109"
   },
   "P109": {
     "matched": true,
-    "conflict_type": null,
-    "drone_feature_id": "FE_111"
+    "conflict_type": "Geometry Shift",
+    "drone_feature_id": "FE_110"
   },
   "P110": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_112"
+    "drone_feature_id": "FE_111"
   },
   "P111": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_113"
+    "drone_feature_id": "FE_112"
   },
   "P112": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_114"
+    "drone_feature_id": "FE_113"
   },
   "P113": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_115"
+    "drone_feature_id": "FE_114"
   },
   "P114": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_116"
+    "drone_feature_id": "FE_115"
   },
   "P115": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_117"
+    "drone_feature_id": "FE_116"
   },
   "P116": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_118"
+    "drone_feature_id": "FE_117"
   },
   "P117": {
     "matched": true,
-    "conflict_type": "Geometry Shift",
-    "drone_feature_id": "FE_119"
+    "conflict_type": null,
+    "drone_feature_id": "FE_118"
   },
   "P118": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_120"
+    "drone_feature_id": "FE_119"
   },
   "P119": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_121"
+    "drone_feature_id": "FE_120"
   },
   "P120": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_122"
+    "drone_feature_id": "FE_121"
   },
   "P121": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_123"
+    "drone_feature_id": "FE_122"
   },
   "P122": {
     "matched": true,
-    "conflict_type": "Geometry Shift",
-    "drone_feature_id": "FE_124"
+    "conflict_type": null,
+    "drone_feature_id": "FE_123"
   },
   "P123": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_125"
+    "drone_feature_id": "FE_124"
   },
   "P124": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_126"
+    "drone_feature_id": "FE_125"
   },
   "P125": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_127"
+    "drone_feature_id": "FE_126"
   },
   "P126": {
     "matched": true,
-    "conflict_type": null,
-    "drone_feature_id": "FE_128"
+    "conflict_type": "Geometry Shift",
+    "drone_feature_id": "FE_127"
   },
   "P127": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_129"
+    "drone_feature_id": "FE_128"
   },
   "P128": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_130"
+    "drone_feature_id": "FE_129"
   },
   "P129": {
-    "matched": true,
-    "conflict_type": null,
-    "drone_feature_id": "FE_131"
+    "matched": false,
+    "conflict_type": "Missing Drone Extraction",
+    "drone_feature_id": null
   },
   "P130": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_132"
+    "drone_feature_id": "FE_131"
   },
   "P131": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_133"
+    "drone_feature_id": "FE_132"
   },
   "P132": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_134"
+    "drone_feature_id": "FE_133"
   },
   "P133": {
     "matched": true,
-    "conflict_type": "Geometry Shift",
-    "drone_feature_id": "FE_135"
+    "conflict_type": null,
+    "drone_feature_id": "FE_134"
   },
   "P134": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_136"
+    "drone_feature_id": "FE_135"
   },
   "P135": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_137"
+    "drone_feature_id": "FE_136"
   },
   "P136": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_138"
+    "drone_feature_id": "FE_137"
   },
   "P137": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_139"
+    "drone_feature_id": "FE_138"
   },
   "P138": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_140"
+    "drone_feature_id": "FE_139"
   },
   "P139": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_141"
+    "drone_feature_id": "FE_140"
   },
   "P140": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_142"
+    "drone_feature_id": "FE_141"
   },
   "P141": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_143"
+    "drone_feature_id": "FE_142"
   },
   "P142": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_144"
+    "drone_feature_id": "FE_143"
   },
   "P143": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_145"
+    "drone_feature_id": "FE_144"
   },
   "P144": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_146"
+    "drone_feature_id": "FE_145"
   },
   "P145": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_147"
+    "drone_feature_id": "FE_146"
   },
   "P146": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_148"
+    "drone_feature_id": "FE_147"
   },
   "P147": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_149"
+    "drone_feature_id": "FE_148"
   },
   "P148": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_150"
+    "drone_feature_id": "FE_149"
   },
   "P149": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_151"
+    "drone_feature_id": "FE_150"
   },
   "P150": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_152"
+    "drone_feature_id": "FE_151"
   },
   "P151": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_153"
+    "drone_feature_id": "FE_152"
   },
   "P152": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_154"
+    "drone_feature_id": "FE_153"
   },
   "P153": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_155"
+    "drone_feature_id": "FE_154"
   },
   "P154": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_156"
+    "drone_feature_id": "FE_155"
   },
   "P155": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_157"
+    "drone_feature_id": "FE_156"
   },
   "P156": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_158"
+    "drone_feature_id": "FE_157"
   },
   "P157": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_159"
+    "drone_feature_id": "FE_158"
   },
   "P158": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_160"
+    "drone_feature_id": "FE_159"
   },
   "P159": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_161"
+    "drone_feature_id": "FE_160"
   },
   "P160": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_162"
+    "drone_feature_id": "FE_161"
   },
   "P161": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_163"
+    "drone_feature_id": "FE_162"
   },
   "P162": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_164"
+    "drone_feature_id": "FE_163"
   },
   "P163": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_165"
+    "drone_feature_id": "FE_164"
   },
   "P164": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_166"
+    "drone_feature_id": "FE_165"
   },
   "P165": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_167"
+    "drone_feature_id": "FE_166"
   },
   "P166": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_168"
+    "drone_feature_id": "FE_167"
   },
   "P167": {
     "matched": true,
     "conflict_type": null,
-    "drone_feature_id": "FE_169"
+    "drone_feature_id": "FE_168"
   },
   "P168": {
     "matched": true,
-    "conflict_type": null,
-    "drone_feature_id": "FE_170"
+    "conflict_type": "Potential Split",
+    "drone_feature_id": "FE_169,FE_170"
   },
   "P169": {
     "matched": true,
@@ -871,7 +871,7 @@
   },
   "P175": {
     "matched": true,
-    "conflict_type": null,
+    "conflict_type": "Potential Merge",
     "drone_feature_id": "FE_177"
   },
   "P176": {
@@ -1056,7 +1056,7 @@
   },
   "P212": {
     "matched": true,
-    "conflict_type": null,
+    "conflict_type": "Geometry Shift",
     "drone_feature_id": "FE_214"
   },
   "P213": {
@@ -1101,7 +1101,7 @@
   },
   "P221": {
     "matched": true,
-    "conflict_type": "Geometry Shift",
+    "conflict_type": null,
     "drone_feature_id": "FE_223"
   },
   "P222": {
@@ -1196,13 +1196,13 @@
   },
   "P240": {
     "matched": true,
-    "conflict_type": null,
+    "conflict_type": "Potential Merge",
     "drone_feature_id": "FE_242"
   },
   "P241": {
-    "matched": false,
-    "conflict_type": "Missing Drone Extraction",
-    "drone_feature_id": null
+    "matched": true,
+    "conflict_type": null,
+    "drone_feature_id": "FE_243"
   },
   "P242": {
     "matched": true,
@@ -1221,12 +1221,12 @@
   },
   "P245": {
     "matched": true,
-    "conflict_type": "Geometry Shift",
+    "conflict_type": null,
     "drone_feature_id": "FE_247"
   },
   "P246": {
     "matched": true,
-    "conflict_type": "Geometry Shift",
+    "conflict_type": null,
     "drone_feature_id": "FE_248"
   },
   "P247": {
@@ -1436,7 +1436,7 @@
   },
   "P288": {
     "matched": true,
-    "conflict_type": null,
+    "conflict_type": "Geometry Shift",
     "drone_feature_id": "FE_290"
   },
   "P289": {

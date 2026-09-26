@@ -3,13 +3,14 @@ Real Deep-Learning Building Extraction Pipeline for ULAG
 Uses ONNX Runtime for local inference on drone photogrammetry / ORI rasters.
 Supports CPU and GPU/CUDA execution providers.
 Does NOT require internet during inference.
-If model weights are unavailable, explicitly reports INFERENCE_MODE = "FALLBACK"
-rather than claiming neural inference occurred.
 
 Pipeline:
-Raw Drone Image / ORI -> Raster Windowing / Tiling -> Tile Normalization
--> YOLOv8 Segmentation ONNX -> ONNX Runtime -> Mask Extraction -> Polygonization
--> Douglas-Peucker Simplification -> Topology Validation & Repair -> CRS Transformation
+Raw Drone Image / ORI -> Raster Windowing / Tiling -> Letterbox Preprocessing (640x640)
+-> YOLOv8 Segmentation ONNX -> ONNX Runtime -> Output Parsing (Det + Protos)
+-> NMS / Confidence Filtering -> Segmentation Mask Linear Combination & BBox Crop
+-> Reverse Letterbox & Rescaling to Original Raster Pixels -> Morphological Cleanup
+-> Contour Extraction -> Pixel-Space Simplification -> Affine Georeferencing
+-> Spatial Sanity Filters (Area, Aspect Ratio, Compactness) -> Target CRS Reprojection
 -> Canonical Building Footprints
 """
 
@@ -42,7 +43,6 @@ except ImportError:
 
 from shapely.geometry import Polygon, MultiPolygon, shape, mapping, box
 from shapely.validation import make_valid
-from shapely.affinity import scale
 import pyproj
 
 ROOT_DIR = Path(__file__).resolve().parents[4]
@@ -53,14 +53,20 @@ class ONNXBuildingDetector:
     def __init__(
         self,
         model_path: Optional[str] = None,
-        conf_threshold: float = 0.50,
+        conf_threshold: float = 0.80,
         iou_threshold: float = 0.45,
-        min_area_m2: float = 12.0
+        min_area_m2: float = 15.0,
+        max_area_m2: float = 1800.0,
+        max_aspect_ratio: float = 4.5,
+        min_compactness: float = 0.12
     ):
         self.model_path = model_path or os.environ.get("ULAG_YOLO_MODEL_PATH", DEFAULT_MODEL_PATH)
         self.conf_threshold = conf_threshold
         self.iou_threshold = iou_threshold
         self.min_area_m2 = min_area_m2
+        self.max_area_m2 = max_area_m2
+        self.max_aspect_ratio = max_aspect_ratio
+        self.min_compactness = min_compactness
         self.tile_size = 640
         self.tile_overlap = 64
         self.session = None
@@ -111,6 +117,7 @@ class ONNXBuildingDetector:
             "execution_provider": self.execution_provider if self.inference_mode == "ONNX" else "CPU",
             "conf_threshold": self.conf_threshold,
             "min_area_m2": self.min_area_m2,
+            "max_area_m2": self.max_area_m2,
             "tile_size": self.tile_size,
             "tile_overlap": self.tile_overlap
         }
@@ -126,6 +133,9 @@ class ONNXBuildingDetector:
         Generates window coordinates (col_off, row_off, width, height) with overlap
         to prevent boundary clipping of buildings.
         """
+        if image_h <= tile_size and image_w <= tile_size:
+            return [(0, 0, image_w, image_h)]
+
         step = tile_size - overlap
         tiles = []
         for y in range(0, image_h, step):
@@ -135,182 +145,47 @@ class ONNXBuildingDetector:
                 tiles.append((x, y, w, h))
         return tiles
 
-    def _preprocess_tile(self, tile_img: np.ndarray) -> np.ndarray:
-        """Resizes tile to 640x640, normalizes float32 in [0, 1], and formats to NCHW."""
+    def _letterbox_tile(
+        self,
+        tile_img: np.ndarray,
+        new_shape: Tuple[int, int] = (640, 640),
+        color: Tuple[int, int, int] = (114, 114, 114)
+    ) -> Tuple[np.ndarray, float, Tuple[float, float], Tuple[int, int]]:
+        """
+        Resizes tile preserving aspect ratio with letterbox padding meeting YOLO stride constraints.
+        Returns: (blob [1, 3, 640, 640], ratio, (dw, dh), (unpad_w, unpad_h))
+        """
         h, w = tile_img.shape[:2]
-        if (h, w) != (self.tile_size, self.tile_size):
+        r = min(new_shape[0] / float(h), new_shape[1] / float(w))
+        unpad_w = int(round(w * r))
+        unpad_h = int(round(h * r))
+        dw = (new_shape[1] - unpad_w) / 2.0
+        dh = (new_shape[0] - unpad_h) / 2.0
+
+        if (w, h) != (unpad_w, unpad_h):
             if HAS_CV2:
-                resized = cv2.resize(tile_img, (self.tile_size, self.tile_size), interpolation=cv2.INTER_LINEAR)
+                resized = cv2.resize(tile_img, (unpad_w, unpad_h), interpolation=cv2.INTER_LINEAR)
             else:
-                resized = np.zeros((self.tile_size, self.tile_size, tile_img.shape[2]), dtype=tile_img.dtype)
-                resized[:h, :w] = tile_img
+                resized = tile_img
         else:
             resized = tile_img
 
-        # Normalize RGB [0, 255] -> [0.0, 1.0]
-        blob = resized.astype(np.float32) / 255.0
+        top, bottom = int(round(dh - 0.1)), int(round(dh + 0.1))
+        left, right = int(round(dw - 0.1)), int(round(dw + 0.1))
+
+        if HAS_CV2:
+            padded = cv2.copyMakeBorder(resized, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)
+        else:
+            padded = np.full((new_shape[0], new_shape[1], 3), color[0], dtype=tile_img.dtype)
+            padded[top:top+unpad_h, left:left+unpad_w] = resized
+
+        # Normalize RGB [0, 255] -> [0.0, 1.0] float32
+        blob = padded.astype(np.float32) / 255.0
         # HWC -> CHW -> NCHW
         blob = np.transpose(blob, (2, 0, 1))
         blob = np.expand_dims(blob, axis=0)
-        return blob
 
-    def _polygonize_mask(
-        self,
-        mask: np.ndarray,
-        col_off: int,
-        row_off: int,
-        scale_x: float,
-        scale_y: float,
-        affine_transform: Optional[Any] = None
-    ) -> List[Polygon]:
-        """
-        Extracts binary polygon contours from mask using OpenCV,
-        maps them back to full image pixel space and geospatial coordinates,
-        and applies simplification and make_valid topology repair.
-        """
-        if not HAS_CV2 or mask.max() == 0:
-            return []
-
-        binary_mask = (mask > 0.5).astype(np.uint8) * 255
-        contours, _ = cv2.findContours(binary_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        
-        polygons = []
-        for cnt in contours:
-            if len(cnt) < 4:
-                continue
-            # Scale contour points back to image coordinates
-            pts = cnt.squeeze(1).astype(np.float32)
-            if len(pts.shape) != 2 or pts.shape[0] < 3:
-                continue
-            pts[:, 0] = pts[:, 0] * scale_x + col_off
-            pts[:, 1] = pts[:, 1] * scale_y + row_off
-
-            if affine_transform:
-                # Transform pixel (x, y) to spatial coordinates (X, Y)
-                geo_pts = []
-                for px, py in pts:
-                    gx, gy = affine_transform * (px, py)
-                    geo_pts.append((gx, gy))
-                poly = Polygon(geo_pts)
-            else:
-                poly = Polygon(pts)
-
-            if not poly.is_valid:
-                poly = make_valid(poly)
-
-            # Douglas-Peucker simplification
-            simplified = poly.simplify(tolerance=0.3, preserve_topology=True)
-            if simplified.area > 0:
-                if simplified.geom_type == "Polygon":
-                    polygons.append(simplified)
-                elif simplified.geom_type == "MultiPolygon":
-                    for p in simplified.geoms:
-                        if p.area > 0:
-                            polygons.append(p)
-        return polygons
-
-    def extract_buildings_from_raster(
-        self,
-        raster_path: str,
-        target_crs: str = "EPSG:32643"
-    ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
-        """
-        Windowed processing on GeoTIFF orthomosaic.
-        Never loads multi-hundred-MB or GB rasters entirely into RAM.
-        Runs ONNX Runtime inference if session is ready, else deterministic fallback.
-        """
-        start_time = time.time()
-        extracted_buildings = []
-        tile_count = 0
-
-        if not HAS_RASTERIO or not os.path.exists(raster_path):
-            return self._run_synthetic_demo_extraction(target_crs)
-
-        try:
-            with rasterio.open(raster_path) as src:
-                src_crs = str(src.crs or "EPSG:32643")
-                w_full, h_full = src.width, src.height
-                transform = src.transform
-
-                # Create coordinate transformer if needed
-                transformer = None
-                if src_crs != target_crs:
-                    transformer = pyproj.Transformer.from_crs(src_crs, target_crs, always_xy=True)
-
-                tiles = self._generate_raster_tiles(h_full, w_full, self.tile_size, self.tile_overlap)
-                tile_count = len(tiles)
-
-                detection_idx = 1
-                for (col_off, row_off, w, h) in tiles:
-                    window = Window(col_off, row_off, w, h)
-                    # Windowed read: read only 3 bands (RGB)
-                    bands_to_read = min(3, src.count)
-                    tile_data = src.read(list(range(1, bands_to_read + 1)), window=window)
-                    
-                    if tile_data.shape[0] < 3:
-                        # Replicate single band to 3 channels if grayscale
-                        tile_data = np.repeat(tile_data, 3, axis=0)
-
-                    # CHW -> HWC
-                    tile_img = np.transpose(tile_data, (1, 2, 0))
-
-                    if self.session is not None and self.inference_mode == "ONNX":
-                        blob = self._preprocess_tile(tile_img)
-                        outputs = self.session.run(self.output_names, {self.input_name: blob})
-                        
-                        # YOLOv8-seg outputs parsing: outputs[0] = detections (1, 116, 8400), outputs[1] = protos (1, 32, 160, 160)
-                        det = outputs[0][0]
-                        proto = outputs[1][0]
-                        polys = self._decode_yolo_segmentation(det, proto, w, h, col_off, row_off, transform)
-                        
-                        # If zero threshold detections on synthetic test raster, supplement with fallback contours
-                        if not polys:
-                            polys = self._fallback_contour_extraction(tile_img, col_off, row_off, transform)
-                    else:
-                        # FALLBACK mode: Rule-based local contrast feature detection
-                        polys = self._fallback_contour_extraction(tile_img, col_off, row_off, transform)
-
-                    for p in polys:
-                        # Reproject if necessary
-                        if transformer:
-                            from shapely.ops import transform as shp_transform
-                            p = shp_transform(transformer.transform, p)
-
-                        area_m2 = abs(p.area)
-                        # In WGS84, area is in square degrees, convert approximately
-                        if "4326" in target_crs:
-                            area_m2 = area_m2 * (111139.0 ** 2)
-
-                        if area_m2 >= self.min_area_m2:
-                            b_id = f"BLD-ONNX-{detection_idx:04d}"
-                            detection_idx += 1
-                            extracted_buildings.append({
-                                "building_id": b_id,
-                                "geometry": mapping(p),
-                                "confidence": round(88.5 + (detection_idx % 11) * 0.9, 1),
-                                "source": "DRONE_ORI",
-                                "model": "YOLOv8-Seg",
-                                "inference_mode": self.inference_mode,
-                                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                "area_m2": round(area_m2, 2)
-                            })
-
-        except Exception as e:
-            print(f"[ONNXBuildingDetector] Error reading raster: {e}")
-            return self._run_synthetic_demo_extraction(target_crs)
-
-        latency_ms = round((time.time() - start_time) * 1000.0, 2)
-        metadata = {
-            "model_name": "YOLOv8-Seg",
-            "inference_mode": self.inference_mode,
-            "execution_provider": self.execution_provider,
-            "tiles_processed": tile_count,
-            "building_count": len(extracted_buildings),
-            "latency_ms": latency_ms,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        }
-
-        return extracted_buildings, metadata
+        return blob, r, (dw, dh), (unpad_w, unpad_h)
 
     def _decode_yolo_segmentation(
         self,
@@ -320,191 +195,370 @@ class ONNXBuildingDetector:
         tile_h: int,
         col_off: int,
         row_off: int,
-        affine_transform: Any
-    ) -> List[Polygon]:
+        r: float,
+        dw: float,
+        dh: float,
+        unpad_dims: Tuple[int, int],
+        affine_transform: Any,
+        target_crs: str,
+        transformer: Optional[Any] = None,
+        conf_threshold: Optional[float] = None
+    ) -> List[Dict[str, Any]]:
         """
         Decodes YOLOv8 segmentation outputs:
-        det: shape (116, 8400)
-        proto: shape (32, 160, 160)
-        Extracts bounding boxes, NMS, mask projection, and polygonization.
+        - Det shape: (4 + num_classes + 32, 8400)
+        - Proto shape: (32, 160, 160)
+        - Extracts bounding boxes, applies NMS, computes prototype mask combinations,
+        - Crops mask to detection bounding box, removes letterbox padding,
+        - Restores mask to original raster pixel coordinates,
+        - Simplifies contours in pixel space (approxPolyDP),
+        - Transforms to geospatial coordinates via raster affine transform,
+        - Applies spatial sanity filters (min/max area, aspect ratio, compactness).
         """
         if not HAS_CV2:
             return []
 
+        eff_conf = conf_threshold if conf_threshold is not None else self.conf_threshold
+        num_classes = det.shape[0] - 4 - 32
         boxes = det[:4, :].T
-        scores = det[4:84, :].T
-        mask_coeffs = det[84:, :].T
+        scores = det[4:4 + num_classes, :].T
+        mask_coeffs = det[4 + num_classes:, :].T
 
         max_scores = np.max(scores, axis=1)
-        scale_x = tile_w / float(self.tile_size)
-        scale_y = tile_h / float(self.tile_size)
-
-        keep_idxs = np.where(max_scores >= self.conf_threshold)[0]
-        polygons = []
+        keep_idxs = np.where(max_scores >= eff_conf)[0]
 
         if len(keep_idxs) == 0:
-            return polygons
+            return []
 
         nms_boxes = []
         nms_scores = []
         for idx in keep_idxs:
             cx, cy, bw, bh = boxes[idx]
-            x1 = int((cx - bw / 2.0) * scale_x)
-            y1 = int((cy - bh / 2.0) * scale_y)
-            w_box = int(bw * scale_x)
-            h_box = int(bh * scale_y)
-            nms_boxes.append([x1, y1, w_box, h_box])
+            x1 = int(cx - bw / 2.0)
+            y1 = int(cy - bh / 2.0)
+            nms_boxes.append([x1, y1, int(bw), int(bh)])
             nms_scores.append(float(max_scores[idx]))
 
-        indices = cv2.dnn.NMSBoxes(nms_boxes, nms_scores, self.conf_threshold, self.iou_threshold)
+        indices = cv2.dnn.NMSBoxes(nms_boxes, nms_scores, eff_conf, self.iou_threshold)
         if len(indices) == 0:
-            return polygons
+            return []
 
         if isinstance(indices, np.ndarray):
             indices = indices.flatten()
 
         proto_flat = proto.reshape(32, 160 * 160)
+        unpad_w, unpad_h = unpad_dims
+        valid_detections = []
 
         for i in indices:
             idx = keep_idxs[i]
+            conf = float(max_scores[idx])
             coeff = mask_coeffs[idx]
-            mask_map = 1.0 / (1.0 + np.exp(-np.dot(coeff, proto_flat)))
-            mask_map = mask_map.reshape(160, 160)
+            cx, cy, bw, bh = boxes[idx]
 
-            mask_tile = cv2.resize(mask_map, (tile_w, tile_h))
-            binary_mask = (mask_tile > 0.5).astype(np.uint8) * 255
+            # 1. Prototype linear combination & sigmoid
+            mask_160 = 1.0 / (1.0 + np.exp(-np.dot(coeff, proto_flat))).reshape(160, 160)
+            mask_640 = cv2.resize(mask_160, (640, 640), interpolation=cv2.INTER_LINEAR)
 
+            # 2. Crop mask to detection bounding box in 640 space
+            bx1 = max(0, int(cx - bw / 2.0))
+            by1 = max(0, int(cy - bh / 2.0))
+            bx2 = min(640, int(cx + bw / 2.0))
+            by2 = min(640, int(cy + bh / 2.0))
+
+            bbox_mask = np.zeros((640, 640), dtype=np.float32)
+            bbox_mask[by1:by2, bx1:bx2] = 1.0
+            mask_640 = mask_640 * bbox_mask
+
+            # 3. Remove letterbox padding
+            crop_y1 = int(round(dh))
+            crop_y2 = int(round(dh + unpad_h))
+            crop_x1 = int(round(dw))
+            crop_x2 = int(round(dw + unpad_w))
+            mask_cropped = mask_640[crop_y1:crop_y2, crop_x1:crop_x2]
+
+            # 4. Reverse scale to original raster tile dimensions
+            mask_tile = cv2.resize(mask_cropped, (tile_w, tile_h), interpolation=cv2.INTER_LINEAR)
+            binary_mask = (mask_tile > 0.45).astype(np.uint8) * 255
+
+            # 5. Morphological closing to remove boundary noise
+            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+            binary_mask = cv2.morphologyEx(binary_mask, cv2.MORPH_CLOSE, kernel)
+            mask_pixel_count = int(np.count_nonzero(binary_mask))
+
+            # 6. Extract contours in tile pixel space
             contours, _ = cv2.findContours(binary_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            if not contours:
+                continue
+
             for cnt in contours:
-                if len(cnt) < 3:
-                    continue
-                pts = cnt.squeeze(axis=1).astype(np.float64)
-                if len(pts.shape) != 2:
+                if cv2.contourArea(cnt) < 15:
                     continue
 
+                # 7. Pixel-space Douglas-Peucker simplification (prevents geographic degree destruction)
+                cnt_simp = cv2.approxPolyDP(cnt, epsilon=1.0, closed=True)
+                if len(cnt_simp) < 3:
+                    continue
+
+                pts = cnt_simp.squeeze(axis=1).astype(np.float64)
+                if len(pts.shape) != 2 or pts.shape[0] < 3:
+                    continue
+
+                # Tile pixel coordinates to full raster pixel coordinates
                 pts[:, 0] += col_off
                 pts[:, 1] += row_off
 
+                # 8. Transform pixel (px, py) to raster CRS coordinates (gx, gy)
                 geo_pts = [affine_transform * (px, py) for px, py in pts]
                 poly = Polygon(geo_pts)
                 if not poly.is_valid:
                     poly = make_valid(poly)
-                simplified = poly.simplify(tolerance=0.3, preserve_topology=True)
-                if simplified.area > 0 and simplified.geom_type == "Polygon":
-                    polygons.append(simplified)
-                elif simplified.area > 0 and simplified.geom_type == "MultiPolygon":
-                    for sub_p in simplified.geoms:
-                        if sub_p.area > 0:
-                            polygons.append(sub_p)
+                if poly.is_empty or poly.area <= 0:
+                    continue
 
-        return polygons
+                # Reproject if transformer provided
+                if transformer:
+                    from shapely.ops import transform as shp_transform
+                    poly = shp_transform(transformer.transform, poly)
 
-    def _fallback_contour_extraction(
+                # 9. Spatial sanity filters
+                area_m2 = abs(poly.area) * (111139.0 ** 2) if "4326" in target_crs else abs(poly.area)
+                b = poly.bounds
+                w_m = (b[2] - b[0]) * 109093.0 if "4326" in target_crs else (b[2] - b[0])
+                h_m = (b[3] - b[1]) * 111139.0 if "4326" in target_crs else (b[3] - b[1])
+                aspect = max(w_m, h_m) / max(min(w_m, h_m), 1.0)
+                perim_m = poly.length * 111139.0 if "4326" in target_crs else poly.length
+                compactness = (4.0 * math.pi * area_m2) / (perim_m ** 2) if perim_m > 0 else 0
+
+                # Validate against physical building thresholds
+                if not (self.min_area_m2 <= area_m2 <= self.max_area_m2):
+                    continue
+                if w_m > 70.0 or h_m > 70.0:
+                    continue
+                if aspect > self.max_aspect_ratio:
+                    continue
+                if compactness < self.min_compactness:
+                    continue
+
+                # Pixel bbox in original raster space
+                px_x1 = max(0, int((bx1 - dw) / r)) + col_off
+                px_y1 = max(0, int((by1 - dh) / r)) + row_off
+                px_x2 = min(tile_w, int((bx2 - dw) / r)) + col_off
+                px_y2 = min(tile_h, int((by2 - dh) / r)) + row_off
+
+                c_x, c_y = poly.centroid.x, poly.centroid.y
+                v_count = len(poly.exterior.coords) - 1 if hasattr(poly, "exterior") else len(pts)
+
+                det_record = {
+                    "geometry": poly,
+                    "confidence": round(conf * 100.0, 1),
+                    "area_m2": round(area_m2, 1),
+                    "centroid": [round(c_x, 7), round(c_y, 7)],
+                    "bbox": [round(x, 7) for x in b],
+                    "pixel_bbox": [px_x1, px_y1, px_x2, px_y2],
+                    "mask_pixel_count": mask_pixel_count,
+                    "vertex_count": v_count,
+                    "crs": target_crs,
+                    "source_raster_coordinates": {
+                        "col_off": col_off,
+                        "row_off": row_off,
+                        "tile_w": tile_w,
+                        "tile_h": tile_h
+                    }
+                }
+                valid_detections.append(det_record)
+                print(f"[YOLOv8-Seg] Detection: Conf={conf:.1%}, Area={area_m2:.1f} m², Vertices={v_count}, PixelBox=[{px_x1}, {px_y1}, {px_x2}, {px_y2}]")
+
+        return valid_detections
+
+    def _run_synthetic_demo_extraction(
         self,
-        tile_img: np.ndarray,
-        col_off: int,
-        row_off: int,
-        affine_transform: Any
-    ) -> List[Polygon]:
+        target_crs: str = "EPSG:4326"
+    ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         """
-        Deterministic computer vision fallback when neural model weights are not loaded.
-        Explicitly labeled INFERENCE_MODE = "FALLBACK".
-        Uses Otsu adaptive thresholding and morphological closing.
+        Fallback simulation used only when ONNX session cannot be initialized (missing weights).
         """
-        if not HAS_CV2:
-            return []
-
-        gray = cv2.cvtColor(tile_img, cv2.COLOR_RGB2GRAY)
-        blur = cv2.GaussianBlur(gray, (5, 5), 0)
-        _, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
-        closed = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
-
-        contours, _ = cv2.findContours(closed, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        polygons = []
-
-        for cnt in contours:
-            area_px = cv2.contourArea(cnt)
-            if area_px < 400 or area_px > 100000:
-                continue
-
-            pts = cnt.squeeze(1).astype(np.float32)
-            if len(pts.shape) != 2 or pts.shape[0] < 3:
-                continue
-
-            pts[:, 0] += col_off
-            pts[:, 1] += row_off
-
-            geo_pts = []
-            for px, py in pts:
-                gx, gy = affine_transform * (px, py)
-                geo_pts.append((gx, gy))
-
-            poly = Polygon(geo_pts)
-            if not poly.is_valid:
-                poly = make_valid(poly)
-            simplified = poly.simplify(tolerance=0.4, preserve_topology=True)
-            if simplified.area > 0 and simplified.geom_type == "Polygon":
-                polygons.append(simplified)
-
-        return polygons
-
-    def _run_synthetic_demo_extraction(self, target_crs: str = "EPSG:32643") -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
-        """
-        Deterministic demo footprints over Pune/Coimbatore AOI when no raw raster uploaded yet.
-        Clearly exposes INFERENCE_MODE = "FALLBACK".
-        """
-        start_time = time.time()
-        # Seeded demo footprints centered in Hinjewadi / Coimbatore region
-        base_x, base_y = 73.7380, 18.5910
-        if "32643" in target_crs:
-            base_x, base_y = 366750.0, 2056200.0
-
-        demo_footprints = []
-        for i in range(1, 25):
-            ox = base_x + (i % 5) * 45.0 + ((i // 5) % 2) * 12.0
-            oy = base_y + (i // 5) * 38.0
-            w = 18.0 + (i % 4) * 3.5
-            h = 14.0 + (i % 3) * 4.0
-
-            poly = Polygon([
-                (ox, oy), (ox + w, oy), (ox + w, oy + h), (ox, oy + h), (ox, oy)
-            ])
-            area_m2 = round(poly.area if "32643" in target_crs else poly.area * 1e10, 2)
-            
-            demo_footprints.append({
-                "building_id": f"BLD-ONNX-{i:04d}",
-                "geometry": mapping(poly),
-                "confidence": round(89.5 + (i % 9) * 1.1, 1),
-                "source": "DRONE_ORI",
+        demo_polygons = [
+            Polygon([(76.9515, 11.0015), (76.9518, 11.0015), (76.9518, 11.0018), (76.9515, 11.0018), (76.9515, 11.0015)]),
+            Polygon([(76.9525, 11.0025), (76.9529, 11.0025), (76.9529, 11.0028), (76.9525, 11.0028), (76.9525, 11.0025)]),
+        ]
+        buildings = []
+        for i, poly in enumerate(demo_polygons):
+            b_bounds = list(poly.bounds)
+            buildings.append({
+                "building_id": f"BLDG-FB-{i+1:04d}",
+                "confidence": 82.0,
+                "source": "SYNTHETIC_FALLBACK",
                 "model": "YOLOv8-Seg",
-                "inference_mode": self.inference_mode,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "area_m2": area_m2
+                "inference_mode": "FALLBACK",
+                "geometry": mapping(poly),
+                "area_m2": 150.0,
+                "centroid": [poly.centroid.x, poly.centroid.y],
+                "bbox": b_bounds,
+                "pixel_bbox": [100, 100, 200, 200],
+                "mask_pixel_count": 500,
+                "bbox_geometry": mapping(box(*b_bounds)),
+                "segmentation_mask_geometry": mapping(poly),
+                "source_raster_coordinates": [[100, 100], [200, 100], [200, 200], [100, 200]],
+                "vertex_count": len(poly.exterior.coords) - 1,
+                "crs": target_crs,
+                "status": "FALLBACK"
             })
+        metadata = {
+            "model_name": "YOLOv8-Seg (Deterministic Fallback)",
+            "inference_mode": "FALLBACK",
+            "execution_provider": "CPU",
+            "building_count": len(buildings),
+            "latency_ms": 1.0,
+            "message": "Fallback building extraction executed due to missing ONNX model.",
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        return buildings, metadata
 
+    def extract_buildings_from_raster(
+        self,
+        raster_path: str,
+        target_crs: str = "EPSG:4326",
+        conf_threshold: Optional[float] = None
+    ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+        """
+        Windowed processing on GeoTIFF orthomosaic.
+        Never loads multi-hundred-MB or GB rasters entirely into RAM.
+        Runs ONNX Runtime inference if session is ready.
+        Does NOT inject fake demo buildings if 0 detections occur during ONNX inference.
+        """
+        if self.inference_mode == "FALLBACK":
+            return self._run_synthetic_demo_extraction(target_crs=target_crs)
+
+        eff_conf = conf_threshold if conf_threshold is not None else self.conf_threshold
+        start_time = time.time()
+        extracted_buildings = []
+        tile_count = 0
+
+        if not HAS_RASTERIO or not os.path.exists(raster_path):
+            return [], {
+                "model_name": "YOLOv8-Seg",
+                "inference_mode": "ERROR",
+                "message": f"Raster file not found: {raster_path}",
+                "building_count": 0,
+                "latency_ms": 0.0
+            }
+
+        try:
+            with rasterio.open(raster_path) as src:
+                src_crs = str(src.crs or "EPSG:4326")
+                w_full, h_full = src.width, src.height
+                transform = src.transform
+
+                transformer = None
+                if src_crs != target_crs:
+                    transformer = pyproj.Transformer.from_crs(src_crs, target_crs, always_xy=True)
+
+                tiles = self._generate_raster_tiles(h_full, w_full, self.tile_size, self.tile_overlap)
+                tile_count = len(tiles)
+                detection_idx = 1
+
+                for (col_off, row_off, w, h) in tiles:
+                    window = Window(col_off, row_off, w, h)
+                    bands_to_read = min(3, src.count)
+                    tile_data = src.read(list(range(1, bands_to_read + 1)), window=window)
+
+                    if tile_data.shape[0] < 3:
+                        tile_data = np.repeat(tile_data, 3, axis=0)
+
+                    # CHW -> HWC
+                    tile_img = np.transpose(tile_data, (1, 2, 0))
+
+                    if self.session is not None and self.inference_mode == "ONNX":
+                        blob, r, (dw, dh), unpad_dims = self._letterbox_tile(tile_img)
+                        outputs = self.session.run(self.output_names, {self.input_name: blob})
+
+                        det = outputs[0][0]
+                        proto = outputs[1][0]
+
+                        tile_detections = self._decode_yolo_segmentation(
+                            det=det,
+                            proto=proto,
+                            tile_w=w,
+                            tile_h=h,
+                            col_off=col_off,
+                            row_off=row_off,
+                            r=r,
+                            dw=dw,
+                            dh=dh,
+                            unpad_dims=unpad_dims,
+                            affine_transform=transform,
+                            target_crs=target_crs,
+                            transformer=transformer,
+                            conf_threshold=eff_conf
+                        )
+                    else:
+                        tile_detections = []
+
+                    for d in tile_detections:
+                        b_id = f"BLD-ONNX-{detection_idx:04d}"
+                        detection_idx += 1
+                        poly = d["geometry"]
+                        b_bounds = d["bbox"]
+
+                        extracted_buildings.append({
+                            "building_id": b_id,
+                            "geometry": mapping(poly),
+                            "confidence": d["confidence"],
+                            "source": "DRONE_ORI",
+                            "model": "YOLOv8-Seg",
+                            "inference_mode": self.inference_mode,
+                            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "area_m2": d["area_m2"],
+                            "centroid": d["centroid"],
+                            "bbox": b_bounds,
+                            "pixel_bbox": d["pixel_bbox"],
+                            "mask_pixel_count": d["mask_pixel_count"],
+                            "bbox_geometry": mapping(box(*b_bounds)),
+                            "segmentation_mask_geometry": mapping(poly),
+                            "source_raster_coordinates": d["source_raster_coordinates"],
+                            "vertex_count": d["vertex_count"],
+                            "crs": target_crs,
+                            "status": "CONFIRMED"
+                        })
+
+        except Exception as e:
+            print(f"[ONNXBuildingDetector] Error reading raster: {e}")
+            return [], {
+                "model_name": "YOLOv8-Seg",
+                "inference_mode": "ERROR",
+                "error": str(e),
+                "building_count": 0,
+                "latency_ms": round((time.time() - start_time) * 1000.0, 2)
+            }
+
+        latency_ms = round((time.time() - start_time) * 1000.0, 2)
         metadata = {
             "model_name": "YOLOv8-Seg",
             "inference_mode": self.inference_mode,
             "execution_provider": self.execution_provider,
-            "tiles_processed": 12,
-            "building_count": len(demo_footprints),
-            "latency_ms": round((time.time() - start_time) * 1000.0 + 38.4, 2),
+            "tiles_processed": tile_count,
+            "building_count": len(extracted_buildings),
+            "latency_ms": latency_ms,
+            "message": "Detection completed" if len(extracted_buildings) > 0 else "No valid YOLO building detections.",
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
-        return demo_footprints, metadata
+
+        return extracted_buildings, metadata
 
     def extract_building_footprints(
         self,
         raster_path: Optional[str] = None,
-        confidence_threshold: float = 0.40,
+        confidence_threshold: float = 0.35,
         simplify_tolerance: float = 0.30,
-        target_crs: str = "EPSG:32643"
+        target_crs: str = "EPSG:4326"
     ) -> List[Dict[str, Any]]:
-        self.conf_threshold = confidence_threshold
-        buildings, _ = self.extract_buildings_from_raster(raster_path or "", target_crs=target_crs)
+        if not raster_path or not os.path.exists(raster_path):
+            buildings, _ = self._run_synthetic_demo_extraction(target_crs=target_crs)
+            return buildings
+        buildings, _ = self.extract_buildings_from_raster(
+            raster_path, target_crs=target_crs, conf_threshold=confidence_threshold
+        )
         return buildings
 
 onnx_detector = ONNXBuildingDetector()
-

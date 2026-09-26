@@ -265,9 +265,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ summary, onNavigat
         <div className="px-5 py-3 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <h2 className="font-bold text-sm text-slate-900 uppercase tracking-wide">Harmonization WebGIS Overview</h2>
-            <span className="text-slate-300">|</span>
             <span className="text-xs text-slate-600 font-mono">
-              {selectedParcel ? `Parcel ${selectedParcel.full_survey} (Active Selection)` : 'Full 300-Parcel Fabric'}
+              {selectedParcel
+                ? `Parcel ${selectedParcel.full_survey} (Active Selection)`
+                : `Active Cadastral Region (${totalParcelsCount} Parcels | ${matchedParcelsCount} Matched | ${conflictsParcelsCount} Conflicts | ${buildingsCount} AI Buildings)`}
             </span>
           </div>
 

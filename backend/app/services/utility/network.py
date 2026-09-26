@@ -24,7 +24,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [76.9548, 11.0158], [76.9563, 11.0170], [76.9578, 11.0183], [76.9598, 11.0193]
+                    [76.9508, 11.0018], [76.9525, 11.0030], [76.9550, 11.0045], [76.9580, 11.0065]
                 ]
             },
             crs="EPSG:4326",
@@ -39,7 +39,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [76.9543, 11.0163], [76.9558, 11.0173], [76.9573, 11.0180], [76.9593, 11.0188]
+                    [76.9510, 11.0020], [76.9526, 11.0031], [76.9552, 11.0046], [76.9582, 11.0066]
                 ]
             },
             crs="EPSG:4326",
@@ -54,7 +54,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [76.9538, 11.0166], [76.9556, 11.0176], [76.9568, 11.0186]
+                    [76.9506, 11.0016], [76.9524, 11.0029], [76.9548, 11.0043], [76.9578, 11.0063]
                 ]
             },
             crs="EPSG:4326",
@@ -69,7 +69,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [76.9550, 11.0156], [76.9566, 11.0168], [76.9583, 11.0178]
+                    [76.9509, 11.0019], [76.9525, 11.0030], [76.9551, 11.0045], [76.9581, 11.0064]
                 ]
             },
             crs="EPSG:4326",
@@ -84,7 +84,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             geometry_geojson={
                 "type": "LineString",
                 "coordinates": [
-                    [76.9553, 11.0160], [76.9570, 11.0174], [76.9588, 11.0186]
+                    [76.9511, 11.0021], [76.9527, 11.0032], [76.9553, 11.0047], [76.9583, 11.0067]
                 ]
             },
             crs="EPSG:4326",
@@ -98,7 +98,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             source="TANGEDCO Coimbatore Distribution Circle",
             geometry_geojson={
                 "type": "Point",
-                "coordinates": [76.9560, 11.0171]
+                "coordinates": [76.9526, 11.0031]
             },
             crs="EPSG:4326",
             dataset_version="v2.0"
@@ -111,7 +111,7 @@ def build_demo_utility_assets() -> List[CanonicalUtilityAsset]:
             source="CCMC Siruvani & Pilloor Water Supply Grid",
             geometry_geojson={
                 "type": "Point",
-                "coordinates": [76.9557, 11.0172]
+                "coordinates": [76.9524, 11.0029]
             },
             crs="EPSG:4326",
             dataset_version="v1.8"

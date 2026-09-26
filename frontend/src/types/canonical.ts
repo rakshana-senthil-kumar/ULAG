@@ -58,6 +58,16 @@ export interface CanonicalBuilding {
   extraction_source: string;
   model_version: string;
   detected_at: string;
+  centroid?: [number, number];
+  bbox?: [number, number, number, number];
+  pixel_bbox?: [number, number, number, number];
+  bbox_geojson?: any;
+  segmentation_mask_geojson?: any;
+  source_raster_coordinates?: any;
+  vertex_count?: number;
+  crs?: string;
+  overlap_percentage?: number;
+  conflict_status?: string;
 }
 
 export interface AIModelMetadata {

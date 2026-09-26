@@ -7,7 +7,7 @@ temporal change detection, dataset synchronization, provenance, and data export.
 """
 
 from fastapi import APIRouter, UploadFile, File, HTTPException, Query, status, Response, Depends
-from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.responses import JSONResponse, PlainTextResponse, FileResponse
 from typing import List, Optional, Dict, Any
 import json
 import csv
@@ -132,12 +132,21 @@ async def list_parcels(
 
 @router.get("/parcels/geojson", summary="Get all parcels as a single GeoJSON FeatureCollection")
 async def get_all_parcels_geojson():
-    """Returns all 300 parcels with their geometries as a GeoJSON FeatureCollection for WebGIS."""
+    """Returns all parcels with genuine polygon geometries and computed geometric properties for WebGIS."""
+    from shapely.geometry import shape
     all_details = storage_repo.get_all_parcels_detail()
     features = []
     for p in all_details:
-        geom = p.get("reconciled_geometry_geojson") or p.get("geometry_geojson")
+        geom = p.get("reconciled_geometry_geojson") or p.get("geometry_geojson") or p.get("reconciled_geometry") or p.get("legacy_geometry")
         if geom:
+            v_count = 8
+            centroid = [0.0, 0.0]
+            try:
+                poly = shape(geom)
+                v_count = len(poly.exterior.coords) - 1 if hasattr(poly, "exterior") else 8
+                centroid = [round(poly.centroid.x, 7), round(poly.centroid.y, 7)]
+            except Exception:
+                pass
             features.append({
                 "type": "Feature",
                 "id": p["parcel_id"],
@@ -149,7 +158,11 @@ async def get_all_parcels_geojson():
                     "confidence": p["confidence"],
                     "conflict_type": p.get("conflict_type"),
                     "legacy_area": p["legacy_area"],
-                    "recommended_area": p.get("recommendation", {}).get("recommended_area")
+                    "recommended_area": p.get("recommendation", {}).get("recommended_area"),
+                    "vertex_count": v_count,
+                    "centroid": centroid,
+                    "geom_type": geom.get("type", "Polygon"),
+                    "crs": "EPSG:4326"
                 },
                 "geometry": geom
             })
@@ -158,6 +171,12 @@ async def get_all_parcels_geojson():
         "crs": {"type": "name", "properties": {"name": "EPSG:4326"}},
         "features": features
     }
+
+@router.get("/spatial/validation", summary="Run automated spatial overlay validation for buildings and parcels")
+async def get_spatial_overlay_validation():
+    """Performs rigorous automated overlay validation between drone raster, buildings, and parcels."""
+    from backend.app.services.geometry.overlay_validator import overlay_validator
+    return overlay_validator.run_overlay_validation()
 
 @router.get("/parcels/{id}", response_model=ParcelDetail)
 async def get_parcel_by_id(id: str):
@@ -800,6 +819,41 @@ async def extract_buildings(req: BuildingExtractRequest):
 async def get_building_extractions():
     """Returns all stored building extraction records."""
     return storage_repo.get_building_extractions()
+
+@router.get("/ai/yolo-alignment-diagnostics", summary="Generate 4-stage visual diagnostics for YOLO building detection")
+async def get_yolo_diagnostics():
+    """Generates original ORI, YOLO bboxes, segmentation masks, and final footprint overlays."""
+    from backend.app.services.ai.diagnostic_exporter import diagnostic_exporter
+    try:
+        return diagnostic_exporter.generate_diagnostics()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/raster/ori-overlay", summary="Get ORI GeoTIFF as PNG image for Leaflet imageOverlay")
+async def get_ori_overlay_png():
+    """Returns rendered PNG of the active ORI GeoTIFF for map overlay."""
+    diag_path = os.path.join(str(ROOT_DIR), "data", "demo", "diagnostics", "1_original_ori.png")
+    if not os.path.exists(diag_path):
+        from backend.app.services.ai.diagnostic_exporter import diagnostic_exporter
+        diagnostic_exporter.generate_diagnostics()
+    return FileResponse(diag_path, media_type="image/png")
+
+@router.get("/raster/ori-metadata", summary="Get ORI raster bounds and geospatial metadata")
+async def get_ori_metadata():
+    raster_path = os.path.join(str(ROOT_DIR), "data", "uploads", "ori", "coimbatore_urban_drone_ori.tif")
+    if not os.path.exists(raster_path):
+        raise HTTPException(status_code=404, detail="ORI raster not found")
+    import rasterio
+    with rasterio.open(raster_path) as src:
+        b = src.bounds
+        return {
+            "crs": str(src.crs),
+            "width": src.width,
+            "height": src.height,
+            "bounds": [b.left, b.bottom, b.right, b.top],
+            "leaflet_bounds": [[b.bottom, b.left], [b.top, b.right]],
+            "transform": [src.transform.a, src.transform.b, src.transform.c, src.transform.d, src.transform.e, src.transform.f]
+        }
 
 # --- 6. PIXEL-LEVEL CHANGE DETECTION ---
 

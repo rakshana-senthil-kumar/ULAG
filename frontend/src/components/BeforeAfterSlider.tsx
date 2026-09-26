@@ -174,7 +174,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
               },
               onEachFeature: (_, layer) => {
                 layer.bindTooltip(
-                  `<b>AI Building Footprint</b><br/>ID: ${bldg.building_id}<br/>Area: ${bldg.area_m2.toFixed(1)} m²<br/>Conf: ${(bldg.confidence * 100).toFixed(1)}%`,
+                  `<b>AI Building Footprint</b><br/>ID: ${bldg.building_id}<br/>Area: ${bldg.area_m2.toFixed(1)} m²<br/>Conf: ${(bldg.confidence > 1 ? bldg.confidence : bldg.confidence * 100).toFixed(1)}%`,
                   { sticky: true }
                 );
               }

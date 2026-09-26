@@ -265,4 +265,10 @@ export function getExportParcelsUrl(format: 'geojson' | 'csv' = 'geojson', statu
   return `${API_BASE}/export/parcels?${params.toString()}`;
 }
 
+export async function getSpatialValidation(): Promise<any> {
+  const res = await fetch(`${API_BASE}/spatial/validation`);
+  if (!res.ok) throw new Error('Failed to fetch spatial overlay validation');
+  return res.json();
+}
+
 

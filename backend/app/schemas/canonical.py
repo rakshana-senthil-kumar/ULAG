@@ -67,6 +67,16 @@ class CanonicalBuilding(BaseModel):
     extraction_source: str = "Drone ORI Feature Extraction"
     model_version: str = "GeoAI-YOLO-v8-Urban"
     detected_at: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    centroid: Optional[List[float]] = None
+    bbox: Optional[List[float]] = None
+    pixel_bbox: Optional[List[int]] = None
+    bbox_geojson: Optional[Dict[str, Any]] = None
+    segmentation_mask_geojson: Optional[Dict[str, Any]] = None
+    source_raster_coordinates: Optional[Dict[str, Any]] = None
+    vertex_count: Optional[int] = None
+    crs: Optional[str] = "EPSG:4326"
+    overlap_percentage: Optional[float] = None
+    conflict_status: Optional[str] = None
 
 class AIModelMetrics(BaseModel):
     precision: float
