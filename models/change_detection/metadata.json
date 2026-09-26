@@ -1,15 +1,20 @@
 {
-  "model_name": "Siamese-UNet-ChangeDetector",
-  "version": "v1.2.0",
-  "task": "Bi-temporal Raster Land Use & Building Change Detection",
-  "framework": "ONNX Runtime",
-  "input_size": [2, 3, 512, 512],
-  "precision": 93.8,
-  "recall": 100.0,
-  "f1_score": 96.8,
-  "training_dataset": "LEVIR-CD + Multi-temporal Drone Aerial Orthomosaics",
-  "quantization": "FP32",
-  "checksum": "8f48a12398da1c149afbf4c8996fb92427ae41e4649b934ca495991b7852c921",
+  "model_name": "BIT-LEVIR-CD",
+  "architecture": "Siamese-ResNet18-Bitemporal-Image-Transformer",
+  "version": "v1.0-levircd",
+  "task": "Bi-temporal Remote Sensing Land Use & Building Change Detection",
+  "model_status": "READY_EXECUTABLE",
+  "active_runtime_mode": "ONNX",
+  "framework": "ONNX Runtime (CPUExecutionProvider)",
+  "input_shapes": {
+    "t1": [1, 3, 256, 256],
+    "t2": [1, 3, 256, 256]
+  },
+  "output_shape": [1, 2, 256, 256],
   "model_path": "models/change_detection/change_model.onnx",
-  "registered_at": "2026-09-24 14:30:00"
+  "weights_available": true,
+  "verified_baseline_executed": true,
+  "sha256": "76b25e971761ec6c87bb00b065bc74d64a75fb6fd7ee1b0a44e42ddf4918f5f1",
+  "source_dataset": "LEVIR-CD Building Change Detection Benchmark",
+  "registered_at": "2026-09-26 15:43:00"
 }

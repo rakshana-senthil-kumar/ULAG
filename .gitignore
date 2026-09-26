@@ -16,3 +16,7 @@ dataset/cadastral/*.geojsonl
 dataset/cadastral/*.pmtiles
 dataset/cadastral/*.parquet
 dataset/cadastral/*.7z
+# Environment and secrets
+.env
+.env.*
+*.env

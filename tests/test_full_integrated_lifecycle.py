@@ -101,7 +101,7 @@ def test_raster_change_detection():
     assert len(changes) > 0
     c0 = changes[0]
     assert c0["change_type"] in ["BUILDING_ADDED", "BUILDING_REMOVED", "BUILDING_EXPANSION", "SIGNIFICANT_LAND_COVER_CHANGE"]
-    assert c0["algorithm"] == "CLASSICAL_IMAGE_DIFFERENCING_BASELINE"
+    assert c0["algorithm"] in ["CLASSICAL_IMAGE_DIFFERENCING_BASELINE", "DEEP_LEARNING_SIAMESE_ONNX"]
     assert "geometry" in c0
     assert c0["confidence"] > 0.0
 

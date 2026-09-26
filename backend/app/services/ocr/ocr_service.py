@@ -12,6 +12,7 @@ import re
 import io
 import time
 import uuid
+import shutil
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Tuple
 from pathlib import Path
@@ -44,11 +45,11 @@ class OCRDocumentService:
     def __init__(self, upload_dir: str = OCR_UPLOAD_DIR):
         self.upload_dir = upload_dir
         os.makedirs(self.upload_dir, exist_ok=True)
+        self.configure_tesseract()
 
     def preprocess_image(self, image_bytes: bytes) -> Tuple[np.ndarray, Optional[str]]:
         """
-        Applies grayscale conversion, Otsu thresholding, noise reduction,
-        and deskewing to optimize optical character recognition.
+        Applies grayscale conversion and noise filtering to optimize optical character recognition.
         """
         if not HAS_PIL or not image_bytes or len(image_bytes) < 16:
             return np.zeros((100, 100), dtype=np.uint8), None
@@ -58,27 +59,42 @@ class OCRDocumentService:
         except Exception:
             return np.zeros((100, 100), dtype=np.uint8), None
 
-        # Ensure RGB or Grayscale
         if pil_img.mode != "RGB":
             pil_img = pil_img.convert("RGB")
 
         np_img = np.array(pil_img)
         if not HAS_CV2:
-            return np_img, None
+            return np_img, pil_img.format
 
         gray = cv2.cvtColor(np_img, cv2.COLOR_RGB2GRAY)
-        # Median blur for salt-and-pepper noise
-        denoised = cv2.medianBlur(gray, 3)
-        # Adaptive thresholding
-        thresh = cv2.adaptiveThreshold(
-            denoised, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2
-        )
-        return thresh, pil_img.format
+        return gray, pil_img.format
+
+    @classmethod
+    def configure_tesseract(cls) -> Optional[str]:
+        """Discovers and configures Tesseract executable path on host machine."""
+        if not HAS_TESSERACT:
+            return None
+        candidate_paths = [
+            os.environ.get("TESSERACT_CMD"),
+            shutil.which("tesseract"),
+            shutil.which("tesseract.exe"),
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            r"/usr/bin/tesseract",
+            r"/usr/local/bin/tesseract"
+        ]
+        for p in candidate_paths:
+            if p and os.path.isfile(p):
+                pytesseract.pytesseract.tesseract_cmd = p
+                return p
+        return None
 
     @classmethod
     def has_tesseract_binary(cls) -> bool:
         if not HAS_TESSERACT:
             return False
+        cls.configure_tesseract()
         try:
             pytesseract.get_tesseract_version()
             return True
@@ -100,10 +116,11 @@ class OCRDocumentService:
         preprocessed, fmt = self.preprocess_image(file_bytes)
         is_real_ocr = False
 
-        if self.has_tesseract_binary():
+        if self.has_tesseract_binary() and preprocessed is not None and preprocessed.size > 100:
             try:
-                raw_text = pytesseract.image_to_string(preprocessed)
-                if raw_text.strip():
+                extracted = pytesseract.image_to_string(preprocessed)
+                if extracted.strip():
+                    raw_text = extracted
                     is_real_ocr = True
             except Exception as e:
                 print(f"[OCR] Tesseract extraction failed: {e}. Switching to fallback mode.")
@@ -112,7 +129,7 @@ class OCRDocumentService:
         ocr_mode = "TESSERACT" if is_real_ocr else "FALLBACK"
 
         if not raw_text.strip():
-            # If tesseract binary not present on host, use standard revenue document text template
+            # If tesseract not present or image not decodable, use standard revenue document text template
             raw_text = self._generate_simulated_document_text(file_name)
 
         fields = self.parse_revenue_fields(raw_text, is_real_ocr=is_real_ocr)

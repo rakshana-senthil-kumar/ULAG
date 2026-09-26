@@ -1,16 +1,15 @@
 {
   "model_name": "YOLOv8n-Seg-Cadastral",
-  "version": "v1.4.0",
+  "version": "v8.4.93-export",
   "task": "Building Footprint Instance Segmentation",
   "framework": "ONNX Runtime",
+  "execution_provider": "CPUExecutionProvider",
   "input_size": [1, 3, 640, 640],
-  "precision": 94.2,
-  "recall": 93.8,
-  "f1_score": 94.0,
-  "mean_iou": 0.88,
-  "training_dataset": "SpaceNet 7 + Drone Photogrammetry Aerial Urban Dataset (Coimbatore/Pune)",
-  "quantization": "FP32",
-  "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "outputs": ["output0: [1, 116, 8400]", "output1: [1, 32, 160, 160]"],
+  "model_size_bytes": 13873486,
+  "measured_latency_ms": 133.69,
+  "checksum_sha256": "a93594b503734e088794d5a8ad76cade69af686ea23b627abc175d662aed1959",
   "model_path": "models/building/yolov8n-seg.onnx",
-  "registered_at": "2026-09-24 14:00:00"
+  "status": "VERIFIED_ACTIVE",
+  "verified_at": "2026-09-26 15:30:00"
 }

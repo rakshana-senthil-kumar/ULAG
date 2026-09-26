@@ -117,27 +117,69 @@ class RasterChangeDetector:
             arr_t2 = cv2.resize(arr_t2.transpose(1, 2, 0), (arr_t1.shape[2], arr_t1.shape[1])).transpose(2, 0, 1)
 
         # 4. Grayscale luminance
+        # 4. Neural inference vs Classical differencing
+        is_neural = (self.session is not None and self.inference_mode == "ONNX")
+        prob_map = None
+        diff = None
+
+        if is_neural:
+            try:
+                orig_h, orig_w = arr_t1.shape[1], arr_t1.shape[2]
+                # Preprocess bitemporal imagery for 256x256 ONNX model
+                in_t1 = cv2.resize(arr_t1[:3].transpose(1, 2, 0), (256, 256)).transpose(2, 0, 1)[np.newaxis, ...].astype(np.float32) / 255.0
+                in_t2 = cv2.resize(arr_t2[:3].transpose(1, 2, 0), (256, 256)).transpose(2, 0, 1)[np.newaxis, ...].astype(np.float32) / 255.0
+
+                mean = np.array([0.485, 0.456, 0.406], dtype=np.float32).reshape(1, 3, 1, 1)
+                std = np.array([0.229, 0.224, 0.225], dtype=np.float32).reshape(1, 3, 1, 1)
+                in_t1 = (in_t1 - mean) / std
+                in_t2 = (in_t2 - mean) / std
+
+                logits = self.session.run(None, {'t1': in_t1, 't2': in_t2})[0]
+                # Numerically stable softmax probability for change class (index 1)
+                exp_logits = np.exp(logits[0] - np.max(logits[0], axis=0, keepdims=True))
+                p_change = exp_logits[1] / np.sum(exp_logits, axis=0)
+                prob_map = cv2.resize(p_change, (orig_w, orig_h), interpolation=cv2.INTER_LINEAR)
+
+                # Binary change mask thresholded at 0.5 probability
+                _, thresh_mask = cv2.threshold((prob_map * 255).astype(np.uint8), 127, 255, cv2.THRESH_BINARY)
+                kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+                cleaned_mask = cv2.morphologyEx(thresh_mask, cv2.MORPH_OPEN, kernel)
+                cleaned_mask = cv2.morphologyEx(cleaned_mask, cv2.MORPH_CLOSE, kernel)
+                contours, _ = cv2.findContours(cleaned_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            except Exception as e:
+                print(f"[RasterChangeDetector] Neural inference failed: {e}. Falling back to classical differencing.")
+                is_neural = False
+
+        if not is_neural:
+            # Classical Grayscale luminance & differencing
+            if arr_t1.shape[0] >= 3:
+                gray1 = 0.299 * arr_t1[0] + 0.587 * arr_t1[1] + 0.114 * arr_t1[2]
+                gray2 = 0.299 * arr_t2[0] + 0.587 * arr_t2[1] + 0.114 * arr_t2[2]
+            else:
+                gray1 = arr_t1[0].astype(np.float32)
+                gray2 = arr_t2[0].astype(np.float32)
+
+            diff = np.abs(gray2 - gray1).astype(np.uint8)
+
+            if HAS_CV2:
+                _, thresh_mask = cv2.threshold(diff, int(threshold), 255, cv2.THRESH_BINARY)
+                kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+                cleaned_mask = cv2.morphologyEx(thresh_mask, cv2.MORPH_OPEN, kernel)
+                cleaned_mask = cv2.morphologyEx(cleaned_mask, cv2.MORPH_CLOSE, kernel)
+                contours, _ = cv2.findContours(cleaned_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            else:
+                contours = []
+
+        change_events = []
+        is_geographic = ds_t1.crs.is_geographic if hasattr(ds_t1.crs, "is_geographic") else True
+
+        # Precompute grays for delta reflectance analysis
         if arr_t1.shape[0] >= 3:
             gray1 = 0.299 * arr_t1[0] + 0.587 * arr_t1[1] + 0.114 * arr_t1[2]
             gray2 = 0.299 * arr_t2[0] + 0.587 * arr_t2[1] + 0.114 * arr_t2[2]
         else:
             gray1 = arr_t1[0].astype(np.float32)
             gray2 = arr_t2[0].astype(np.float32)
-
-        # 5. Differencing & Thresholding
-        diff = np.abs(gray2 - gray1).astype(np.uint8)
-
-        if HAS_CV2:
-            _, thresh_mask = cv2.threshold(diff, int(threshold), 255, cv2.THRESH_BINARY)
-            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-            cleaned_mask = cv2.morphologyEx(thresh_mask, cv2.MORPH_OPEN, kernel)
-            cleaned_mask = cv2.morphologyEx(cleaned_mask, cv2.MORPH_CLOSE, kernel)
-            contours, _ = cv2.findContours(cleaned_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        else:
-            contours = []
-
-        change_events = []
-        is_geographic = ds_t1.crs.is_geographic if hasattr(ds_t1.crs, "is_geographic") else True
 
         for idx, cnt in enumerate(contours):
             area_px = cv2.contourArea(cnt)
@@ -163,29 +205,38 @@ class RasterChangeDetector:
             else:
                 metric_area = poly.area
 
-            # Classification based on reflectance delta
-            c_mask = np.zeros(diff.shape, dtype=np.uint8)
+            c_mask = np.zeros(arr_t1.shape[1:], dtype=np.uint8)
             cv2.drawContours(c_mask, [cnt], -1, 255, -1)
             mean1 = float(np.mean(gray1[c_mask == 255]))
             mean2 = float(np.mean(gray2[c_mask == 255]))
             delta = mean2 - mean1
 
+            if is_neural and prob_map is not None:
+                neural_conf = float(np.mean(prob_map[c_mask == 255]) * 100.0)
+                conf = min(99.5, max(85.0, round(neural_conf, 1)))
+            else:
+                conf = 88.0
+
             if delta > 35.0:
                 chg_type = "BUILDING_ADDED"
                 desc = f"New structural footprint detected on vacant plot ({round(metric_area, 1)} m²)"
-                conf = 93.5
+                if not is_neural:
+                    conf = 93.5
             elif delta < -35.0:
                 chg_type = "BUILDING_REMOVED"
                 desc = f"Structure demolished / cleared ({round(metric_area, 1)} m²)"
-                conf = 91.0
+                if not is_neural:
+                    conf = 91.0
             elif abs(delta) > 15.0 and area_px < 1500:
                 chg_type = "BUILDING_EXPANSION"
                 desc = f"Lateral structural extension (+{round(metric_area, 1)} m²)"
-                conf = 89.5
+                if not is_neural:
+                    conf = 89.5
             else:
                 chg_type = "SIGNIFICANT_LAND_COVER_CHANGE"
                 desc = f"Vegetation / land grading conversion ({round(metric_area, 1)} m²)"
-                conf = 88.0
+                if not is_neural:
+                    conf = 88.0
 
             change_events.append({
                 "change_id": f"CHG-RASTER-{idx+1:03d}",
@@ -198,6 +249,7 @@ class RasterChangeDetector:
                 "after_date": after_date,
                 "source": "RASTER_CHANGE_DETECTION",
                 "inference_mode": self.inference_mode,
+                "model_name": "BIT-LEVIR-CD" if is_neural else "CLASSICAL_DIFFERENCING",
                 "description": desc
             })
 
