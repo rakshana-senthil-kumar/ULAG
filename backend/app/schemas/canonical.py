@@ -54,8 +54,8 @@ class ChangeDetectionItem(BaseModel):
     change_magnitude: Optional[float] = None
     confidence: float
     detected_at: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-
 class CanonicalBuilding(BaseModel):
+    
     model_config = {"protected_namespaces": ()}
     building_id: str
     parcel_uid: Optional[str] = None
