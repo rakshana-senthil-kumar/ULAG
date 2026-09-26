@@ -72,6 +72,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
     const initialCenter: [number, number] = [11.0168, 76.9558];
     const initialZoom = 17;
 
+    const googleTileUrl = `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&key=AIzaSyDbZrepladZZyc2oaBOLhjumkrUUxaXJEQ`;
+
     // 1. Left Map: Historical Cadastral (2023)
     const leftMap = L.map(leftMapContainer.current, {
       center: initialCenter,
@@ -79,7 +81,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       zoomControl: false,
       attributionControl: false
     });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(leftMap);
+    L.tileLayer(googleTileUrl, { maxZoom: 21 }).addTo(leftMap);
 
     // 2. Right Map: Current Drone & AI Footprints (2026)
     const rightMap = L.map(rightMapContainer.current, {
@@ -88,7 +90,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       zoomControl: false,
       attributionControl: false
     });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(rightMap);
+    L.tileLayer(googleTileUrl, { maxZoom: 21 }).addTo(rightMap);
 
     // Synchronize Maps Pan and Zoom
     const syncMaps = (source: L.Map, target: L.Map) => {

@@ -15,6 +15,31 @@ interface CadastralMapProps {
   standalone?: boolean;
 }
 
+const GOOGLE_MAPS_API_KEY = 'AIzaSyDbZrepladZZyc2oaBOLhjumkrUUxaXJEQ';
+
+const BASEMAP_OPTIONS = {
+  'google-hybrid': {
+    name: 'Google Hybrid (Satellite + Labels)',
+    url: `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`,
+    attribution: '&copy; Google Maps Satellite'
+  },
+  'google-satellite': {
+    name: 'Google Satellite (Aerial)',
+    url: `https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`,
+    attribution: '&copy; Google Maps'
+  },
+  'google-streets': {
+    name: 'Google Streets',
+    url: `https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=${GOOGLE_MAPS_API_KEY}`,
+    attribution: '&copy; Google Maps'
+  },
+  'osm': {
+    name: 'OpenStreetMap',
+    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution: '&copy; OpenStreetMap'
+  }
+};
+
 export const CadastralMap: React.FC<CadastralMapProps> = ({
   selectedParcel,
   onSelectParcelId,
@@ -26,7 +51,9 @@ export const CadastralMap: React.FC<CadastralMapProps> = ({
 }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
+  const basemapTileRef = useRef<L.TileLayer | null>(null);
 
+  const [activeBasemap, setActiveBasemap] = useState<keyof typeof BASEMAP_OPTIONS>('google-hybrid');
   const [showFabric, setShowFabric] = useState(true);
   const [fabricBounds, setFabricBounds] = useState<L.LatLngBounds | null>(null);
   const [selectedBounds, setSelectedBounds] = useState<L.LatLngBounds | null>(null);
@@ -44,6 +71,21 @@ export const CadastralMap: React.FC<CadastralMapProps> = ({
     onSelectRef.current = onSelectParcelId;
   }, [onSelectParcelId]);
 
+  // Handle dynamic basemap changes
+  useEffect(() => {
+    if (!mapRef.current) return;
+    if (basemapTileRef.current) {
+      mapRef.current.removeLayer(basemapTileRef.current);
+    }
+    const option = BASEMAP_OPTIONS[activeBasemap];
+    const newTileLayer = L.tileLayer(option.url, {
+      maxZoom: 21,
+      attribution: option.attribution
+    });
+    newTileLayer.addTo(mapRef.current);
+    basemapTileRef.current = newTileLayer;
+  }, [activeBasemap]);
+
   // 1. Initialize Leaflet Map
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
@@ -57,11 +99,13 @@ export const CadastralMap: React.FC<CadastralMapProps> = ({
 
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    // OpenStreetMap standard tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // Initial Google Maps Hybrid Tile Layer
+    const initialOption = BASEMAP_OPTIONS['google-hybrid'];
+    const initialTile = L.tileLayer(initialOption.url, {
+      maxZoom: 21,
+      attribution: initialOption.attribution
     }).addTo(map);
+    basemapTileRef.current = initialTile;
 
     // Add layer groups to map in rendering order
     fabricLayerGroup.current.addTo(map);
@@ -348,6 +392,22 @@ export const CadastralMap: React.FC<CadastralMapProps> = ({
             </label>
           </>
         )}
+
+        {/* Basemap Selector */}
+        <div className="flex items-center gap-1.5 border-l border-slate-200 pl-3">
+          <span className="text-slate-400 text-[10px] uppercase font-semibold">Basemap:</span>
+          <select
+            value={activeBasemap}
+            onChange={(e) => setActiveBasemap(e.target.value as any)}
+            className="bg-slate-50 border border-slate-300 text-slate-800 text-xs rounded px-2 py-0.5 focus:outline-none font-medium cursor-pointer"
+          >
+            {Object.entries(BASEMAP_OPTIONS).map(([key, opt]) => (
+              <option key={key} value={key}>
+                {opt.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* Navigation Quick Actions (Fit Fabric / Fit Selected) */}
@@ -375,8 +435,8 @@ export const CadastralMap: React.FC<CadastralMapProps> = ({
       </div>
 
       {/* Coordinate / CRS Badge */}
-      <div className="absolute bottom-2 left-3 z-[1000] bg-white/90 text-[10px] text-slate-500 px-2 py-0.5 rounded border border-slate-200 shadow-2xs">
-        Leaflet WebGIS Fabric | CRS: EPSG:4326 / Projected EPSG:32643 | OpenStreetMap
+      <div className="absolute bottom-2 left-3 z-[1000] bg-white/90 text-[10px] text-slate-500 px-2 py-0.5 rounded border border-slate-200 shadow-2xs font-mono">
+        Leaflet WebGIS Fabric | CRS: EPSG:4326 / Projected EPSG:32643 | Basemap: {BASEMAP_OPTIONS[activeBasemap].name}
       </div>
     </div>
   );
